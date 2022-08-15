@@ -6,7 +6,7 @@ const Heading = styled.h1`
         font-size: 4.5rem;
 
         background-color: #f3ec78;
-        background-image: linear-gradient(45deg,#EE8C68 ,#EB6B9D);
+        background-image: linear-gradient(35deg,#00f260, #0575e6);
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -29,7 +29,7 @@ const SkillBar = styled.div`
     div {
         width: 77%;
         height: 0.8rem;
-        background: linear-gradient(45deg,#EE8C68 ,#EB6B9D);
+        background-image: linear-gradient(35deg, #11998e,#38ef7d);
         border-radius: 1rem;
 
         @media(max-width: 700px){
@@ -104,7 +104,7 @@ function Skills() {
   return (
     <div id='skills'>
         <Heading>SKILLS</Heading>
-        <Main>
+        <Main data-aos="fade-up" data-aos-duration="1000" >
             <div>
                 <h2>REACT</h2>
                 <SkillBar> <div></div> </SkillBar>

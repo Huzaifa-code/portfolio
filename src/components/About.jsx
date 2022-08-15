@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Aboutsec = styled.div`
-        height: 100vh;
+        min-height: 80vh;
         @media (max-width: 700px){
           height: 600px;
         }
@@ -14,7 +14,7 @@ const Aboutsec = styled.div`
         font-size: 4.5rem;
 
         background-color: #f3ec78;
-        background-image: linear-gradient(45deg,#EE8C68 ,#EB6B9D);
+        background-image: linear-gradient(35deg,#00f260, #0575e6);
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -48,6 +48,7 @@ const Aboutsec = styled.div`
         @media(max-width: 700px){
           height: 200px;
           padding-right: 0;
+          padding-top: 10px;
         }
     `;
 
@@ -60,8 +61,8 @@ function About() {
         <AboutH1>ABOUT ME</AboutH1>
 
         <Main>
-          <Illust src="./assets/illust1.png" alt="" />
-          <div>
+          <Illust data-aos="fade-right" data-aos-duration="1000" src="./assets/illust1.png" alt="" />
+          <div data-aos="fade-up" data-aos-duration="1000" >
              <p>I am Huzaifa Qureshi.</p>
              <p>Engineering student at IET (Institute of Engineering and Technology) DAVV, Indore(MP), India.</p>
              <p>Pursuing B.Tech in IT (Information Technology). </p>

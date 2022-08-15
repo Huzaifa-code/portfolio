@@ -10,7 +10,7 @@ const Heading = styled.h1`
         font-size: 4.5rem;
 
         background-color: #f3ec78;
-        background-image: linear-gradient(45deg,#EE8C68 ,#EB6B9D);
+        background-image: linear-gradient(35deg,#00f260, #0575e6);
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -18,27 +18,65 @@ const Heading = styled.h1`
         -moz-text-fill-color: transparent;
 `;
 
+const ProjectContainer = styled.div`
+    display: flex;
+    margin-right: 6rem;
+    margin-left: 6rem;
+
+    @media(max-width: 700px){
+        flex-direction: column;
+        margin-right: 1.4rem;
+        margin-left: 1.4rem;
+    }
+
+`;
+
 const Project = styled.div`
         color: #fff;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         margin-top: 1rem;
         margin-bottom: 2rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        padding: 15px 15px;
+
+        border: 1px solid #202020;
+        border-radius: 1rem;
+
+        overflow: hidden;
+
+        &:hover{
+            img{
+                scale: 1.2;
+            }
+        }
 
         @media(max-width: 700px){
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-right: 0;
+            margin-left: 0;
+            padding-right: 0;
+            padding-left: 0;
         }
 
         img {
-            height: 275px;
-            margin-left: 4rem;
-            border-radius: 2rem;
+            
+            width: 300px;
+            border-radius: 1.1rem;
+            margin-bottom: 25px;
+            
+            transition: all 0.5s ease-in;
 
             @media(max-width: 700px){
-                height: 200px;
+                // height: 200px;
                 margin:  0;
-                width: 300px;
+                width: 250px;
             }
         }
         div {
@@ -47,11 +85,11 @@ const Project = styled.div`
             align-items: center;
             justify-content: center;
             width: 100%;
-            font-size: 1.7rem;
+            font-size: 1.2rem;
             font-weight: 400;
 
             @media(max-width: 700px){
-                font-size: 1.3rem;
+                font-size: 1rem;
                 margin-top: 10px;
             }
 
@@ -74,10 +112,10 @@ const Project = styled.div`
 `;
 
 const Pattern3 = styled.img`
-        height: 200px;
-        position: relative;
-        left: 80vw;
-        bottom: 10rem;
+        height: 150px;
+        position: absolute;
+        left: 87vw;
+        
         z-index: -1;
 
         @media(max-width: 700px){
@@ -94,22 +132,24 @@ function Projects() {
 
         <Pattern3 src="./assets/pattern3.png" alt="" />
 
-        <Project>
-            <img src='./assets/project1.jpg' alt='project1' />
-            <div>
-                <p>This is a static website made using</p> 
-                <p>HTML CSS BOOTSRAP JAVASCRIPT</p>
-                <a href="https://legalseva.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
-            </div>
-        </Project>
-        <Project>
-            <img src='./assets/project2.jpg' alt='project1' />
-            <div>
-                <p>This is a Recipe website made using</p> 
-                <p>React and spoon API</p>
-                <a href="https://recipe4you.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
-            </div>
-        </Project>
+        <ProjectContainer>
+            <Project data-aos="zoom-in" data-aos-duration="1000" >
+                <img src='./assets/project1.jpg' alt='project1' />
+                <div>
+                    <p>This is a static website made using</p> 
+                    <p>HTML CSS BOOTSRAP JAVASCRIPT</p>
+                    <a href="https://legalseva.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
+                </div>
+            </Project>
+            <Project data-aos="zoom-in" data-aos-duration="1000" >
+                <img src='./assets/project2.jpg' alt='project1' />
+                <div>
+                    <p>This is a Recipe website made using</p> 
+                    <p>React and spoonacular API</p>
+                    <a href="https://recipe4you.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
+                </div>
+            </Project>
+        </ProjectContainer>
     </Projectsec>
   )
 }

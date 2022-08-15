@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react'
 import styled from 'styled-components';
+import { TbBrandInstagram, TbBrandLinkedin } from "react-icons/tb"; //icon from react icon  
 
 
 const Heading = styled.h1`
@@ -12,7 +13,7 @@ const Heading = styled.h1`
         }
 
         background-color: #f3ec78;
-        background-image: linear-gradient(45deg,#EE8C68 ,#EB6B9D);
+        background-image: linear-gradient(35deg,#00f260, #0575e6);
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -37,7 +38,13 @@ const ContactSec = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
+    margin-left: 15rem;
+
+    @media (max-width: 700px){
+      margin-left: 25px;
+      height: 400px;
+    }
     
     h6{
       @media (max-width: 700px){
@@ -45,24 +52,18 @@ const ContactSec = styled.div`
       }
     }
 
-    img {
+    img.email {
       @media(max-width: 700px){
-        height: 2rem !important;
+        width: 20rem !important;
       }
     }
 `;
 
-const LinkedInBtn = styled.a`
-
-    img {
-      height: 40px;
-      filter: grayscale(100%);
-      margin-top: 15px;
-
-      &: hover {
-        filter: grayscale(0%);
-      }
-    }
+const SocialBtn = styled.a`
+    text-decoration: none;
+    font-size: 2.3rem;
+    color:#0be881;
+    
 `;
 
 
@@ -71,14 +72,17 @@ function Contact() {
     <div id='contact'>
         <Heading>CONTACT ME</Heading>
         <Box sx={{ display: 'flex', height: '70vh', justifyContent:'center', alignItems:'center', '@media (max-width:700px)': { height: '200px'} }}>
-            <Imgc src="./assets/imgc.jpg" alt="" />
-            <ContactSec>
+            <Imgc data-aos="fade-right" data-aos-duration="1000" src="./assets/imgc.jpg" alt="" />
+            <ContactSec data-aos="fade-up" data-aos-duration="1000" >
                 <Typography variant='h5' component='h6' >If you are looking for Front-end web developer</Typography>
                 <Typography variant='h5' component='h6' >OR have some freelancing project </Typography>
                 <Typography variant='h5' component='h6' >Just email me at</Typography>
-                <img style={{ height: "5rem" }} src="./assets/email.png" alt="" />
-                <Typography variant='h5' component='h6' >OR message me at LinkedIn</Typography>
-                <LinkedInBtn target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"><img src="./assets/linkedin.png" alt="" /></LinkedInBtn>
+                <img className='email' style={{ width: "40em" }} src="./assets/email.png" alt="" />
+                <Typography variant='h5' component='h6' >OR message me at </Typography>
+                <div className='social'>
+                  <SocialBtn target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
+                  <SocialBtn target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
+                </div>
             </ContactSec>
         </Box>
 {/* 
