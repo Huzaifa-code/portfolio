@@ -119,9 +119,10 @@ const Pattern3 = styled.img`
         z-index: -1;
 
         @media(max-width: 700px){
-            height: 150px;
-            bottom: 1rem;
-            left: 70vw;
+            display: none;
+            // height: 150px;
+            // bottom: 1rem;
+            // left: 70vw;
         }
 `;
 

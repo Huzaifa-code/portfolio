@@ -82,10 +82,12 @@ const Pattern2 = styled.img`
   right: 90vw;
   height: 200px;
   z-index: -1;
+  
   @media(max-width: 700px){
-    height: 150px;
-    top: 400px;
-    right: 80vw;  
+    display: none;
+    // height: 150px;
+    // top: 400px;
+    // right: 80vw;  
   }
 `;
 

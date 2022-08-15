@@ -5,10 +5,11 @@ const Aboutsec = styled.div`
         min-height: 80vh;
         @media (max-width: 700px){
           height: 600px;
+          margin-top: 2rem;
         }
 `;
 
-    const AboutH1 = styled.h1`
+const AboutH1 = styled.h1`
         // color: #0be881;
         text-align: center;
         font-size: 4.5rem;
@@ -20,9 +21,13 @@ const Aboutsec = styled.div`
         -moz-background-clip: text;
         -webkit-text-fill-color: transparent; 
         -moz-text-fill-color: transparent;
-    `;
 
-    const Main = styled.div`
+        @media(max-width: 700px){
+          margin-bottom: 2rem;
+        }
+`;
+
+const Main = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
@@ -39,9 +44,9 @@ const Aboutsec = styled.div`
             padding: 10px 3rem;
           }
         }
-    `;
+`;
 
-    const Illust = styled.img`
+const Illust = styled.img`
         height: 350px;
         padding-right: 4rem;
 
@@ -50,7 +55,7 @@ const Aboutsec = styled.div`
           padding-right: 0;
           padding-top: 10px;
         }
-    `;
+`;
 
 
 function About() {
