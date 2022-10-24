@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-
+import Hamburger from 'hamburger-react'
 const Nav = styled.nav`
         min-height: 10vh;
         color: #fff;
@@ -26,9 +26,10 @@ const Links = styled.div`
         align-items: center;
         justify-content: center;
         width:  100%;
+        
 
         a{
-          margin: 0 1rem;
+          
           text-decoration: none;
           color: #fff;
           font-size: 1.2rem;
@@ -39,9 +40,15 @@ const Links = styled.div`
         }
 
         @media (max-width: 700px){
+           position: absolute;
+           top:0;
+           left:0;
            flex-direction: column;
-           height: 55vh;
+           background: #1e1e1e;
+           height: 90vh;
+           transition: all 4s ease-in-out;
 
+           
           a {
             font-size: 2.5rem;
           }
@@ -52,9 +59,6 @@ const Links = styled.div`
 const Bars = styled.div`
         display: none;
 
-        img {
-          height: 3rem;
-        }
 
         @media(max-width: 700px){
           display: block;
@@ -67,23 +71,22 @@ const Bars = styled.div`
 
 function Navbar() {
 
+  const [isOpen, setOpen] = useState(false)
+
   const [toggleMenu, setToggleMenu] = useState(false);
   const toggleNav = () => {
     setToggleMenu(!toggleMenu)
   }
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  
   useEffect(() => {
-
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
     }
-
     window.addEventListener('resize', changeWidth)
-
     return () => {
       window.removeEventListener('resize', changeWidth)
-  }
-
+    }
   }, [])
 
 
@@ -94,16 +97,16 @@ function Navbar() {
 
           {(toggleMenu || screenWidth > 700) && (
             <Links className='topnav' id='myTopnav'>
-                <a href="#about">About me</a>
-                <a href="#skills">Skills</a>
-                <a href="#project">Projects</a>
-                <a href="#contact">Contact me</a>
+                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#about">About me</a>
+                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#skills">Skills</a>
+                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#project">Projects</a>
+                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#contact">Contact me</a>
             </Links>
           )}
 
 
           <Bars onClick={toggleNav}>
-                <img src="./assets/menu.png" alt="" />
+                <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
           </Bars>
 
       </Nav>

@@ -111,27 +111,10 @@ const Project = styled.div`
         }
 `;
 
-const Pattern3 = styled.img`
-        height: 150px;
-        position: absolute;
-        left: 87vw;
-        
-        z-index: -1;
-
-        @media(max-width: 700px){
-            display: none;
-            // height: 150px;
-            // bottom: 1rem;
-            // left: 70vw;
-        }
-`;
-
 function Projects() {
   return (
     <Projectsec id='project'>
         <Heading>PROJECTS</Heading>
-
-        <Pattern3 src="./assets/pattern3.png" alt="" />
 
         <ProjectContainer>
             <Project data-aos="zoom-in" data-aos-duration="1000" >

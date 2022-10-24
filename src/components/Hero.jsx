@@ -93,8 +93,8 @@ const Pattern2 = styled.img`
 
 const SocialBtn = styled.a`
     text-decoration: none;
-    font-size: 2.3rem;
-    color:#0be881;
+    font-size: 2.5rem;
+    
 `;
 
 
@@ -116,9 +116,9 @@ function Hero() {
         <HeroImg   src="./assets/profile-pic.png" alt="" />
       </div>
 
-      <div className='social'>
-        <SocialBtn target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
-        <SocialBtn target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
+      <div className='social flex'>
+        <SocialBtn className='mx-2' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
+        <SocialBtn className='mx-2' target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
       </div>
       <Pattern1 src="./assets/pattern.png" alt="" />
       <Pattern2 src="./assets/blur.png"></Pattern2>

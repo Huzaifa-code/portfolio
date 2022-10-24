@@ -61,8 +61,7 @@ const ContactSec = styled.div`
 
 const SocialBtn = styled.a`
     text-decoration: none;
-    font-size: 2.3rem;
-    color:#0be881;
+    font-size: 2.5rem;
     
 `;
 
@@ -79,9 +78,9 @@ function Contact() {
                 <Typography variant='h5' component='h6' >Just email me at</Typography>
                 <img className='email' style={{ width: "40em" }} src="./assets/email.png" alt="" />
                 <Typography variant='h5' component='h6' >OR message me at </Typography>
-                <div className='social'>
-                  <SocialBtn target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
-                  <SocialBtn target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
+                <div className='social flex'>
+                  <SocialBtn className='mx-2' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
+                  <SocialBtn className='mx-2' target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
                 </div>
             </ContactSec>
         </Box>
