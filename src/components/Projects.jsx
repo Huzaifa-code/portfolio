@@ -42,18 +42,10 @@ const Project = styled.div`
         margin-bottom: 2rem;
         margin-right: 2rem;
         margin-left: 2rem;
-        padding: 15px 15px;
 
         border: 1px solid #202020;
         border-radius: 1rem;
 
-        overflow: hidden;
-
-        &:hover{
-            img{
-                scale: 1.2;
-            }
-        }
 
         @media(max-width: 700px){
             flex-direction: column;
@@ -117,20 +109,20 @@ function Projects() {
         <Heading>PROJECTS</Heading>
 
         <ProjectContainer>
-            <Project data-aos="zoom-in" data-aos-duration="1000" >
+            <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
                 <img src='./assets/project1.jpg' alt='project1' />
-                <div>
+                <div className='my-2'>
                     <p>This is a static website made using</p> 
                     <p>HTML CSS BOOTSRAP JAVASCRIPT</p>
-                    <a href="https://legalseva.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
+                    <a className='my-2' href="https://legalseva.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
                 </div>
             </Project>
-            <Project data-aos="zoom-in" data-aos-duration="1000" >
+            <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
                 <img src='./assets/project2.jpg' alt='project1' />
-                <div>
+                <div className='my-2'>
                     <p>This is a Recipe website made using</p> 
                     <p>React and spoonacular API</p>
-                    <a href="https://recipe4you.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
+                    <a className='my-2' href="https://recipe4you.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
                 </div>
             </Project>
         </ProjectContainer>

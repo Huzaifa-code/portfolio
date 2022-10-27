@@ -12,7 +12,6 @@ const Nav = styled.nav`
         @media(max-width: 700px){
           padding-left: 1rem;
     
-          background: #000;
           h2 {
             position: absolute;
             top: 1rem;
@@ -45,6 +44,8 @@ const Links = styled.div`
            left:0;
            flex-direction: column;
            background: #1e1e1e;
+
+
            height: 90vh;
            transition: all 4s ease-in-out;
 
