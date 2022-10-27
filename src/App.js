@@ -9,8 +9,10 @@ import Skills from './components/Skills';
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Hero/>
+      <div className='gradient-bg-welcome'>
+        <Navbar/>
+        <Hero/>
+      </div>
       <About/>
       <Skills/>
       <Projects/>

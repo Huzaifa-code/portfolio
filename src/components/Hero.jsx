@@ -65,31 +65,7 @@ const HeroImg = styled.img`
   }
 `;
 
-const Pattern1 = styled.img`
-  position: absolute;
-  bottom: 73vh;
-  left: 86vw;
-  height: 200px;
-  z-index: -1;
-  @media(max-width: 700px){
-    height: 150px;
-    top: 100px;
-  }
-`;
-const Pattern2 = styled.img`
-  position: absolute;
-  bottom: 7vh;
-  right: 90vw;
-  height: 200px;
-  z-index: -1;
-  
-  @media(max-width: 700px){
-    display: none;
-    // height: 150px;
-    // top: 400px;
-    // right: 80vw;  
-  }
-`;
+
 
 const SocialBtn = styled.a`
     text-decoration: none;
@@ -103,7 +79,7 @@ const SocialBtn = styled.a`
 function Hero() {
 
   return (
-    <Herosec>
+    <Herosec className=''>
       <div className='main'>
         <div style={{marginRight: "5rem"}} className="text">
           <h1 data-aos="fade-up" data-aos-duration="1000" style={{ fontWeight: "500" }}>Hi 👋, I am</h1>
@@ -120,8 +96,7 @@ function Hero() {
         <SocialBtn className='mx-2' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <TbBrandLinkedin/> </SocialBtn>
         <SocialBtn className='mx-2' target="_blank" href="https://www.instagram.com/dev_huzaifa"> <TbBrandInstagram/> </SocialBtn>
       </div>
-      <Pattern1 src="./assets/pattern.png" alt="" />
-      <Pattern2 src="./assets/blur.png"></Pattern2>
+      
     </Herosec>
   )
 
