@@ -50,7 +50,7 @@ const Main = styled.div`
 
         @media(max-width: 700px){
             // grid-template-columns: 1fr;
-            padding-left: 2.2rem;
+            padding: 0 1rem;
         }
 
         h2 {

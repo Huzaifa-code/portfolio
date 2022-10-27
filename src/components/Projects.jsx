@@ -51,10 +51,10 @@ const Project = styled.div`
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-right: 0;
-            margin-left: 0;
-            padding-right: 0;
-            padding-left: 0;
+            // margin-right: 0;
+            // margin-left: 0;
+            // padding-right: 0;
+            // padding-left: 0;
         }
 
         img {
@@ -96,7 +96,7 @@ const Project = styled.div`
 
                 &: hover {
                     color:  #0be881;
-                    background: #000;
+                    background: transparent;
                     border: 1px solid  #0be881;
                 }
             }
@@ -112,16 +112,14 @@ function Projects() {
             <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
                 <img src='./assets/project1.jpg' alt='project1' />
                 <div className='my-2'>
-                    <p>This is a static website made using</p> 
-                    <p>HTML CSS BOOTSRAP JAVASCRIPT</p>
+                    <p className='mx-3 md:mx-0 text-center'>This is a static website made using HTML CSS BOOTSRAP JAVASCRIPT</p> 
                     <a className='my-2' href="https://legalseva.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
                 </div>
             </Project>
             <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
                 <img src='./assets/project2.jpg' alt='project1' />
                 <div className='my-2'>
-                    <p>This is a Recipe website made using</p> 
-                    <p>React and spoonacular API</p>
+                    <p className='mx-3 md:mx-0 text-center'>This is a Recipe website made using React and spoonacular API</p> 
                     <a className='my-2' href="https://recipe4you.herokuapp.com/" rel="noreferrer" target="_blank" >visit site</a>
                 </div>
             </Project>
