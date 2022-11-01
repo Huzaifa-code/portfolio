@@ -19,11 +19,13 @@ const Heading = styled.h1`
 `;
 
 const ProjectContainer = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     margin-right: 6rem;
     margin-left: 6rem;
 
     @media(max-width: 700px){
+        display: flex;
         flex-direction: column;
         margin-right: 1.4rem;
         margin-left: 1.4rem;
@@ -35,7 +37,6 @@ const Project = styled.div`
         color: #fff;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
 
         margin-top: 1rem;
@@ -51,25 +52,13 @@ const Project = styled.div`
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            // margin-right: 0;
-            // margin-left: 0;
-            // padding-right: 0;
-            // padding-left: 0;
         }
 
         img {
             
-            width: 300px;
+            width: 100%;
             border-radius: 1.1rem;
             margin-bottom: 25px;
-            
-            transition: all 0.5s ease-in;
-
-            @media(max-width: 700px){
-                // height: 200px;
-                margin:  0;
-                width: 250px;
-            }
         }
         div {
             display: flex;
@@ -109,6 +98,20 @@ function Projects() {
         <Heading>PROJECTS</Heading>
 
         <ProjectContainer>
+            <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
+                <img src='./assets/project4.jpg' alt='project4' />
+                <div className='my-2'>
+                    <p className='mx-3 md:mx-0 text-center'>Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma</p> 
+                    <a className='my-2' href="https://www.wolvesmedia.in/" rel="noreferrer" target="_blank" >visit site</a>
+                </div>
+            </Project>
+            <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
+                <img src='./assets/project3.jpg' alt='project3' />
+                <div className='my-2'>
+                    <p className='mx-3 md:mx-0 text-center'>Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma</p> 
+                    <a className='my-2' href="https://www.enticingempire.com/" rel="noreferrer" target="_blank" >visit site</a>
+                </div>
+            </Project>
             <Project className='blue-glassmorphism' data-aos="zoom-in" data-aos-duration="1000" >
                 <img src='./assets/project1.jpg' alt='project1' />
                 <div className='my-2'>

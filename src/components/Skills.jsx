@@ -15,30 +15,6 @@ const Heading = styled.h1`
     `;
 
 
-const SkillBar = styled.div`
-    width: 400px;
-    background-color: #ecf0f1;
-    height: 0.8rem;
-    border-radius: 1rem;
-
-    @media(max-width: 700px){
-        width: 150px;
-        height: 0.7rem;
-    }
-
-    div {
-        width: 77%;
-        height: 0.8rem;
-        background-image: linear-gradient(35deg, #11998e,#38ef7d);
-        border-radius: 1rem;
-
-        @media(max-width: 700px){
-            height: 0.7rem;
-        }
-    }
-    
-    
-`;
 
 const Main = styled.div`
         height: 80vh;
@@ -49,8 +25,8 @@ const Main = styled.div`
         padding-left: 10rem;
 
         @media(max-width: 700px){
-            // grid-template-columns: 1fr;
-            padding: 0 1rem;
+            grid-template-columns: 1fr;
+            padding: 0 2rem;
         }
 
         h2 {
@@ -58,40 +34,6 @@ const Main = styled.div`
             @media(max-width: 700px){
                 font-weight: 500;
             }
-        }
-
-        div {
-            &:nth-child(2) ${SkillBar} {
-                div {
-                    width: 85%;         //HTML
-                }
-            }
-            &:nth-child(3) ${SkillBar} {
-                div {
-                    width: 85%;         //css
-                }
-            }
-            &:nth-child(4) ${SkillBar} {
-                div {
-                    width: 70%;         //JS
-                }
-            }
-            &:nth-child(5) ${SkillBar} {
-                div {
-                    width: 53%;     //node.js
-                }
-            }
-            &:nth-child(6) ${SkillBar} {
-                div {
-                    width: 53%;     //express
-                }
-            }
-            &:nth-child(7) ${SkillBar} {
-                div {
-                    width: 66%;     //mongodb
-                }
-            }
-
         }
         
 `;
@@ -107,39 +49,39 @@ function Skills() {
         <Main data-aos="fade-up" data-aos-duration="1000" >
             <div>
                 <h2>REACT</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="70" max="100"></progress>
             </div>
             <div>
                 <h2>HTML</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="85" max="100"></progress>
             </div>
             <div>
                 <h2>CSS</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="85" max="100"></progress>
             </div>
             <div>
                 <h2>JavaScript</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="70" max="100"></progress>
             </div>
             <div>
                 <h2>Node.js</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="60" max="100"></progress>
             </div>
             <div>
                 <h2>Express</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="60" max="100"></progress>
             </div>
             <div>
                 <h2>MongoDb</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="66" max="100"></progress>
             </div>
             <div>
                 <h2>UI/UX</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-accent rounded-xl md:w-[400px] w-full" value="85" max="100"></progress>
             </div>
             <div>
                 <h2>C++</h2>
-                <SkillBar> <div></div> </SkillBar>
+                <progress className="progress progress-info rounded-xl md:w-[400px] w-full" value="85" max="100"></progress>   
             </div>
         </Main>
     </div>
