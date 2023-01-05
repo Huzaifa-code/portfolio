@@ -21,21 +21,21 @@ function Projects() {
             <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16'  >
                 <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project4.jpg' alt='project4' />
                 <div className=''>
-                    <p className='md:mx-24 mb-6 my-3 md:my-0 text-xl md:text-3xl text-justify'>Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma</p> 
-                    <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://www.wolvesmedia.in/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
+                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma</p> 
+                    <a className='group md:ml-24  px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://www.wolvesmedia.in/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
                 </div>
             </div>
             <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16' >
                 <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project3.jpg' alt='project3' />
                 <div className='my-2'>
-                    <p className='md:mx-24 mb-6 my-3 md:my-0 text-xl md:text-3xl text-justify'>Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma</p> 
+                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma</p> 
                     <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://www.enticingempire.com/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
                 </div>
             </div>
             <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16'>
                 <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project2.jpg' alt='project1' />
                 <div className='my-2'>
-                    <p className='md:mx-24 mb-6 my-3 md:my-0 text-xl md:text-3xl text-justify'>This is a Recipe website made using React and spoonacular API</p> 
+                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>This is a Recipe website made using React and spoonacular API</p> 
                     <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://recipe-app-ashen-seven.vercel.app/cuisine/American" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
                 </div>
             </div>

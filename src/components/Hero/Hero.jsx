@@ -32,13 +32,6 @@ const Herosec = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-top: 2rem;
-
-      div{
-        h1{
-            font-size: 2rem;
-        }
-      }
     }
   }
 `;
@@ -55,7 +48,7 @@ function Hero() {
     <div className='flex'>
 
         <div className='w-full'>
-            <h1 className='text-center  font-bold text-xl md:text-4xl md:mt-5' data-aos="fade-left" data-aos-duration="1000" >
+            <h1 className='text-center  font-bold text-3xl md:text-4xl md:mt-5' data-aos="fade-left" data-aos-duration="1000" >
               
               <img className='ml-[30%]' src={img1} alt="" />
 
@@ -67,7 +60,7 @@ function Hero() {
             <Herosec className=''>
               <div className='main'>
                 <div className="text">
-                  <h1 className='text-center font-semibold text-xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
+                  <h1 className='text-center font-semibold text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
                   <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1>          
                 </div>
               </div> 

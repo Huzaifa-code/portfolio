@@ -17,6 +17,7 @@ const Nav = styled.nav`
             position: absolute;
             top: 1rem;
             left: 1rem;
+            height: 2rem;
           }
         }
 `;
