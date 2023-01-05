@@ -99,8 +99,8 @@ function Navbar() {
           
           {(toggleMenu || screenWidth > 700) && (
             <Links className='topnav' id='myTopnav'>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#about">Home</a>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#skills">About</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="/">Home</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#about">About</a>
                 <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#project">Projects</a>
                 <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#contact">Contact me</a>
             </Links>
