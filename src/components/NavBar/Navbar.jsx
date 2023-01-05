@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
+import image from './assets/logo.png'
+
 const Nav = styled.nav`
         min-height: 10vh;
-        color: #fff;
         padding-left: 3rem;
         display: flex;
         align-items: center;
@@ -12,7 +13,7 @@ const Nav = styled.nav`
         @media(max-width: 700px){
           padding-left: 1rem;
     
-          h2 {
+          img {
             position: absolute;
             top: 1rem;
             left: 1rem;
@@ -30,11 +31,10 @@ const Links = styled.div`
         a{
           
           text-decoration: none;
-          color: #fff;
           font-size: 1.2rem;
 
           &:hover {
-            color: #0be881;
+            color: #731FFC;
           }
         }
 
@@ -43,7 +43,7 @@ const Links = styled.div`
            top:0;
            left:0;
            flex-direction: column;
-           background: #1e1e1e;
+           background: #fff;
 
 
            height: 90vh;
@@ -94,14 +94,14 @@ function Navbar() {
   return (
     <>
       <Nav>
-          <h2 style={{color: "#0be881"}}>HUZAIFA</h2>
-
+          <img src={image} alt="" />
+          
           {(toggleMenu || screenWidth > 700) && (
             <Links className='topnav' id='myTopnav'>
-                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#about">About me</a>
-                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#skills">Skills</a>
-                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#project">Projects</a>
-                <a className='my-6 font-extralight md:my-[1rem] md:mx-4' href="#contact">Contact me</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#about">Home</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#skills">About</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#project">Projects</a>
+                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#contact">Contact me</a>
             </Links>
           )}
 
