@@ -7,6 +7,7 @@ import uiux from './assets/uiux.svg'
 import insta from './assets/Instagram.svg'
 import lin from './assets/Linkedin.svg'
 import gh from './assets/Github.svg'
+import profileimg from './assets/profile.svg' 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -59,9 +60,10 @@ function Hero() {
           
             <Herosec className=''>
               <div className='main'>
-                <div className="text">
+                <div className="text flex flex-col items-center">
                   <h1 className='text-center font-semibold text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
-                  <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1>          
+                  <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1> 
+                  <a className='my-5 py-3 md:w-[40%] w-[50%] flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105' href="#contact">Hire Me <img className='ml-4' src={profileimg} alt="" /> </a>         
                 </div>
               </div> 
             </Herosec>
