@@ -1,5 +1,6 @@
 import React from 'react'
 import send from './assets/send.svg'
+import {SiGmail} from 'react-icons/si'
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
 
@@ -41,6 +42,7 @@ function Contact() {
           <p className='text-xl text-center md:text-left my-3 text-[#464646]'>I hope to hear from you!</p>
           <p className='text-xl mt-9 text-center md:text-left'>You can also email me at :</p>
           <p className='text-xl text-center md:text-left'>developerhuzaifa@gmail.com</p>
+          <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>        
         </div>
 
         {/* Contact form */}
