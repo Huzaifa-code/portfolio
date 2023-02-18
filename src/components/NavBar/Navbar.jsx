@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
+import { Link } from "react-scroll";
 
 const Nav = styled.nav`
         min-height: 10vh;
@@ -99,10 +100,11 @@ function Navbar() {
           
           {(toggleMenu || screenWidth > 700) && (
             <Links className='topnav' id='myTopnav'>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="/">Home</a>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#about">About</a>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#project">Projects</a>
-                <a className='my-6 font-medium md:my-[1.5rem] md:mx-6' href="#contact">Contact me</a>
+                {/* Link imported from "react-scroll" library */}
+                <Link smooth spy to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Home</Link>
+                <Link smooth spy to="about" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >About</Link>
+                <Link smooth spy to="project" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Projects</Link>
+                <Link smooth spy to="contact" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Contact me</Link>
             </Links>
           )}
 

@@ -8,6 +8,7 @@ import insta from './assets/Instagram.svg'
 import lin from './assets/Linkedin.svg'
 import gh from './assets/Github.svg'
 import profileimg from './assets/profile.svg' 
+import { Link } from "react-scroll";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -63,12 +64,12 @@ function Hero() {
                 <div className="text flex flex-col items-center">
                   <h1 className='text-center font-semibold text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
                   <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1> 
-                  <a className='my-5 py-3 md:w-[40%] w-[50%] flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105' href="#contact">Hire Me <img className='ml-4' src={profileimg} alt="" /> </a>         
+                  <Link smooth spy to="contact" className='my-5 py-3 md:w-[40%] w-[50%] flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105'>Hire Me <img className='ml-4' src={profileimg} alt="" /> </Link>         
                 </div>
               </div> 
             </Herosec>
             <img className='md:ml-[10%]' src={img3} alt="" />
-            <img className='md:ml-4 h-7 md:h-11 md:mt-4' src={uiux} alt="" />      
+            <img className='md:ml-24 opacity-70 h-5 md:h-11 md:mt-4' src={uiux} alt="" />      
         </div>
       
         <div className='fixed bg-[#fff] md:bg-transparent left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] pl-3'>
