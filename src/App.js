@@ -1,12 +1,14 @@
 import './App.css';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
-import Hero from './components/Hero/Hero';
-import Navbar from './components/NavBar/Navbar';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
+import Home from './Pages/Home';
+import Blog from './Pages/Blog.jsx'
+import { Route, Routes } from 'react-router-dom';
+import SinglePost from './Pages/SinglePost.jsx'
+import Error from './Pages/Error.jsx'
+
+
 import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+
 
 function App() {
 
@@ -30,24 +32,26 @@ function App() {
     };
   }, [cursorX,cursorY ]);
 
-  return (
-    <div className='bg-white'>
 
+  return (
+    // <BrowserRouter>
+    <>
       <motion.div
-          className="cursor"
-          style={{
-            translateX: cursorXSpring,
-            translateY: cursorYSpring,
-          }}
-      />
-      
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Skills/>
-      <Projects/>
-      <Contact/>
-    </div>
+            className="cursor"
+            style={{
+              translateX: cursorXSpring,
+              translateY: cursorYSpring,
+            }}
+        />
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/blog' element={<Blog/>} />
+        <Route path='/blog/:slug' element={<SinglePost />}  />
+        <Route path='*' element={<Error />}/>
+      </Routes>
+    </>
+      // </BrowserRouter>
+
   );
 }
 

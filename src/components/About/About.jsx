@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import image from './assets/Rectangle2.svg'
 import img1 from './assets/vector1.svg'
+import { Element } from 'react-scroll'
 
 const Aboutsec = styled.div`
         min-height: 80vh;
@@ -31,6 +32,8 @@ function About() {
     
 
   return (
+    <Element name="about" className="element">
+      
     <Aboutsec id='about'>
         <h1 className='text-5xl ml-9 md:ml-11 md:my-16 font-bold'>ABOUT ME <img src={img1} alt="" /></h1>
         
@@ -46,6 +49,8 @@ function About() {
           </div>
         </Main>
     </Aboutsec>
+
+    </Element>
   )
 }
 

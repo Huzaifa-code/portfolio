@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
-import { Link } from "react-scroll";
 import { Link as RouteLink}  from 'react-router-dom';
 
 const Nav = styled.nav`
@@ -27,9 +26,9 @@ const Nav = styled.nav`
 const Links = styled.div`
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: end;
         width:  100%;
-        
+        margin-right: 3rem;
 
         a{
           
@@ -73,7 +72,7 @@ const Bars = styled.div`
         }
 `;
 
-function Navbar() {
+function NavBarBlog() {
 
   const [isOpen, setOpen] = useState(false)
 
@@ -103,11 +102,8 @@ function Navbar() {
             <Links className='topnav' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
-                <RouteLink smooth spy to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Home</RouteLink>
-                <Link smooth spy to="about" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >About</Link>
-                <Link smooth spy to="project" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Projects</Link>
-                <RouteLink smooth spy to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
-                <Link smooth spy to="contact" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Contact me</Link>
+                <RouteLink  to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >My Portfolio</RouteLink>
+                <RouteLink  to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
             </Links>
           )}
 
@@ -121,4 +117,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default NavBarBlog

@@ -27,3 +27,41 @@
   }
 
 /* -------x-------- Custom cursor css ----------x------------- */
+
+
+/* ------------------------ CSS For Blogs ------------------- */
+
+@media (min-width: 768px) {
+  /* Main Image */
+  img.blog_image{
+    height: 600px;
+  }
+
+  .block_content p {
+    font-size: 18px;
+  }
+}
+
+.block_content p {
+  line-height: 1.6;
+}
+
+.block_content h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin: 10px 0 20px;
+}
+
+.block_content h1 {
+  font-weight: 800;
+  font-size: 40px;
+  margin: 10px 0 20px;
+}
+
+.block_content img {
+  margin: 2rem 0;
+  border-radius: 1.2rem;
+  width: 70%;
+}
+
+/* -----------x------------ CSS For Blogs ----------x-------- */
