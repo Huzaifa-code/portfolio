@@ -45,6 +45,7 @@ const Links = styled.div`
            top:0;
            left:0;
            flex-direction: column;
+           justify-content: center;
            background: #fff;
 
 
