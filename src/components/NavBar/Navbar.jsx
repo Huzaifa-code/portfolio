@@ -103,10 +103,10 @@ function Navbar() {
             <Links className='topnav' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
-                <RouteLink smooth spy to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Home</RouteLink>
+                <RouteLink  to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Home</RouteLink>
                 <Link smooth spy to="about" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >About</Link>
                 <Link smooth spy to="project" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Projects</Link>
-                <RouteLink smooth spy to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
+                <RouteLink to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
                 <Link smooth spy to="contact" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Contact me</Link>
             </Links>
           )}
