@@ -7,11 +7,31 @@ import lin from './assets/Linkedin.svg'
 import gh from './assets/Github.svg'
 import profileimg from './assets/profile.svg' 
 import { Link } from "react-scroll";
+import './Hero.css'
+
+
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame
+} from "framer-motion";
+import { wrap } from "@motionone/utils";
+
+
+
+
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 
+
+// ----------------------- CSS ---------------------------------
 const Herosec = styled.div`
   height: 59vh;
   display: flex;
@@ -36,10 +56,69 @@ const Herosec = styled.div`
   }
 `;
 
-
 const SocialBtn = styled.a`
     text-decoration: none;
 `;
+// ---------x------------- CSS -----------------x---------------
+
+
+// Function for animated parallax text
+function ParallaxText({ children, baseVelocity = 100 }) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false
+  });
+
+  /**
+   * This is a magic wrapping for the length of the text - you
+   * have to replace for wrapping that works for you or dynamically
+   * calculate
+   */
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
+  const directionFactor = useRef(1);
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    /**
+     * This is what changes the direction of the scroll once we
+     * switch scrolling directions.
+     */
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+
+    baseX.set(baseX.get() + moveBy);
+  });
+
+  /**
+   * The number of times to repeat the child text should be dynamically calculated
+   * based on the size of the text and viewport. Likewise, the x motion value is
+   * currently wrapped between -20 and -45% - this 25% is derived from the fact
+   * we have four children (100% / 4). This would also want deriving from the
+   * dynamically generated number of children.
+   */
+  return (
+    <div className="parallax overflow-hidden tracking-[-2px] leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
+      <motion.div className="scroller font-[700] text-[#731FFC] text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
+        <span className='block mr-8'>{children} </span>
+        <span className='block mr-8'>{children} </span>
+        <span className='block mr-8'>{children} </span>
+        <span className='block mr-8'>{children} </span>
+      </motion.div>
+    </div>
+  );
+}
 
 
 function Hero() {
@@ -67,6 +146,12 @@ function Hero() {
                 </div>
               </div> 
             </Herosec>
+
+            {/* Parallax animated text */}
+            <div className='mt-16 mb-8'>
+              <ParallaxText baseVelocity={-5}>MERN STACK | WEB DEVELOPER |</ParallaxText>
+              <ParallaxText baseVelocity={5}>UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
+            </div>
         </div>
       
         <div className='fixed bg-[#fff] md:bg-transparent left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] pl-3'>
