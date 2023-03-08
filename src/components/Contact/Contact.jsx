@@ -48,13 +48,13 @@ function Contact() {
         {/* Contact form */}
         <form className='md:mt-0 mt-11'  onSubmit={handleOnSubmit} >
           <label className='text-2xl font-bold block' htmlFor="name" >Name : </label>
-          <input id='name' name='user_name' className='border-solid border border-[#5f5f5f] px-2 py-1 mb-5 outline-none w-full' type="text" />
+          <input required id='name' name='user_name' className='border-solid border border-[#5f5f5f] px-2 py-1 mb-5 outline-none w-full' type="text" />
           
           <label className='text-2xl font-bold block' htmlFor="email" >Email : </label>
           <input id='email' name='user_email' required className='border-solid border border-[#5f5f5f] px-2 py-1 mb-5 outline-none w-full' type="email" />
 
           <label className='text-2xl font-bold block' htmlFor="message" >Message : </label>
-          <textarea className='border-solid border border-[#5f5f5f] px-2 py-1 outline-none' name="user_message" id="message" cols="30" rows="5"></textarea>
+          <textarea required className='border-solid border border-[#5f5f5f] px-2 py-1 outline-none' name="user_message" id="message" cols="30" rows="5"></textarea>
           <button className='bg-[#F6C821] flex items-center justify-center text-xl font-bold rounded-md text-white mt-4 py-2 px-4 hover:scale-110' type="submit">SEND <img className='inline ml-3' src={send} alt="" /></button>
         </form>
 
