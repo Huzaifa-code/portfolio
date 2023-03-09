@@ -13,6 +13,7 @@
 /* ---------------- Custom cursor css ------------------------ */
 
 
+@media (min-width: 768px){
 .cursor {
     position: fixed;
     left: 0;
@@ -25,7 +26,7 @@
     z-index: 999;
     pointer-events: none;
   }
-
+}
 /* -------x-------- Custom cursor css ----------x------------- */
 
 
