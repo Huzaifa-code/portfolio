@@ -6,6 +6,8 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/cli": "^3.5.1",
     "@sanity/client": "^5.2.2",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
