@@ -8,6 +8,7 @@ import Projects from '../components/Projects/Projects';
 import Skills from '../components/Skills/Skills';
 
 import { motion, useScroll,useSpring } from "framer-motion"
+import BlogLink from '../components/BlogSection';
 
 
 
@@ -28,6 +29,7 @@ const Home = () => {
         <About/>
         <Skills/>
         <Projects/>
+        <BlogLink/>
         <Contact/>
       </div>
     );
