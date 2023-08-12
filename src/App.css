@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Font Family for subheading in Blogs */
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
 
 *{
     font-family: 'Inter', sans-serif;
@@ -32,6 +35,7 @@
 
 /* ------------------------ CSS For Blogs ------------------- */
 
+
 @media (min-width: 768px) {
   /* Main Image */
   img.blog_image{
@@ -39,7 +43,7 @@
   }
 
   .block_content p {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -48,15 +52,25 @@
 }
 
 .block_content h2 {
-  font-weight: 700;
+  font-weight: 400; /* Default */
   font-size: 32px;
-  margin: 10px 0 20px;
+  margin: 100px 0 20px;
+  font-family: 'Gochi Hand', cursive;
 }
 
 .block_content h1 {
   font-weight: 800;
   font-size: 40px;
   margin: 10px 0 20px;
+  font-family: 'Gochi Hand', cursive;
+}
+
+.block_content a{
+  color: #731FFC;
+  font-weight: 500;
+}
+.block_content a:hover{
+  color: #b688ff;
 }
 
 .block_content img {

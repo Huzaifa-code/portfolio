@@ -47,7 +47,7 @@ const SinglePost = () => {
           <h1 className='uppercase font-bold text-4xl tracking-wide nb-5 md:text-6xl flex items-center justify-center h-screen'>Loading...</h1> 
         ): 
         <section className='px-5 xl:max-w-6xl xl:mx-auto pb-10'>
-          <h1 className='font-bold text-4xl md:text-5xl pt-5 mb-10 text-center ' >{SinglePost.title}</h1>
+          <h1 className="font-['Gochi_Hand'] text-4xl md:text-6xl pt-5 mb-10 text-center " >{SinglePost.title}</h1>
           {SinglePost.mainImage && SinglePost.mainImage.asset && (
              <img className='blog_image rounded-lg mx-auto' src={SinglePost.mainImage.asset.url} alt={SinglePost.title} title={SinglePost.title} />
           )} 
