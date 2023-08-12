@@ -97,7 +97,8 @@ function NavBarBlog() {
   return (
     <>
       <Nav className='bg-white'>
-          <img src={image} alt="" />
+          <RouteLink to="/" ><img src={image} alt="" /></RouteLink>
+          
           
           {(toggleMenu || screenWidth > 700) && (
             <Links className='topnav' id='myTopnav'>
