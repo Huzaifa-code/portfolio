@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import image from './assets/Rectangle2.svg'
 import img1 from './assets/vector1.svg'
 import { Element } from 'react-scroll'
+import { Link } from 'react-router-dom'
 
 const Aboutsec = styled.div`
         min-height: 80vh;
@@ -34,21 +35,24 @@ function About() {
   return (
     <Element name="about" className="element">
       
-    <Aboutsec id='about'>
-        <h1 className='text-5xl ml-9 md:ml-11 md:my-16 font-bold'>ABOUT ME <img src={img1} alt="" /></h1>
-        
+      <Aboutsec id='about'>
+          <h1 className='text-5xl ml-9 md:ml-11 md:my-16 font-bold'>ABOUT ME <img src={img1} alt="" /></h1>
+          
 
-        <Main>
+          <Main>
 
-          <img className='hidden md:block md:h-[60vh]' src={image} alt="" />
+            <img className='hidden md:block md:h-[60vh]' src={image} alt="" />
 
-          <div className='md:w-[65%] md:pl-24 text-lg md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
-            <p className='my-6 text-justify'>I am a freelancer, full-stack web developer and UI/UX web designer.</p>
-            <p className='my-6 text-justify'>I enjoy building web applications that are designed to be intuitive, easy to use, and beautiful. I am dedicated to creating products that people love.</p>
-            <p className='my-6 text-justify'>I am currently an engineering student at IET (Institute of Engineering and Technology) DAVV, Indore(MP), India, pursuing B.Tech in IT (Information Technology). </p>
-          </div>
-        </Main>
-    </Aboutsec>
+            <div className='md:w-[65%] md:pl-24 text-lg md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
+              <p className='my-6 text-justify'>I am a freelancer, full-stack web developer and UI/UX web designer.</p>
+              <p className='my-6 text-justify'>I enjoy building web applications that are designed to be intuitive, easy to use, and beautiful. I am dedicated to creating products that people love.</p>
+              <p className='my-6 text-justify'>I am currently an engineering student at IET (Institute of Engineering and Technology) DAVV, Indore(MP), India, pursuing B.Tech in IT (Information Technology). </p>
+              <Link to='/resume' className='text-xl font-medium bg-[#000] border-2 border-[#000] text-white px-3 py-2 rounded-md hover:bg-white hover:text-black ' >My Resume</Link>
+            </div>
+
+          </Main>
+
+      </Aboutsec>
 
     </Element>
   )
