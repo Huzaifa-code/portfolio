@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import image from './assets/Rectangle2.svg'
 import img1 from './assets/vector1.svg'
 import { Element } from 'react-scroll'
-import { Link } from 'react-router-dom'
 
 const Aboutsec = styled.div`
         min-height: 80vh;
@@ -47,7 +46,14 @@ function About() {
               <p className='my-6 text-justify'>I am a freelancer, full-stack web developer and UI/UX web designer.</p>
               <p className='my-6 text-justify'>I enjoy building web applications that are designed to be intuitive, easy to use, and beautiful. I am dedicated to creating products that people love.</p>
               <p className='my-6 text-justify'>I am currently an engineering student at IET (Institute of Engineering and Technology) DAVV, Indore(MP), India, pursuing B.Tech in IT (Information Technology). </p>
-              <Link to='/resume' className='text-xl font-medium bg-[#000] border-2 border-[#000] text-white px-3 py-2 rounded-md hover:bg-white hover:text-black ' >My Resume</Link>
+              
+              <a 
+                className='text-sm font-medium px-3 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
+                href="https://docs.google.com/document/d/1yVMhw9hVLRwzPlxh9YA0i9FdWT-slbFSTfXCvXrXcpU/edit?usp=sharing"
+                target="_blank" rel="noreferrer"
+              >
+                Download Resume
+              </a>
             </div>
 
           </Main>
