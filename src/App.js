@@ -6,9 +6,6 @@ import SinglePost from './Pages/SinglePost.jsx'
 import Error from './Pages/Error.jsx'
 
 
-import Resume from './Pages/Resume';
-
-
 function App() {
 
   return (
