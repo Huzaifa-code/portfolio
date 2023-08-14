@@ -5,6 +5,8 @@ import client from "../client"
 import BlockContent from "@sanity/block-content-to-react"
 import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
 
+import {AiFillInstagram, AiFillLinkedin, AiFillGithub,AiOutlineTwitter} from 'react-icons/ai'
+
 // For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
 
@@ -55,6 +57,16 @@ const SinglePost = () => {
 
           <div className='block_content'>
             <BlockContent className='text-xl' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
+          </div>
+
+          <div className='flex flex-col justify-center items-center'>
+            <h3 className='my-4 text-lg font-semibold text-zinc-700'>Follow me on</h3>
+            <div className='flex justify-center items-center gap-6'>
+              <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2"> <AiFillInstagram/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2"> <AiFillLinkedin/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://github.com/Huzaifa-code" className="text-5xl relative md:hover:bottom-2"> <AiFillGithub/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://twitter.com/Huzaifa92912561" className="text-5xl relative md:hover:bottom-2"> <AiOutlineTwitter/> </a> 
+            </div>
           </div>
 
           <button className='mt-10 mb-10'>
