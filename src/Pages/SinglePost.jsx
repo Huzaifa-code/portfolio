@@ -56,7 +56,7 @@ const SinglePost = () => {
           <p className='text-right my-9'>Author: Huzaifa Qureshi</p>
 
           <div className='block_content'>
-            <BlockContent className='text-xl' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
+            <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
           </div>
 
           <div className='flex flex-col justify-center items-center'>
@@ -69,7 +69,7 @@ const SinglePost = () => {
             </div>
           </div>
 
-          <button className='mt-10 mb-10'>
+          <button className='mt-10 mb-10 block mx-auto'>
             <Link to='/blog' className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold'>Read More Articles</Link>
           </button>
         </section>
