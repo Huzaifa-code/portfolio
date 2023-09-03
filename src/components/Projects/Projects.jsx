@@ -1,14 +1,53 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components';
 import img from './assets/Vector1.svg'
 import arrow from './assets/Arrow1.svg'
+
+import { motion, useInView } from "framer-motion"
+
 
 const Projectsec = styled.div`
         min-height: 80vh;
 `;
 
+const data = [
+    {
+        img: "./assets/chatApp.jpg",
+        description: "Cross Platform real time chat application made using React Native Expo and firebase",
+        // Download button add
+        link: "https://drive.google.com/file/d/11Ahin8kpsLina0rv7iuZa_jkbgB-g_t4/view?usp=sharing",
+        linkText: "Download APK"
+    },
+    {
+        img: "./assets/project4.jpg",
+        description: "Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma",
+        link: "https://www.wolvesmedia.in/",
+        linkText: "visit"
+    },
+    {
+        img: "./assets/project3.jpg",
+        description: "Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma",
+        link: "https://www.enticingempire.com/",
+        linkText: "visit"
+
+    },
+    {
+        img: "./assets/project2.jpg",
+        description: "This is a Recipe website made using React and spoonacular API",
+        link: "https://recipe-app-ashen-seven.vercel.app/cuisine/American",
+        linkText: "visit"
+    },
+
+]
+
 
 function Projects() {
+
+
+    // Framer Animation
+    const ref = useRef(null);
+    const isInView = useInView(ref); // same isInView for left and right element
+
   return (
     <Projectsec id='project'>
         <img className='md:h-[4rem] h-[3.5rem] z-10 ml-[16%] md:ml-[37%] relative top-[5rem]' src={img} alt="" />
@@ -17,42 +56,34 @@ function Projects() {
         <h1 className='text-3xl md:text-5xl font-bold text-center'>AND DEVELOPMENT</h1>
         <p className='my-6 mx-4 md:mx-0 text-xl text-center text-[#464646]'>It's time to see some work. Here are some projects that I have done.</p>
 
-        <div>
-            <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16'  >
-                <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/chatApp.jpg' alt='project5' />
-                <div className=''>
-                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>Cross Platform real time chat application made using React Native Expo and firebase</p> 
-                    <a className='group md:ml-24  px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://drive.google.com/file/d/11Ahin8kpsLina0rv7iuZa_jkbgB-g_t4/view?usp=sharing" rel="noreferrer" target="_blank" >Download APK <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
-                </div>
-            </div>
-            <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16'  >
-                <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project4.jpg' alt='project4' />
-                <div className=''>
-                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma</p> 
-                    <a className='group md:ml-24  px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://www.wolvesmedia.in/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
-                </div>
-            </div>
-            <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16' >
-                <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project3.jpg' alt='project3' />
-                <div className='my-2'>
-                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma</p> 
-                    <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://www.enticingempire.com/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
-                </div>
-            </div>
-            <div className='flex flex-col md:flex-row justify-center items-center mx-11 mt-9 mb-16'>
-                <img className='md:w-[35vw] w-[80vw] rounded-lg' src='./assets/project2.jpg' alt='project1' />
-                <div className='my-2'>
-                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>This is a Recipe website made using React and spoonacular API</p> 
-                    <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="https://recipe-app-ashen-seven.vercel.app/cuisine/American" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
-                </div>
-            </div>
-            {/* <div className='flex justify-center items-center mx-11 mt-9 mb-16'  >
-                <img className='w-[35vw] rounded-lg' src='./assets/project1.jpg' alt='project1' />
-                <div className='my-2'>
-                    <p className='mx-3 md:mx-24 mb-6 text-3xl text-justify'>This is a static website made using HTML CSS BOOTSRAP JAVASCRIPT</p> 
-                    <a className='group md:ml-24 px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href="/" rel="noreferrer" target="_blank" >visit site <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
-                </div>
-            </div> */}
+        <div ref={ref}>
+            
+            {
+                data.map( (d) => {
+                    return (
+                        <div  className='flex flex-col md:flex-row justify-end items-center mx-11 mt-9 mb-16'  >
+                            
+                            <motion.img  
+                                style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+                                className='md:w-[35vw] w-[80vw] rounded-lg' src={d.img} alt='project5' 
+                                ref={ref}
+                            />
+                            
+                            <motion.div
+                                style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+                            >
+                                <div className=''>
+                                    <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>{d.description}</p> 
+                                    <a className='group md:ml-24  px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href={d.link} rel="noreferrer" target="_blank" > {d.linkText} <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
+                                </div>
+                            </motion.div>
+                        </div>
+                    )
+                } )
+            }
+            
+           
+           
            
         </div>
     </Projectsec>
