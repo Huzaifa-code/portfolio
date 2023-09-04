@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* Font Family for subheading in Blogs */
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Sriracha&display=swap');
 
 *{
     font-family: 'Inter', sans-serif;
@@ -54,13 +55,15 @@
   font-size: 36px;
   margin: 100px 0 20px;
   font-family: 'Gochi Hand', cursive;
+  font-family: 'Sriracha', cursive;
 }
 
 .block_content h1 {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 40px;
   margin: 10px 0 20px;
   font-family: 'Gochi Hand', cursive;
+  font-family: 'Sriracha', cursive;
 }
 
 .block_content a{

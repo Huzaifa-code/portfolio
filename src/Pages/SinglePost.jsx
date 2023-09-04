@@ -56,7 +56,14 @@ const SinglePost = () => {
             style={{ y: 30 }} animate={{ y: 0 }}
             transition={{duration: 0.5, delay: 0.1}}
           >
-            <h1 className="font-['Gochi_Hand'] text-4xl md:text-6xl pt-5 mb-10 text-center " >{SinglePost.title}</h1>
+            <h1 
+              style={{
+                fontFamily: "'Sriracha', cursive"
+              }} 
+              className="text-4xl md:text-6xl pt-5 mb-10 text-center " 
+            >
+              {SinglePost.title}
+            </h1>
           </motion.div>
           
           
