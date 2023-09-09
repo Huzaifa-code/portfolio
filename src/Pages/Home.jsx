@@ -13,6 +13,7 @@ import BlogLink from '../components/BlogSection';
 
 import { useEffect } from "react";
 import { useMotionValue } from "framer-motion";
+import Services from '../components/Services/Services';
 
 
 const Home = () => {
@@ -66,6 +67,7 @@ const Home = () => {
         <Skills/>
         <Projects/>
         <BlogLink/>
+        <Services/>
         <Contact/>
       </div>
     );

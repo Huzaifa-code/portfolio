@@ -6,6 +6,7 @@ import BlockContent from "@sanity/block-content-to-react"
 import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
 
 import {AiFillInstagram, AiFillLinkedin, AiFillGithub,AiOutlineTwitter} from 'react-icons/ai'
+import { BsMedium } from "react-icons/bs";
 
 // For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
@@ -82,13 +83,14 @@ const SinglePost = () => {
             <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
           </div>
 
-          <div className='flex flex-col justify-center items-center'>
+          <div className='flex flex-col justify-center items-center md:my-11'>
             <h3 className='my-4 text-lg font-semibold text-zinc-700'>Follow me on</h3>
             <div className='flex justify-center items-center gap-6'>
-              <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2"> <AiFillInstagram/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2"> <AiFillLinkedin/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://github.com/Huzaifa-code" className="text-5xl relative md:hover:bottom-2"> <AiFillGithub/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://twitter.com/Huzaifa92912561" className="text-5xl relative md:hover:bottom-2"> <AiOutlineTwitter/> </a> 
+              <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillInstagram/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillLinkedin/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://github.com/Huzaifa-code" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillGithub/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://twitter.com/Huzaifa92912561" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiOutlineTwitter/> </a> 
+              <a  target="_blank"  rel="noreferrer" href="https://medium.com/@huzaifaqureshi037" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <BsMedium/> </a> 
             </div>
           </div>
 
