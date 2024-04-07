@@ -10,6 +10,7 @@ import { BsMedium } from "react-icons/bs";
 
 // For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
+import { Helmet } from 'react-helmet';
 
 
 
@@ -44,6 +45,14 @@ const SinglePost = () => {
 
   return (
     <div className='bg-white'>
+      <Helmet>
+        <title>{SinglePost.title}</title>
+        <meta name="description" content={ SinglePost.title + ",web development , Coding, Programming"} />
+        <meta name="keywords" content="#webdevelopment, #coding, #programming, #react, #node, #mern, #development, #javascript" />
+        {/* Add more meta tags as needed */}
+      </Helmet>
+
+
       <NavBarBlog/>
       <motion.div className='fixed top-0 left-0 right-0 h-[10px] bg-[#731FFC] origin-top-left' style={{ scaleX: scrollYProgress }} />  
       {isLoading ? (
@@ -97,6 +106,11 @@ const SinglePost = () => {
           <button className='mt-10 mb-10 block mx-auto'>
             <Link to='/blog' className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold'>Read More Articles</Link>
           </button>
+          
+          <div className='opacity-0'>
+            <p>#webdevelopment #coding #programming #react #node #mern #development #javascript </p>
+          </div>
+
         </section>
       }
     </div>
