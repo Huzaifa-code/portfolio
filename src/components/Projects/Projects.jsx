@@ -63,20 +63,17 @@ function Projects() {
                     return (
                         <div  className='flex flex-col md:flex-row justify-end items-center mx-11 mt-9 mb-16'  >
                             
-                            <motion.img  
-                                style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+                            <img   
                                 className='md:w-[35vw] w-[80vw] rounded-lg' src={d.img} alt='project5' 
                                 ref={ref}
                             />
                             
-                            <motion.div
-                                style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
-                            >
+                            <div>
                                 <div className=''>
                                     <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>{d.description}</p> 
                                     <a className='group md:ml-24  px-6 w- py-3 text-lg bg-[#731FFC] rounded-md text-white' href={d.link} rel="noreferrer" target="_blank" > {d.linkText} <img className=' w-[1.7rem] ml-1 hidden group-hover:inline' src={arrow} alt="" />  </a>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
                     )
                 } )
