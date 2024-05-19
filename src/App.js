@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import SinglePost from './Pages/SinglePost.jsx'
 import Error from './Pages/Error.jsx'
 import Connect from './Pages/Connect.jsx';
+import Login from './Pages/Login.jsx';
+import Signup from './Pages/Signup.jsx';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path='/blog' element={<Blog/>} />
         <Route path='/blog/:slug' element={<SinglePost />}  />
         <Route path='*' element={<Error />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/signup' element={<Signup />}/>
       </Routes>
     </>
       // </BrowserRouter>

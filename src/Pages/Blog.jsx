@@ -5,11 +5,15 @@ import client from '../client'
 import NavBarBlog from '../components/NavBarBlog/NavBarBlog';
 import { motion } from 'framer-motion';
 
+
 const Blog = () => {
 
   const [posts, setPosts] = useState([]);
 
+
+
   useEffect(() => {
+
     client.fetch(
         `*[_type == "post"] {
             title,

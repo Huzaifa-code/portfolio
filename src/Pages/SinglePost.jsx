@@ -11,6 +11,7 @@ import { BsMedium } from "react-icons/bs";
 // For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
+import Comments from '../components/Comments/Comments'
 
 
 
@@ -92,6 +93,9 @@ const SinglePost = () => {
             <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
           </div>
 
+          
+
+
           <div className='flex flex-col justify-center items-center md:my-11'>
             <h3 className='my-4 text-lg font-semibold text-zinc-700'>Follow me on</h3>
             <div className='flex justify-center items-center gap-6'>
@@ -103,6 +107,8 @@ const SinglePost = () => {
             </div>
           </div>
 
+          <Comments postSlug={slug}/>
+
           <button className='mt-10 mb-10 block mx-auto'>
             <Link to='/blog' className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold'>Read More Articles</Link>
           </button>
@@ -112,6 +118,7 @@ const SinglePost = () => {
           </div>
 
         </section>
+
       }
     </div>
   )
