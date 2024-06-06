@@ -34,19 +34,21 @@ const Comments = ({ postSlug }) => {
     if (!user) return alert('Please log in to comment.');
 
     try {
-      const token = JSON.parse(localStorage.getItem('user')).token;
+      // const token = JSON.parse(localStorage.getItem('user')).token;
 
-      console.log(token, " : Token")
+      // console.log(token, " : Token")
+      // console.log(user, "user");
+      // console.log(JSON.parse(localStorage.getItem('user'))?.user, " : from localstorage ");
 
       // const response = await fetch(`http://localhost:5000/api/comments`, {
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+          // 'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
         },
         credentials: 'include', // Include credentials for cookies
-        body: JSON.stringify({ postSlug, text: newComment, userId: user.userId }),
+        body: JSON.stringify({ postSlug, text: newComment, userId: JSON.parse(localStorage.getItem('user'))?.user.userId }),
       });
 
       if (!response.ok) {
