@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
 import ErrorModal from '../components/Modal/ErrorModal';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-
+  const navigate = useNavigate();
     // State for form fields
     const [formData, setFormData] = useState({
         username: '',
@@ -71,6 +71,8 @@ const Signup = () => {
               password: '',
               confirmPassword: ''
             });
+
+            navigate('/login')
         } catch (error) {
             setError(error.message);
             console.error('Error:', error);
