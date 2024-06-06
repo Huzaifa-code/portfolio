@@ -13,17 +13,25 @@ import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
 import Comments from '../components/Comments/Comments'
 
+import { LiaTelegram } from "react-icons/lia";
+import { LuCopy } from "react-icons/lu";
+
 
 
 const SinglePost = () => {
 
-  const [SinglePost, setSinglePost]  = useState([])
-  const [isLoading , setIsLoading] = useState(true)
-  const { slug } = useParams()
+  const [SinglePost, setSinglePost]  = useState([]);
+  const [isLoading , setIsLoading] = useState(true);
+  const { slug } = useParams();
 
 
   const { scrollYProgress } = useScroll();
-   
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shortUrl, setShortUrl] = useState('');
+  const [isShortening, setIsShortening] = useState(false);
+  const [error, setError] = useState('');
+  const [isUrlCopied, setIsUrlCopied] = useState(false);
 
   useEffect(() => {
     client.fetch(
@@ -43,6 +51,37 @@ const SinglePost = () => {
     ).then((data) => setSinglePost(data[0]))
     setIsLoading(false);
   }, [slug])
+
+
+  async function createShortUrl(longUrl) {
+    try {
+      setIsShortening(true);
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/url`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url: longUrl })
+      });
+      const data = await response.json();
+      setShortUrl(data.shortUrl);
+      setIsShortening(false);
+    } catch (error) {
+      setError('Failed to shorten URL');
+      setIsShortening(false);
+    }
+    
+  }
+
+  const currentUrl = window.location.href;
+
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(shortUrl);
+    setIsUrlCopied(true);
+    setTimeout(() => {
+      setIsUrlCopied(false);
+    }, 3000); // 3 seconds
+  };
 
   return (
     <div className='bg-white'>
@@ -94,6 +133,12 @@ const SinglePost = () => {
           </div>
 
           
+          <button onClick={() => setIsModalOpen(true)} 
+            className='py-2 px-6 mx-auto md:my-11 rounded-md shadow text-white bg-[#731FFC] hover:bg-[#31185a] transition-all duration-500 font-bold flex justify-center items-center gap-3'
+          >
+            <LiaTelegram className='text-xl'/>
+            <p>Share</p>
+          </button>
 
 
           <div className='flex flex-col justify-center items-center md:my-11'>
@@ -116,6 +161,50 @@ const SinglePost = () => {
           <div className='opacity-0'>
             <p>#webdevelopment #coding #programming #react #node #mern #development #javascript </p>
           </div>
+
+          
+
+          {/* Modal */}
+          {isModalOpen && (
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex items-center justify-center min-h-screen">
+                <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                  <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <div className="relative bg-white rounded-lg mx-auto max-w-md p-8">
+                  <div className="text-right">
+                    <button onClick={() => setIsModalOpen(false)}>&times;</button>
+                  </div>
+                  <h2 className="text-lg font-semibold mb-4">Share this post</h2>
+                  <input type="text" value={currentUrl} readOnly className="w-full mb-4 border-gray-300 rounded-lg p-2" />
+                  <button
+                    onClick={() => createShortUrl(currentUrl)}
+                    className="bg-[#731FFC] hover:bg-[#31185a] text-white font-semibold px-4 py-2 rounded-lg w-full"
+                    disabled={isShortening}
+                  >
+                    {isShortening ? 'Shortening...' : 'Shorten URL'}
+                  </button>
+                  {shortUrl && (
+                    <>
+                      <h1 className='text-md font-semibold mt-4'>Shortened url :</h1>
+                      <input type="text" value={shortUrl} readOnly className="w-full my-2 border-gray-300 rounded-lg p-2 bg-gray-100" />
+                      <button
+                        onClick={handleCopyToClipboard}
+                        className="bg-neutral-500 hover:bg-neutral-400 text-white font-semibold px-4 py-2 rounded-lg text-xs my-3 flex justify-center items-center gap-2"
+                      > 
+                        <LuCopy/>
+                        <p>Copy URL </p>
+                      </button>
+                      {isUrlCopied && <p className="text-blue-500 text-xs font-medium text-center">URL Copied!</p>}
+                    </>
+                  )}
+                  
+                  {error && <p className="text-red-500 mt-2">{error}</p>}
+                </div>
+              </div>
+            </div>
+          )}
+          {/* End Modal */}
 
         </section>
 
