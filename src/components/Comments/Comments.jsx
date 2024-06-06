@@ -34,7 +34,7 @@ const Comments = ({ postSlug }) => {
     if (!user) return alert('Please log in to comment.');
 
     try {
-      const token = JSON.parse(localStorage.getItem('user')).token;
+      // const token = JSON.parse(localStorage.getItem('user')).token;
 
       // console.log(token, " : Token")
       // console.log(user, "user");
@@ -45,7 +45,7 @@ const Comments = ({ postSlug }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+          // 'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
         },
         credentials: 'include', // Include credentials for cookies
         body: JSON.stringify({ postSlug, text: newComment, userId: JSON.parse(localStorage.getItem('user'))?.user.userId }),
