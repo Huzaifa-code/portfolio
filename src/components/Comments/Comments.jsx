@@ -6,8 +6,7 @@ import Avatar from 'boring-avatars';
 
 
 const Comments = ({ postSlug }) => {
-  const navigate = useNavigate();
-  const { user } = useUser();
+  const { user, handleLogout } = useUser();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
 
@@ -68,13 +67,6 @@ const Comments = ({ postSlug }) => {
     }
   };
 
-  function handleLogout() {
-    // Note: HTTP-only cookies can't be cleared from the client-side directly
-    localStorage.removeItem('user');
-    // Redirect to login page
-    navigate('/login');
-
-  }
 
   return (
     <div>
