@@ -1,11 +1,12 @@
 // src/components/Comments.js
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../../context/userContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from 'boring-avatars';
 
 
 const Comments = ({ postSlug }) => {
+  const navigate = useNavigate();
   const { user } = useUser();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
@@ -34,10 +35,6 @@ const Comments = ({ postSlug }) => {
     if (!user) return alert('Please log in to comment.');
 
     try {
-      // const token = JSON.parse(localStorage.getItem('user')).token;
-
-      // console.log(token, " : Token")
-      // console.log(user, "user");
       // console.log(JSON.parse(localStorage.getItem('user'))?.user, " : from localstorage ");
 
       // const response = await fetch(`http://localhost:5000/api/comments`, {
@@ -45,14 +42,22 @@ const Comments = ({ postSlug }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
         },
         credentials: 'include', // Include credentials for cookies
         body: JSON.stringify({ postSlug, text: newComment, userId: JSON.parse(localStorage.getItem('user'))?.user.userId }),
       });
 
+      if (response.status === 401) {
+        const data = await response.json();
+        if (data.message === 'Token expired') {
+          handleLogout();
+          alert('Session expired. Please log in again.');
+          return;
+        }
+      }
+  
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error(`Failed to add comment: ${response.statusText}`);
       }
 
       const data = await response.json();
@@ -62,6 +67,14 @@ const Comments = ({ postSlug }) => {
       console.error('Error adding comment:', error);
     }
   };
+
+  function handleLogout() {
+    // Note: HTTP-only cookies can't be cleared from the client-side directly
+    localStorage.removeItem('user');
+    // Redirect to login page
+    navigate('/login');
+
+  }
 
   return (
     <div>
