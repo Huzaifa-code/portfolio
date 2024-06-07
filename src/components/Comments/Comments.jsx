@@ -48,7 +48,7 @@ const Comments = ({ postSlug }) => {
 
       if (response.status === 401) {
         const data = await response.json();
-        if (data.message === 'Token expired') {
+        if (data.message === 'Token expired' || data.message === 'Unauthorized, No token') {
           handleLogout();
           alert('Session expired. Please log in again.');
           return;

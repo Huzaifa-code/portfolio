@@ -1,13 +1,13 @@
 // UserContext.js
 import React, { createContext, useContext, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user'))?.user);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
       setUser(null);
 
       // Redirect to login page or home page
-      // navigate('/login');
+      navigate('/login');
     } catch (error) {
       console.error('Error logging out:', error);
     }
