@@ -1,3 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
+# This file allows all search engine bots to crawl all pages of your site and specifies the location of the sitemap.
 User-agent: *
+Allow: /
+Sitemap: https://www.developerhuzaifa.site/sitemap.xml
 Disallow:

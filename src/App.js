@@ -7,6 +7,7 @@ import Error from './Pages/Error.jsx'
 import Connect from './Pages/Connect.jsx';
 import Login from './Pages/Login.jsx';
 import Signup from './Pages/Signup.jsx';
+import Projects from './Pages/Projects.jsx';
 
 
 function App() {
