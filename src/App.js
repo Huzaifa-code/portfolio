@@ -9,6 +9,7 @@ import Login from './Pages/Login.jsx';
 import Signup from './Pages/Signup.jsx';
 import Projects from './Pages/Projects.jsx';
 import { Helmet } from 'react-helmet';
+import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     // <BrowserRouter>
     <>
+      <Analytics/>
       <Helmet>
         <title>Huzaifa Qureshi - Software Engineer</title>
         <meta name="description" content="Huzaifa Qureshi is a FullStack web and app developer. Highly Skilled in - MERN, React.js, React-Native, Next.js, Node.js, MongoDb, Tailwind css, firebase, sanity.io"/>
