@@ -33,8 +33,9 @@ const generateSitemap = async () => {
 
   const staticPages = [
     { url: '/', changefreq: 'daily', priority: 1.0 },
+    { url: '/blog', changefreq: 'monthly', priority: 0.9 },
     { url: '/connect', changefreq: 'monthly', priority: 0.7 },
-    { url: '/blog/best-vs-code-extensions', changefreq: 'weekly', priority: 0.8 },
+    { url: '/projects', changefreq: 'monthly', priority: 0.6 },
     // Add more static pages here
   ];
 
