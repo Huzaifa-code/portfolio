@@ -1,25 +1,31 @@
-import client from './src/client'
 const { SitemapStream, streamToPromise } = require('sitemap');
 const { createWriteStream } = require('fs');
 const { resolve } = require('path');
-
 const fetchBlogSlugs = async () => {
-  try {
-
-    client.fetch(
-        `*[_type == "post"] {
-            slug,
-        }`
-    ).then((data) => { return data } ).catch(
-        console.error()
-    )
-
-    // const data = await response.json();
-    // return data.result;
-  } catch (error) {
-    console.error('Error fetching blog slugs:', error);
-    return [];
-  }
+    try {
+      const fetch = (await import('node-fetch')).default; // Dynamically import node-fetch
+      const response = await fetch('https://os5ae1ct.api.sanity.io/v2023-03-06/data/query/production', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `*[_type == "post"] {
+              slug
+          }`
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      return data.result;
+    } catch (error) {
+      console.error('Error fetching blog slugs:', error);
+      return [];
+    }
 };
 
 const generateSitemap = async () => {
