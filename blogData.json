@@ -1,0 +1,7 @@
+[
+    { "slug": "free-ux-design-courses", "changefreq": "weekly", "priority": 0.8 },
+    { "slug": "sailing-the-ux-seas-navigating-the-laws-of-design-with-one-piece", "changefreq": "weekly", "priority": 0.8 },
+    { "slug": "routing-using-express-js", "changefreq": "weekly", "priority": 0.8 },
+    { "slug": "virtual-dom-in-react-js", "changefreq": "weekly", "priority": 0.8 },
+    { "slug": "content-delivery-networks-cdns-enhancing-website-performance-and-reducing-latency", "changefreq": "weekly", "priority": 0.8 }
+]
