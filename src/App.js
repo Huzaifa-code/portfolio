@@ -21,9 +21,10 @@ function App() {
         <Route path='/connect' element={<Connect/>} />
         <Route path='/blog' element={<Blog/>} />
         <Route path='/blog/:slug' element={<SinglePost />}  />
-        <Route path='*' element={<Error />}/>
+        {/* <Route path='*' element={<Error />}/> */}
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
+        <Route path='/projects' element={<Projects />}/>
       </Routes>
     </>
       // </BrowserRouter>
