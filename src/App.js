@@ -3,7 +3,6 @@ import Home from './Pages/Home';
 import Blog from './Pages/Blog.jsx'
 import { Route, Routes } from 'react-router-dom';
 import SinglePost from './Pages/SinglePost.jsx'
-import Error from './Pages/Error.jsx'
 import Connect from './Pages/Connect.jsx';
 import Login from './Pages/Login.jsx';
 import Signup from './Pages/Signup.jsx';
