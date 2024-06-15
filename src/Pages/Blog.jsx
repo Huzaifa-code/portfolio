@@ -35,6 +35,15 @@ const Blog = () => {
     )
   }, [])
 
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleString('en-UK', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
  
   return (
     <div className='bg-white' >
@@ -53,9 +62,11 @@ const Blog = () => {
                   style={{ y: 30 }} animate={{ y: 0 }} 
                   transition={{duration: 0.55}}
                   key={post.slug.current}
+                  
                 >
-                  <article  >
+                  <article className='flex flex-col items-start justify-between h-full' >
                       <img className='rounded-xl md:w-full' src={post.mainImage.asset.url} alt={post.title} />
+                      <p className='text-sm font-medium mt-2 text-neutral-500'>{formatDate(post.publishedAt)}</p>
                       <h4 className='text-xl mt-2'>{post.title}</h4>
                       <button className='mt-5 mb-10'>
                           <Link to={`/blog/${post.slug.current}`}  className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold' >Read Full Article</Link>
