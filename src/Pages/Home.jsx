@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import About from '../components/About/About';
-import Contact from '../components/Contact/Contact';
-import Hero from '../components/Hero/Hero';
-import Navbar from '../components/NavBar/Navbar';
-import Projects from '../components/Projects/Projects';
-import Skills from '../components/Skills/Skills';
+import About from '../components/Home/About/About';
+import Contact from '../components/Home/Contact/Contact';
+import Hero from '../components/Home/Hero/Hero';
+import Navbar from '../components/Home/NavBar/Navbar';
+import Projects from '../components/Home/Projects/Projects';
+import Skills from '../components/Home/Skills/Skills';
 
 import { motion, useScroll,useSpring } from "framer-motion"
 import BlogLink from '../components/BlogSection';

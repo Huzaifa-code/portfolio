@@ -131,9 +131,9 @@ function Hero() {
               
               <img className='ml-[30%]' src={img1} alt="" />
 
-              WEB DEVELOPER  
+              SOFTWARE DEVELOPER  
 
-                <img className='ml-[70%]' src={img2} alt="" />
+              <img className='ml-[70%]' src={img2} alt="" />
             </h1>
           
             <Herosec className=''>
