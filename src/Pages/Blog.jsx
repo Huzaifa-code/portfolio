@@ -57,7 +57,7 @@ const Blog = () => {
             style={{ y: 30 }} animate={{ y: 0 }}
             transition={{duration: 0.5}}
           >
-            <h1 className='font-bold text-4xl md:text-5xl pt-5 ' >Welcome Blogs</h1>
+            <h1 className='font-bold text-4xl md:text-5xl pt-5 ' >Welcome to My Dev Blog</h1>
             <p className="my-11 text-lg md:text-xl lg:text-xl text-neutral-600 max-w-4xl">
               Join me as I delve into the fascinating world of software engineering! Explore a wealth of articles on invaluable Linux tips and tricks,  React.js and cutting-edge web technologies . Whether you're just starting out or you're a seasoned professional, you'll find insightful content and practical guides to elevate your skills and knowledge.
             </p>
