@@ -77,7 +77,7 @@ const Blog = () => {
                         <div>
                           {post.categories?.map((category) => (
                             category ? (
-                              <span key={category._id} className=' bg-purple-200 px-3 py-1 rounded-md border border-purple-400 text-purple-400'>
+                              <span key={category._id} className=' bg-purple-200 px-3 py-1 rounded-md text-sm text-purple-400'>
                                 {category.title}
                               </span>
                             ) : null
