@@ -4,17 +4,42 @@ import { useState, useEffect } from 'react'
 import client from "../client"
 import BlockContent from "@sanity/block-content-to-react"
 import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
-
 import {AiFillInstagram, AiFillLinkedin, AiFillGithub,AiOutlineTwitter} from 'react-icons/ai'
 import { BsMedium } from "react-icons/bs";
-
+import { LiaTelegram } from "react-icons/lia";
+import { LuCopy } from "react-icons/lu";
 // For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
 import Comments from '../components/Comments/Comments'
 
-import { LiaTelegram } from "react-icons/lia";
-import { LuCopy } from "react-icons/lu";
+
+const CodeBlock = ({ node }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(node.code);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 3000); // Reset copied state after 3 seconds
+  };
+
+  return (
+    <div className="code-block-wrapper">
+      <pre className="code-block flex justify-between items-center">
+        <code>{node.code}</code>
+        <button
+          onClick={handleCopyToClipboard}
+          className=" text-white font-semibold px-4 py-2 text-xs flex justify-center items-center gap-2"
+        >
+          <LuCopy />
+        </button>
+      </pre>
+      <p className='text-xs font-semibold text-purple-400' >{isCopied && 'copied'}</p>
+    </div>
+  );
+};
 
 
 
@@ -83,6 +108,14 @@ const SinglePost = () => {
     }, 3000); // 3 seconds
   };
 
+
+  // For code Block
+  const serializers = {
+    types: {
+      code: CodeBlock,
+    },
+  };
+
   return (
     <div className='bg-white'>
       <Helmet>
@@ -129,7 +162,7 @@ const SinglePost = () => {
           <p className='text-right my-9'>Author: Huzaifa Qureshi</p>
 
           <div className='block_content'>
-            <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" ></BlockContent>
+            <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
           </div>
 
           
