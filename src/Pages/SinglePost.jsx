@@ -12,6 +12,7 @@ import { LuCopy } from "react-icons/lu";
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
 import Comments from '../components/Comments/Comments'
+import { ClapButton } from '../components/Blog'
 
 
 const CodeBlock = ({ node }) => {
@@ -27,8 +28,9 @@ const CodeBlock = ({ node }) => {
 
   return (
     <div className="code-block-wrapper">
-      <pre className="code-block flex justify-between items-center">
-        <code>{node.code}</code>
+      <p className='text-sm text-neutral-400' >{isCopied ? 'copied' : "" } &nbsp; </p>
+      <pre className="code-block flex justify-between items-start mb-11">
+        <code className='text-sm' >{node.code}</code>
         <button
           onClick={handleCopyToClipboard}
           className=" text-white font-semibold px-4 py-2 text-xs flex justify-center items-center gap-2"
@@ -36,7 +38,6 @@ const CodeBlock = ({ node }) => {
           <LuCopy />
         </button>
       </pre>
-      <p className='text-xs font-semibold text-purple-400' >{isCopied && 'copied'}</p>
     </div>
   );
 };
@@ -63,6 +64,7 @@ const SinglePost = () => {
       `
         *[slug.current == "${slug}"] {
           title,
+          claps,
           body,
           mainImage {
             asset -> {
@@ -73,7 +75,9 @@ const SinglePost = () => {
           }
         }
       `
-    ).then((data) => setSinglePost(data[0]))
+    ).then((data) => {
+      setSinglePost(data[0])
+    })
     setIsLoading(false);
   }, [slug])
 
@@ -150,16 +154,23 @@ const SinglePost = () => {
           </motion.div>
           
           
-          {SinglePost.mainImage && SinglePost.mainImage.asset && (
+          {SinglePost && SinglePost.mainImage && SinglePost.mainImage.asset && (
+            <>
              <motion.div 
               style={{ x: -200 }} animate={{ x: 0 }}
               transition={{duration: 0.6}}
-             >
+              >
               <img className='blog_image rounded-lg mx-auto' src={SinglePost.mainImage.asset.url} alt={SinglePost.title} title={SinglePost.title} />
              </motion.div>
+
+              <div className='flex justify-between items-center'>
+                <ClapButton initialClaps={SinglePost.claps} slug={slug}  />
+                <p className='text-right my-9'>Author: Huzaifa Qureshi</p>
+              </div>
+            </>
           )} 
           
-          <p className='text-right my-9'>Author: Huzaifa Qureshi</p>
+          
 
           <div className='block_content'>
             <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
