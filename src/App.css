@@ -34,6 +34,11 @@
 
 /* ------------------------ CSS For Blogs ------------------- */
 
+.code-block {
+  @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto;
+}
+
+
 
 @media (min-width: 768px) {
   /* Main Image */
