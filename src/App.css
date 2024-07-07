@@ -80,9 +80,9 @@
 }
 
 .block_content img {
-  margin: 2rem 0;
-  border-radius: 1.2rem;
-  width: 70%;
+  margin: 2rem auto;
+  border-radius: 0.8rem;
+  width: 90%;
 }
 
 .block_content blockquote {

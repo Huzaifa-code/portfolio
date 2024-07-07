@@ -12,7 +12,7 @@ import { LuCopy } from "react-icons/lu";
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
 import Comments from '../components/Comments/Comments'
-import { ClapButton } from '../components/Blog'
+import { ClapButton, YouTubeEmbed } from '../components/Blog'
 
 
 const CodeBlock = ({ node }) => {
@@ -117,6 +117,7 @@ const SinglePost = () => {
   const serializers = {
     types: {
       code: CodeBlock,
+      youtube: ({ node }) => <YouTubeEmbed url={node.url} />,
     },
   };
 
