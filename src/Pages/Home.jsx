@@ -1,16 +1,8 @@
 import React from 'react';
 import '../App.css';
-import About from '../components/Home/About/About';
-import Contact from '../components/Home/Contact/Contact';
-import Hero from '../components/Home/Hero/Hero';
-import Navbar from '../components/Home/NavBar/Navbar';
-import Projects from '../components/Home/Projects/Projects';
-import Skills from '../components/Home/Skills/Skills';
-
+import { ExperienceSection, About, Contact, Hero, Navbar, Projects, Skills } from '../components/Home';
 import { motion, useScroll,useSpring } from "framer-motion"
 import BlogLink from '../components/BlogSection';
-
-
 import { useEffect } from "react";
 import { useMotionValue } from "framer-motion";
 
@@ -63,6 +55,7 @@ const Home = () => {
         <motion.div className='fixed top-0 left-0 right-0 h-[10px] bg-[#731FFC] origin-top-left' style={{ scaleX }} />  
         <Hero/>
         <About/>
+        <ExperienceSection/>
         <Skills/>
         <Projects/>
         <BlogLink/>
