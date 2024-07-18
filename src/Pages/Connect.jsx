@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
+import {NavBarBlog} from '../components/Blog'
 import Intro from '../components/Connect/Intro'
 import Features from '../components/Connect/Features'
 

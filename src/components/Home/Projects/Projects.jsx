@@ -16,7 +16,7 @@ const data = [
         img: "./assets/chatApp.jpg",
         description: "Cross Platform real time chat application made using React Native Expo and firebase",
         // Download button add
-        link: "https://drive.google.com/file/d/11Ahin8kpsLina0rv7iuZa_jkbgB-g_t4/view?usp=sharing",
+        link: "https://github.com/Huzaifa-code/connect_frontend/releases",
         linkText: "Download APK",
         route: "/connect",
         routeText: "Read More"
@@ -24,7 +24,7 @@ const data = [
     {
         img: "./assets/project4.jpg",
         description: "Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma",
-        link: "https://www.wolvesmedia.in/",
+        link: "https://thejungletechnology.com/",
         linkText: "visit"
     },
     {
@@ -37,7 +37,7 @@ const data = [
     {
         img: "./assets/project2.jpg",
         description: "This is a Recipe website made using React and spoonacular API",
-        link: "https://recipe-app-ashen-seven.vercel.app/cuisine/American",
+        link: "https://recipe-app-ashen-seven.vercel.app",
         linkText: "visit"
     },
 
@@ -62,7 +62,7 @@ function Projects() {
         <div ref={ref}>  
             {data.map( (d) => {
                     return (
-                        <div  className='flex flex-col md:flex-row justify-end items-center mx-11 mt-9 mb-16'  >
+                        <div  className='flex flex-col md:flex-row items-center mx-11 mt-9 mb-16'  >
                             <img   
                                 className='md:w-[35vw] w-[80vw] rounded-lg' src={d.img} alt='project5' 
                                 ref={ref}
@@ -70,11 +70,14 @@ function Projects() {
                             <div>
                                 <div className=''>
                                     <p className='md:mx-24 mb-6 my-3  text-xl md:text-3xl text-justify'>{d.description}</p> 
-                                    <a className='group md:ml-24  px-6  py-3 text-lg bg-[#731FFC] hover:bg-[#9e61ff] rounded-md text-white' href={d.link} rel="noreferrer" target="_blank" > {d.linkText} 
-                                    </a>
-                                    {d.route &&
-                                        <Link to={d?.route} className='px-6  py-3 text-lg bg-[#000000] hover:bg-neutral-800 rounded-md text-white ml-8' >{d.routeText}</Link>
-                                    }
+                                    <div className='flex md:flex-row flex-col w-fit gap-5'>
+                                        <a className='group md:ml-24  px-6  py-3 text-lg bg-[#731FFC] hover:bg-[#9e61ff] rounded-md text-white' href={d.link} rel="noreferrer" target="_blank" > 
+                                            {d.linkText} 
+                                        </a>
+                                        {d.route &&
+                                            <Link to={d?.route} className='px-6  py-3 text-lg bg-[#000000] hover:bg-neutral-800 rounded-md text-white text-center ' >{d.routeText}</Link>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

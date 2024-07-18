@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBarBlog from '../components/NavBarBlog/NavBarBlog';
+import {NavBarBlog} from '../components/Blog';
 import ErrorModal from '../components/Modal/ErrorModal';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/userContext';

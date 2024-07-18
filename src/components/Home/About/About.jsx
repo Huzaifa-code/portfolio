@@ -35,12 +35,12 @@ function About() {
     <Element name="about" className="element">
       
       <Aboutsec id='about'>
-          <h1 className='text-5xl ml-9 md:ml-11 md:my-16 font-bold'>ABOUT ME <img src={img1} alt="" /></h1>
+          <h1 className='text-5xl text-center flex flex-col justify-center items-center md:my-16 font-bold'>ABOUT ME <img className='w-11' src={img1} alt="" /></h1>
           
 
           <Main>
 
-            <img className='hidden md:block md:h-[60vh]' src={image} alt="" />
+            <img className='hidden md:block md:min-h-[60vh]' src={image} alt="" />
 
             <div className='md:w-[65%] md:pl-24 text-lg md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
               <p className='my-6 text-justify'>

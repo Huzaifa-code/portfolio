@@ -3,16 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import client from "../client"
 import BlockContent from "@sanity/block-content-to-react"
-import NavBarBlog from '../components/NavBarBlog/NavBarBlog'
 import {AiFillInstagram, AiFillLinkedin, AiFillGithub,AiOutlineTwitter} from 'react-icons/ai'
 import { BsMedium } from "react-icons/bs";
 import { LiaTelegram } from "react-icons/lia";
 import { LuCopy } from "react-icons/lu";
-// For top scroll bar animated
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
-import Comments from '../components/Comments/Comments'
-import { ClapButton, YouTubeEmbed } from '../components/Blog'
+import { NavBarBlog, Comments,ClapButton, YouTubeEmbed } from '../components/Blog'
 
 
 const CodeBlock = ({ node }) => {
