@@ -36,9 +36,9 @@ const ExperienceSection = () => {
   };
 
   return (
-    <div className=" py-10">
+    <div className="py-10 md:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-6">Experience</h2>
+        <h2 className="text-5xl text-center md:my-16 font-bold">MY EXPERIENCE</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {experiences.map((experience, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-lg">

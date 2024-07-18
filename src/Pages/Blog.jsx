@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import client from '../client'
-import NavBarBlog from '../components/NavBarBlog/NavBarBlog';
+import {NavBarBlog} from '../components/Blog';
 import { motion } from 'framer-motion';
 
 

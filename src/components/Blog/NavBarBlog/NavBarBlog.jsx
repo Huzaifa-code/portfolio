@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
 import { Link as RouteLink}  from 'react-router-dom';
-import { useUser } from '../../context/userContext';
+import { useUser } from '../../../context/userContext';
 import Avatar from 'boring-avatars';
 
 
