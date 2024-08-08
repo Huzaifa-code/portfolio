@@ -37,11 +37,11 @@ const ExperienceSection = () => {
 
   return (
     <div className="py-10 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl text-center md:my-16 font-bold">MY EXPERIENCE</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {experiences.map((experience, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+            <div key={index} className="bg-white p-6 rounded-2xl shadow-lg">
               {experience.images && experience.images.length > 0 && (
                 <div className="mb-4">
                   {experience.images.map((image, imgIndex) => (
