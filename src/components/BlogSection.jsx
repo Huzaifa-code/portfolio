@@ -34,7 +34,7 @@ const BlogLink = () => {
     <div className='flex flex-col justify-center items-center md:my-11'>
         <h1 className='text-center text-5xl font-bold'>Blogs</h1>
 
-        <div className='flex flex-col justify-center md:grid md:grid-cols-3 md:gap-1 md:py-3 py-8 '>
+        <div className='flex flex-col justify-center md:grid md:grid-cols-3 md:gap-1 md:py-3 py-8 max-w-7xl '>
             {posts.map((post) => (
                 <Link to={`/blog/${post.slug.current}`} key={post.slug.current} className=' my-4 '>
                     <article key={post.slug.current} className='flex flex-col justify-center items-center'>
