@@ -10,8 +10,6 @@ const Blog = () => {
 
   const [posts, setPosts] = useState([]);
 
-
-
   useEffect(() => {
 
     client.fetch(
@@ -63,7 +61,7 @@ const Blog = () => {
             </p>
           </motion.div>
 
-          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-24 mb-11'>
+          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-24 mb-11'>
             {posts.map((post) => (
                 <motion.div
                   style={{ y: 30 }} animate={{ y: 0 }} 
@@ -72,9 +70,9 @@ const Blog = () => {
                 >
                   <Link to={`/blog/${post.slug.current}`}  className='flex flex-col items-start justify-between h-full border-2 rounded-2xl border-black-400' >
                       <img className='rounded-xl md:w-full' src={post.mainImage.asset.url} alt={post.title} />
-                      <div className='flex justify-between items-center w-full mt-2 px-4'>
+                      <div className='w-full mt-2 px-4'>
                         <p className='text-sm font-medium  text-neutral-500'>{formatDate(post.publishedAt)}</p>
-                        <div>
+                        <div className='space-x-2'>
                           {post.categories?.map((category) => (
                             category ? (
                               <span key={category._id} className=' bg-purple-200 px-3 py-1 rounded-md text-sm text-purple-400'>
@@ -84,7 +82,7 @@ const Blog = () => {
                           ))}
                         </div>
                       </div>
-                      <h4 className='text-xl mt-2 px-4'>{post.title}</h4>
+                      <h4 className='text-md font-medium mt-2 px-4'>{post.title}</h4>
                       <button className='mt-5 mb-8 mx-4 w-11/12'>
                           <p  className='py-2 px-6 rounded-xl shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold' >Read Full Article</p>
                       </button>

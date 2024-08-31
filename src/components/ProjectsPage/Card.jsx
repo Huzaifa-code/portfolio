@@ -1,5 +1,5 @@
 import { useMotionValue, useTransform, motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React from 'react'
 
 const Card = (props) => {
 

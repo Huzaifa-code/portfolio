@@ -60,7 +60,7 @@ function Projects() {
         <p className='my-6 mx-4 md:mx-0 text-xl text-center text-[#464646]'>It's time to see some work. Here are some projects that I have done.</p>
 
         <div ref={ref}
-            className='flex flex-col justify-center gap-6 md:grid md:grid-cols-3 md:gap-20 md:py-3 py-8 md:mx-32 mx-5 max-w-7xl'
+            className='flex flex-col justify-center gap-6 md:grid md:grid-cols-3 md:gap-20 md:py-3 py-8 md:mx-auto mx-5 max-w-5xl 2xl:max-w-7xl'
 
         >  
             {data.map( (d) => {
