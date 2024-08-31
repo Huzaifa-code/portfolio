@@ -1,7 +1,7 @@
 // src/components/Comments.js
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../../../context/userContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Avatar from 'boring-avatars';
 
 

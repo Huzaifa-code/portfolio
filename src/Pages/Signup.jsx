@@ -25,9 +25,9 @@ const Signup = () => {
     };
     
     // Handle profile picture upload
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, profilePicture: e.target.files[0] });
-    };
+    // const handleFileChange = (e) => {
+    //     setFormData({ ...formData, profilePicture: e.target.files[0] });
+    // };
     
       // Handle form submission
     const handleSubmit = async (e) => {

@@ -42,7 +42,7 @@ function Contact() {
   return (
     <div id='contact' className='mt-[8rem]'>
 
-      <div className='flex flex-col md:flex-row justify-between items-center my-9 mx-auto max-w-7xl'>
+      <div className='flex flex-col md:flex-row justify-between items-center my-9 mx-auto max-w-5xl 2xl:max-w-7xl'>
         
         <motion.div 
           style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
