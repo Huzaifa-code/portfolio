@@ -57,12 +57,14 @@ const Login = () => {
         email: '',
         password: ''
       });
+
+      navigate('/blog');
+
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
     }
 
-    navigate('/blog');
   };
 
   // Close error modal
