@@ -39,6 +39,9 @@
 }
 
 
+img.blog_image {
+  width: full;
+}
 
 @media (min-width: 768px) {
   /* Main Image */
@@ -55,21 +58,41 @@
   line-height: 1.6;
 }
 
+
+.block_content h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  margin: 10px 0 20px;
+  font-family: 'Gochi Hand', cursive;
+  font-family: 'Sriracha', cursive;
+}
 .block_content h2 {
   font-weight: 400; /* Default */
+  line-height: 1.2;
   font-size: 36px;
   margin: 100px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
 }
 
-.block_content h1 {
-  font-weight: 700;
-  font-size: 40px;
+.block_content h3 {
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.2;
   margin: 10px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
 }
+.block_content h4 {
+  font-weight: 300; /* Default */
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 100px 0 20px;
+  font-family: 'Gochi Hand', cursive;
+  font-family: 'Sriracha', cursive;
+}
+
 
 .block_content a{
   color: #731FFC;

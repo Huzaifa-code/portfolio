@@ -25,7 +25,7 @@ const CodeBlock = ({ node }) => {
 
   return (
     <div className="code-block-wrapper">
-      <p className='text-sm text-neutral-400' >{isCopied ? 'copied' : "" } &nbsp; </p>
+      <p className='text-sm text-indigo-600' >{isCopied ? 'copied' : "" } &nbsp; </p>
       <pre className="code-block flex justify-between items-start mb-11">
         <code className='text-sm' >{node.code}</code>
         <button
@@ -135,7 +135,7 @@ const SinglePost = () => {
             <h1 className='uppercase font-bold text-4xl tracking-wide nb-5 md:text-6xl flex items-center justify-center h-screen'>Loading...</h1> 
           
         ): 
-        <section className='px-5 xl:max-w-6xl xl:mx-auto pb-10'>
+        <section className='px-5 xl:max-w-5xl xl:mx-auto pb-10'>
           
           <motion.div 
             style={{ y: 30 }} animate={{ y: 0 }}
@@ -163,7 +163,7 @@ const SinglePost = () => {
 
               <div className='flex justify-between items-center'>
                 <ClapButton initialClaps={SinglePost.claps} slug={slug}  />
-                <p className='text-right my-9'>Author: Huzaifa Qureshi</p>
+                <p className='text-right my-9'>Huzaifa Qureshi</p>
               </div>
             </>
           )} 
@@ -171,7 +171,7 @@ const SinglePost = () => {
           
 
           <div className='block_content'>
-            <BlockContent className='text-xl md:mx-28' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
+            <BlockContent className='text-xl' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
           </div>
 
           
