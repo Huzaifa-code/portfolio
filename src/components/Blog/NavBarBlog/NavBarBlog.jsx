@@ -58,11 +58,11 @@ function NavBarBlog() {
   return (
     <>
       <Nav className='bg-white'>
-          <RouteLink to="/" ><img src={image} alt="" /></RouteLink>
+        <RouteLink to="/" ><img src={image} alt="" /></RouteLink>
           
           
           {(toggleMenu || screenWidth > 700) && (
-            <Links className='topnav' id='myTopnav'>
+            <Links className='topnav z-10' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
                 <RouteLink  to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >My Portfolio</RouteLink>
@@ -109,16 +109,14 @@ function NavBarBlog() {
                       Login
                     </RouteLink>
                   )
-                }
-                
-               
+                }               
             </Links>
           )}
 
 
-          <Bars onClick={toggleNav}>
-                <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
-          </Bars>
+        <Bars onClick={toggleNav} className='z-10' >
+              <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
+        </Bars>
 
       </Nav>
     </>

@@ -153,7 +153,7 @@ const SinglePost = () => {
           
           
           {SinglePost && SinglePost.mainImage && SinglePost.mainImage.asset && (
-            <>
+            <div>
              <motion.div 
               style={{ x: -200 }} animate={{ x: 0 }}
               transition={{duration: 0.6}}
@@ -165,7 +165,7 @@ const SinglePost = () => {
                 <ClapButton initialClaps={SinglePost.claps} slug={slug}  />
                 <p className='text-right my-9'>Huzaifa Qureshi</p>
               </div>
-            </>
+            </div>
           )} 
           
           

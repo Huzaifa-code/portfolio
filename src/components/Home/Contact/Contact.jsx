@@ -55,7 +55,7 @@ function Contact() {
             <p className='text-xl text-center md:text-left my-3 text-[#464646]'>I hope to hear from you!</p>
             <p className='text-xl mt-9 text-center md:text-left'>Reach out to me at :</p>
             <p className='text-xl text-center md:text-left'>developerhuzaifa@gmail.com</p>
-            <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>        
+            <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] hover:bg-[#a269ff] font-semibold text-xl text-white rounded-md transition-all' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>        
           </div>
         </motion.div>
 
@@ -73,7 +73,7 @@ function Contact() {
 
             <label className='text-2xl font-bold block' htmlFor="message" >Message : </label>
             <textarea required className='border-solid border border-[#5f5f5f] px-2 py-1 outline-none' name="user_message" id="message" cols="30" rows="5"></textarea>
-            <button className='bg-[#F6C821] flex items-center justify-center text-xl font-bold rounded-md text-white mt-4 py-2 px-4 hover:scale-110' type="submit">SEND <img className='inline ml-3' src={send} alt="" /></button>
+            <button className='bg-[#F6C821] hover:bg-[#ffdd61] transition-all flex items-center w-full justify-center text-xl font-bold rounded-md text-white mt-4 py-2 px-4 ' type="submit">SEND <img className='inline ml-3' src={send} alt="" /></button>
           </form>
         </motion.div>
 
