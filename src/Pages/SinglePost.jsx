@@ -186,11 +186,11 @@ const SinglePost = () => {
           <div className='flex flex-col justify-center items-center md:my-11'>
             <h3 className='my-4 text-lg font-semibold text-zinc-700'>Follow me on</h3>
             <div className='flex justify-center items-center gap-6'>
-              <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillInstagram/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillLinkedin/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://github.com/Huzaifa-code" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiFillGithub/> </a>
-              <a  target="_blank"  rel="noreferrer" href="https://twitter.com/Huzaifa92912561" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <AiOutlineTwitter/> </a> 
-              <a  target="_blank"  rel="noreferrer" href="https://medium.com/@huzaifaqureshi037" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125"> <BsMedium/> </a> 
+              <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiFillInstagram/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiFillLinkedin/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://github.com/Huzaifa-code" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiFillGithub/> </a>
+              <a  target="_blank"  rel="noreferrer" href="https://twitter.com/Huzaifa92912561" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiOutlineTwitter/> </a> 
+              <a  target="_blank"  rel="noreferrer" href="https://medium.com/@huzaifaqureshi037" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <BsMedium/> </a> 
             </div>
           </div>
 
@@ -208,7 +208,7 @@ const SinglePost = () => {
 
           {/* Modal */}
           {isModalOpen && (
-            <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="fixed inset-0 z-10 overflow-y-auto backdrop-blur-sm">
               <div className="flex items-center justify-center min-h-screen">
                 <div className="fixed inset-0 transition-opacity" aria-hidden="true">
                   <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
