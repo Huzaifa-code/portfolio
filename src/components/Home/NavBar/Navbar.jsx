@@ -103,7 +103,7 @@ function Navbar() {
           </RouteLink>
           
           {(toggleMenu || screenWidth > 700) && (
-            <Links className='topnav' id='myTopnav'>
+            <Links className='topnav z-20' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
                 <RouteLink  to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Home</RouteLink>
@@ -115,7 +115,7 @@ function Navbar() {
           )}
 
 
-          <Bars onClick={toggleNav}>
+          <Bars onClick={toggleNav} className='z-20'>
                 <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
           </Bars>
 

@@ -21,7 +21,7 @@ const ClapButton = ({ initialClaps, slug  }) => {
 
   return (
     <button
-      className={`flex items-center gap-2 px-4 py-2  font-semibold text-lg  transition-transform duration-200 ease-in-out rounded-lg ${
+      className={`flex items-center gap-2 px-4 py-2 z-0 font-semibold text-lg  transition-transform duration-200 ease-in-out rounded-lg ${
         isClapped ? 'scale-125' : 'scale-100'
       }`}
       onClick={handleClap}
