@@ -154,7 +154,9 @@ function Hero() {
             </div>
         </div>
       
-        <div className='fixed bg-[#fff] md:bg-transparent left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] pl-3'>
+        <div 
+          className='fixed bg-transparent backdrop-blur-sm rounded-xl border border-gray-200 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10'
+        >
           <SocialBtn className='' target="_blank" href="https://www.instagram.com/developer_huzaifa"> <div className='p-3 my-3 rounded-full border border-solid border-black hover:scale-110'> <img  src={insta} alt="" /></div> </SocialBtn>
           <SocialBtn className='' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> <div className='p-3 rounded-full border border-solid border-black hover:scale-110'><img src={lin} alt="" /></div>  </SocialBtn>
           <SocialBtn className='' target="_blank" href="https://github.com/Huzaifa-code"> <div className='p-3 my-3 rounded-full border border-solid border-black hover:scale-110'><img src={gh} alt="" /></div>  </SocialBtn>
