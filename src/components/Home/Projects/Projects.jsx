@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import img from './assets/Vector1.svg'
 // import arrow from './assets/Arrow1.svg'
 import { Link } from 'react-router-dom';
+import { projects as data } from '../../../data/projects';
 
 // import { motion, useInView } from "framer-motion"
 
@@ -11,37 +12,7 @@ const Projectsec = styled.div`
         min-height: 80vh;
 `;
 
-const data = [
-    {
-        img: "./assets/chatApp.jpg",
-        description: "Cross Platform real time chat application made using React Native Expo and firebase",
-        // Download button add
-        link: "https://github.com/Huzaifa-code/connect_frontend/releases",
-        linkText: "Download APK",
-        route: "/connect",
-        routeText: "Read More"
-    },
-    {
-        img: "./assets/project4.jpg",
-        description: "Freelance Project - Wolves Media website made using React.js and tailwindcss and UI/UX design using Figma",
-        link: "https://thejungletechnology.com/",
-        linkText: "visit"
-    },
-    {
-        img: "./assets/project3.jpg",
-        description: "Freelance Project - Enticing Empire website made using React.js and tailwindcss and UI/UX design using Figma",
-        link: "https://www.enticingempire.com/",
-        linkText: "visit"
 
-    },
-    {
-        img: "./assets/project2.jpg",
-        description: "This is a Recipe website made using React and spoonacular API",
-        link: "https://recipe-app-ashen-seven.vercel.app",
-        linkText: "visit"
-    },
-
-]
 
 
 function Projects() {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@behold/react": "^0.1.10",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/cli": "^3.5.1",
     "@sanity/client": "^5.2.2",
