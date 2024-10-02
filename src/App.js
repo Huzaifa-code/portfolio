@@ -9,6 +9,7 @@ import Signup from './Pages/Signup.jsx';
 import Projects from './Pages/Projects.jsx';
 import { Helmet } from 'react-helmet';
 import { Analytics } from "@vercel/analytics/react"
+import Insta from './Pages/Insta.jsx';
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/projects' element={<Projects />}/>
+        <Route path='/insta' element={<Insta />}/>
+
       </Routes>
     </>
       // </BrowserRouter>
