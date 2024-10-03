@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import send from './assets/send.svg'
 import {SiGmail} from 'react-icons/si'
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
 
-import { motion, useInView } from "framer-motion"
+// import { motion, useInView } from "framer-motion"
 
 
 const SERVICE_ID = "service_xplr8kj";
@@ -35,8 +35,8 @@ function Contact() {
 
 
   // Framer Animation
-  const left = useRef(null);
-  const isInView = useInView(left); // same isInView for left and right element 
+  // const left = useRef(null);
+  // const isInView = useInView(left); // same isInView for left and right element 
  
 
   return (
@@ -44,9 +44,9 @@ function Contact() {
 
       <div className='flex flex-col md:flex-row justify-between items-center my-9 mx-auto max-w-5xl 2xl:max-w-7xl'>
         
-        <motion.div 
-          style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
-          ref={left}
+        <div 
+          // style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+          // ref={left}
         >
           <div className='md:mr-36'>
             <h1 className='text-5xl text-center md:text-left md:text-6xl font-bold'>That's it! </h1>
@@ -57,11 +57,11 @@ function Contact() {
             <p className='text-xl text-center md:text-left'>developerhuzaifa@gmail.com</p>
             <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] hover:bg-[#a269ff] font-semibold text-xl text-white rounded-md transition-all' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>        
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
-          ref={left}
+        <div 
+          // style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+          // ref={left}
         >
         {/* Contact form */}
           <form className='md:mt-0 mt-11'  onSubmit={handleOnSubmit} >
@@ -75,7 +75,7 @@ function Contact() {
             <textarea required className='border-solid border border-[#5f5f5f] px-2 py-1 outline-none' name="user_message" id="message" cols="30" rows="5"></textarea>
             <button className='bg-[#F6C821] hover:bg-[#ffdd61] transition-all flex items-center w-full justify-center text-xl font-bold rounded-md text-white mt-4 py-2 px-4 ' type="submit">SEND <img className='inline ml-3' src={send} alt="" /></button>
           </form>
-        </motion.div>
+        </div>
 
       </div> 
 
