@@ -1,13 +1,15 @@
 export const projects = [
     {
         img: "https://i.imgur.com/khqPdiM.jpeg",
-        description: "Summarize PDF : AI-Powered PDF Summarization Tool,  Hugging Face BART Model  ",
-        detailDesc: "This app leverages Hugging Face's BART model to automatically summarize lengthy PDFs into concise, readable summaries. Using advanced natural language processing, the tool extracts key points from documents, making it easier for students and professionals to quickly grasp the essential information.",
+        gif: "https://i.imgur.com/NnKXSFf.gif",
+        description: "Summarize PDF/text : AI-Powered PDF Summarization Tool ",
+        detailDesc: "This app leverages BART model to automatically summarize lengthy PDFs into concise, readable summaries. Using advanced natural language processing, the tool extracts key points from documents, making it easier for students and professionals to quickly grasp the essential information.",
         link: "https://summarize-pdf.streamlit.app/",
         linkText: "Link",
     },
     {
         img: "https://i.imgur.com/jpFgMcf.jpeg",
+        gif: "https://i.imgur.com/tbxMyHh.gif",
         description: "AI Chat Support for Linux Lite OS. Made with Vite(Reactjs), tailwindcss, Nodejs, Open AI",
         link: "https://linuxliteos.com/chatai",
         linkText: "Link",

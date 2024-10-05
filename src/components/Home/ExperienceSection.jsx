@@ -103,7 +103,7 @@ const ExperienceSection = () => {
               <img
                 src={selectedExperience.images[currentImageIndex].asset.url}
                 alt={`${selectedExperience.company} - ${currentImageIndex}`}
-                className="w-full h-auto object-contain"
+                className="md:w-full md:h-auto h-[90vh]"
               />
             </div>
             <div className="absolute top-4 right-4 md:top-8 md:right-8">
