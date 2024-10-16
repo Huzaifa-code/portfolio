@@ -75,7 +75,6 @@ function About() {
                 <a
                   className='text-sm mx-4 w-fit flex justify-center items-center font-medium px-3 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
                   href="https://docs.google.com/document/d/1yVMhw9hVLRwzPlxh9YA0i9FdWT-slbFSTfXCvXrXcpU/export?format=pdf"
-                  target="_blank" rel="noreferrer"
                 >
                   <FaDownload className="mr-2" />
                   Download Resume
