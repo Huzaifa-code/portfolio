@@ -22,7 +22,7 @@ const Reviews = () => {
   return (
     <section className="py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-5xl md:text-6xl my-11 font-bold text-center">What Others Say</h1>
+        <h1 className="text-5xl md:text-6xl my-11 font-bold text-center uppercase">What Others Say</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
             <div
