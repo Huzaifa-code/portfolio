@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { ExperienceSection, About, Contact, Hero, Navbar, Projects, Skills } from '../components/Home';
+import { ExperienceSection, About, Contact, Hero, Navbar, Projects, Skills, Reviews } from '../components/Home';
 import { motion, useScroll,useSpring } from "framer-motion"
 import BlogLink from '../components/BlogSection';
 import { useEffect } from "react";
@@ -57,6 +57,7 @@ const Home = () => {
         <About/>
         <ExperienceSection/>
         <Skills/>
+        <Reviews/>
         <Projects/>
         <BlogLink/>
         {/* <Services/> */}

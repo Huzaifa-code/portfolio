@@ -6,6 +6,7 @@ import Navbar from './NavBar/Navbar'
 import Hero from './Hero/Hero'
 import Contact from './Contact/Contact'
 import About from './About/About'
+import Reviews from './Reviews/Reviews'
 
 export {
     ExperienceSection,
@@ -15,5 +16,6 @@ export {
     Navbar,
     Hero,
     Contact,
-    About
+    About,
+    Reviews
 }
