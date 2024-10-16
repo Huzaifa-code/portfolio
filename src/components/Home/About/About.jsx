@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import image from './assets/Rectangle2.svg'
 import img1 from './assets/vector1.svg'
 import { Element } from 'react-scroll'
+import CustomModal from '../../CustomModal'
+import { FaEye, FaDownload } from 'react-icons/fa';
 
 const Aboutsec = styled.div`
         min-height: 80vh;
@@ -30,6 +32,16 @@ const Main = styled.div`
 
 function About() {
     
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('image');
+  const [url, setUrl] = useState(null); // Default content
+
+  const openDocsModal = () => {
+    setModalType('iframe');
+    setUrl('https://docs.google.com/document/d/e/2PACX-1vT3wuprmjPg-3KtBt4cV_RZe9NcRR5zR0U6gXZrEMqeH8O0Jj3XIe43KSoz-nK_QgrFTRo0UhycSDFT/pub?embedded=true');
+    setIsModalOpen(true);
+  };
+
 
   return (
     <Element name="about" className="element">
@@ -50,17 +62,31 @@ function About() {
                 I'm here to bring your dreams to life. Let's collaborate and create something remarkable together!
               </p>
               <p className='my-6 text-justify'>My Tech Stack is MERN React.js React-Native Next.js Node.js Firebase Tailwindcss MongoDB </p> 
-              <a 
-                className='text-sm font-medium px-3 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
-                href="https://docs.google.com/document/d/1yVMhw9hVLRwzPlxh9YA0i9FdWT-slbFSTfXCvXrXcpU/edit?usp=sharing"
-                target="_blank" rel="noreferrer"
-              >
-                Download Resume
-              </a>
+              
+              <div className="flex items-center">
+                <button 
+                  onClick={openDocsModal} 
+                  className='text-sm flex justify-center items-center  font-medium px-3 py-3 rounded-lg bg-indigo-600 border-2 border-indigo-600 text-white hover:bg-white hover:text-indigo-600' 
+                >
+                  <FaEye className="mr-2" />
+                  View Resume
+                </button>
+                
+                <a
+                  className='text-sm mx-4 w-fit flex justify-center items-center font-medium px-3 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
+                  href="https://docs.google.com/document/d/1yVMhw9hVLRwzPlxh9YA0i9FdWT-slbFSTfXCvXrXcpU/export?format=pdf"
+                  target="_blank" rel="noreferrer"
+                >
+                  <FaDownload className="mr-2" />
+                  Download Resume
+                </a>
+              </div>
+
+              
+
             </div>
-
           </Main>
-
+          <CustomModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} url={url} type={modalType} />
       </Aboutsec>
 
     </Element>
