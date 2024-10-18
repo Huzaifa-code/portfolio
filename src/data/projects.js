@@ -25,6 +25,13 @@ export const projects = [
         routeText: "Read More"
     },
     {
+        img: "https://i.imgur.com/ojbi0ar.jpeg",
+        description: "SpeakFlow: A React-based web app for real-time speech transcription and translation, using web workers and Hugging Face's transformers.js.",
+        detailDesc: "SpeakFlow is a React-based web application that leverages web workers to run machine learning models directly in your browser. It uses transformers.js to perform speech-to-text transcription and supports translation into multiple languages.Key Features: Real-Time Speech-to-Text: Convert your audio input into text quickly and efficiently.Translation: Translate the transcribed text into any supported language. Browser-Based ML: No server required! The app runs ML models in the browser using web workers. Asynchronous Processing: Perform tasks like downloading, loading, and inference in the background, ensuring smooth user experience.",
+        link: "speak-flow.vercel.app",
+        linkText: "Visit",
+    },
+    {
         img: "https://i.imgur.com/khqPdiM.jpeg",
         gif: "https://i.imgur.com/NnKXSFf.gif",
         description: "Summarize PDF/text : AI-Powered PDF Summarization Tool ",
