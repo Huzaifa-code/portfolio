@@ -10,6 +10,7 @@ import { LuCopy } from "react-icons/lu";
 import { motion, useScroll } from "framer-motion"
 import { Helmet } from 'react-helmet';
 import { NavBarBlog, Comments,ClapButton, YouTubeEmbed } from '../components/Blog'
+import Loader from '../components/Loader/Loader'
 
 
 const CodeBlock = ({ node }) => {
@@ -74,8 +75,8 @@ const SinglePost = () => {
       `
     ).then((data) => {
       setSinglePost(data[0])
+      setIsLoading(false);
     })
-    setIsLoading(false);
   }, [slug])
 
 
@@ -131,9 +132,7 @@ const SinglePost = () => {
       <NavBarBlog/>
       <motion.div className='fixed top-0 left-0 right-0 h-[10px] bg-[#731FFC] origin-top-left' style={{ scaleX: scrollYProgress }} />  
       {isLoading ? (
-          
-            <h1 className='uppercase font-bold text-4xl tracking-wide nb-5 md:text-6xl flex items-center justify-center h-screen'>Loading...</h1> 
-          
+            <Loader />
         ): 
         <section className='px-5 xl:max-w-5xl xl:mx-auto pb-10'>
           
