@@ -10,6 +10,9 @@ module.exports = {
           borderRadius: '10px',
         },
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      }
     },
   },
   plugins: [],

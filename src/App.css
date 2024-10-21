@@ -90,9 +90,6 @@ img.blog_image {
 
 @media (min-width: 768px) {
   /* Main Image */
-  img.blog_image{
-    height: 600px;
-  }
 
   .block_content p {
     font-size: 20px;

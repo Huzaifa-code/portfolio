@@ -2,42 +2,57 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import client from '../client';
-import { NavBarBlog } from '../components/Blog';
+import { Filter, NavBarBlog } from '../components/Blog';
 import { motion } from 'framer-motion';
 import Loader from '../components/Loader/Loader'; // Import the Loader component
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
+  const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true); // Loading state
+  const [activeFilter, setActiveFilter] = useState('All')
 
   useEffect(() => {
-    client.fetch(
-      `*[_type == "post"] | order(publishedAt desc) {
-        title,
-        slug,
-        body,
-        publishedAt,
-        mainImage {
-          asset -> {
-            _id,
-            url
-          },
-          alt
-        },
-        categories[]->{
-          _id,
-          title
-        }
-      }`
-    )
-    .then((data) => {
-      setPosts(data);
-      setLoading(false); // Set loading to false once data is fetched
-    })
-    .catch((error) => {
-      console.error(error);
-      setLoading(false); // In case of error, also stop loading
-    });
+    const fetchData = async () => {
+      try {
+        const [postsData, categoriesData] = await Promise.all([
+          client.fetch(`
+            *[_type == "post"] | order(publishedAt desc) {
+              title,
+              slug,
+              body,
+              publishedAt,
+              mainImage {
+                asset -> {
+                  _id,
+                  url
+                },
+                alt
+              },
+              categories[]->{
+                _id,
+                title
+              }
+            }
+          `),
+          client.fetch(`
+            *[_type == "category"] {
+              _id,
+              title
+            }
+          `)
+        ])
+
+        setPosts(postsData)
+        setCategories([{ _id: 'all', title: 'All' }, ...categoriesData])
+        setLoading(false)
+      } catch (error) {
+        console.error(error)
+        setLoading(false)
+      }
+    }
+
+    fetchData();
   }, []);
 
   const formatDate = (isoString) => {
@@ -49,9 +64,17 @@ const Blog = () => {
     });
   };
 
+  const filteredPosts = activeFilter === 'All' 
+    ? posts 
+    : posts.filter(post => post.categories?.some(category => category?.title === activeFilter))
+
+
   return (
     <div className='bg-white'>
       <NavBarBlog/>
+
+      <Filter categories={categories} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+
       <section className='px-10'>
         <motion.div 
           style={{ y: 30 }} animate={{ y: 0 }}
@@ -67,7 +90,7 @@ const Blog = () => {
           <Loader /> // Show loader when posts are being fetched
         ) : (
           <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-24 mb-11'>
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
               <motion.div
                 style={{ y: 30 }} animate={{ y: 0 }} 
                 transition={{duration: 0.55}}
