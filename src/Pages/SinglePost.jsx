@@ -134,7 +134,7 @@ const SinglePost = () => {
       {isLoading ? (
             <Loader />
         ): 
-        <section className='px-5 xl:max-w-5xl xl:mx-auto pb-10'>
+        <section className='px-5 md:max-w-4xl md:mx-auto pb-10'>
           
           <motion.div 
             style={{ y: 30 }} animate={{ y: 0 }}
@@ -144,7 +144,7 @@ const SinglePost = () => {
               style={{
                 fontFamily: "'Sriracha', cursive"
               }} 
-              className="text-4xl md:text-6xl pt-5 mb-10 text-center " 
+              className="text-4xl md:text-5xl pt-5 mb-10 text-center " 
             >
               {SinglePost.title}
             </h1>
@@ -157,7 +157,7 @@ const SinglePost = () => {
               style={{ x: -200 }} animate={{ x: 0 }}
               transition={{duration: 0.6}}
               >
-              <img className='blog_image rounded-lg mx-auto' src={SinglePost.mainImage.asset.url} alt={SinglePost.title} title={SinglePost.title} />
+              <img className='blog_image rounded-lg ' src={SinglePost.mainImage.asset.url} alt={SinglePost.title} title={SinglePost.title} />
              </motion.div>
 
               <div className='flex justify-between items-center'>
