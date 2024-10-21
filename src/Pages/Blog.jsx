@@ -70,12 +70,12 @@ const Blog = () => {
 
 
   return (
-    <div className='bg-white'>
+    <div className=''>
       <NavBarBlog/>
 
       <Filter categories={categories} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
-      <section className='px-10'>
+      <section className='px-10 z-0'>
         <motion.div 
           style={{ y: 30 }} animate={{ y: 0 }}
           transition={{duration: 0.5}}
