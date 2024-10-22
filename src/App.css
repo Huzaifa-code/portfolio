@@ -157,6 +157,22 @@ img.blog_image {
   color: #3a3a3a;
 }
 
+.block_content ul {
+  list-style: circle;
+  padding-left: 3rem;
+  margin: 2rem auto;
+}
+
+.block_content ol {
+  list-style: decimal;
+  padding-left: 3rem;
+  margin: 2rem auto;
+}
+
+.block_content li {
+  margin: 8px auto;
+}
+
 /* Making Responsive */
 @media (max-width: 700px){
   .block_content img {
