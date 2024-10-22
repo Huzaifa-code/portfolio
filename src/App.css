@@ -163,6 +163,12 @@ img.blog_image {
   margin: 2rem auto;
 }
 
+.block_content ol {
+  list-style: decimal;
+  padding-left: 3rem;
+  margin: 2rem auto;
+}
+
 .block_content li {
   margin: 8px auto;
 }
