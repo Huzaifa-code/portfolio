@@ -59,7 +59,7 @@ const Home = () => {
         <Skills/>
         <Reviews/>
         <Projects/>
-        <Services/>
+        {/* <Services/> */}  
         <BlogLink/>
         <Contact/>
       </div>
