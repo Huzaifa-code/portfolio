@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { ExperienceSection, About, Contact, Hero, Navbar, Projects, Skills, Reviews, Services } from '../components/Home';
+import { ExperienceSection, About, Contact, Hero, Navbar, Projects, Skills, Reviews } from '../components/Home';
 import { motion, useScroll,useSpring } from "framer-motion"
 import BlogLink from '../components/BlogSection';
 import { useEffect } from "react";

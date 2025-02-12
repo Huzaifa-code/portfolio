@@ -80,7 +80,7 @@
 /* ------------------------ CSS For Blogs ------------------- */
 
 .code-block {
-  @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto;
+  @apply bg-gray-600 text-white  rounded-xl overflow-x-auto;
 }
 
 
@@ -176,7 +176,7 @@ img.blog_image {
 /* Making Responsive */
 @media (max-width: 700px){
   .block_content img {
-    width: 100%;
+    width: 95%;
     border-radius: 10px;
   }
 

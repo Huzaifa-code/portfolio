@@ -26,15 +26,20 @@ const CodeBlock = ({ node }) => {
 
   return (
     <div className="code-block-wrapper">
-      <p className='text-sm text-indigo-600' >{isCopied ? 'copied' : "" } &nbsp; </p>
-      <pre className="code-block flex justify-between items-start mb-11">
-        <code className='text-sm' >{node.code}</code>
+      <p 
+        className={`font-semibold text-right w-fit ml-auto text-neutral-600 my-2 px-2 py-1 rounded-md ${isCopied ? "bg-neutral-200" : ""}` } 
+        style={{fontSize: '0.9rem'}}
+      >
+        {isCopied ? 'copied to clipboard' : "" } &nbsp; 
+      </p>
+      <pre className="code-block flex flex-col mb-11 ">
         <button
           onClick={handleCopyToClipboard}
-          className=" text-white font-semibold px-4 py-2 text-xs flex justify-center items-center gap-2"
+          className=" text-neutral-300 font-semibold p-2 text-xs self-end flex justify-center items-center  hover:bg-neutral-100 hover:text-neutral-800 border border-neutral-500 rounded-full absolute m-2"
         >
           <LuCopy />
         </button>
+        <code className='text-sm mt-11 p-6 bg-neutral-900 rounded-xl' >{node.code}</code>
       </pre>
     </div>
   );
