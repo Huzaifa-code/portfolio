@@ -141,7 +141,9 @@ function Hero() {
                 <div className="text flex flex-col items-center">
                   <h1 className='text-center font-semibold text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
                   <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1> 
-                  <p className='text-center font-regular text-xl px-12 md:px-[26rem] md:text-2xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >I help Businesses <span className='font-bold'>GROW</span>  and <span className='font-bold'>INCREASE</span> their social presence by building intuitive Websites</p> 
+                  <p className='text-center font-regular text-xl px-12 md:px-[26rem] md:text-2xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >
+                    I focus on developing scalable, high-performance applications and contributing to open-source projects, with the goal of driving innovation and digital transformation in the tech space.
+                  </p> 
                   <Link smooth spy to="contact" className='my-5 py-3 w-[10rem]  flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105 transition-all'>Hire Me <img className='ml-4' src={profileimg} alt="" /> </Link>         
                 </div>
               </div> 
