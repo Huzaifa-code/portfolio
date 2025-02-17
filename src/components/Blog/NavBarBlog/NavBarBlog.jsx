@@ -65,8 +65,8 @@ function NavBarBlog() {
             <Links className='topnav z-10' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
-                <RouteLink  to="/" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >My Portfolio</RouteLink>
-                <RouteLink  to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
+                <RouteLink  to="/" className='my-6 font-semibold md:my-[1.5rem] md:mx-6' >Portfolio</RouteLink>
+                <RouteLink  to="/blog" className='my-6 font-semibold md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
 
                 {
                   user ? (
