@@ -7,26 +7,26 @@ import CustomModal from '../../CustomModal'
 import { FaEye, FaDownload } from 'react-icons/fa';
 
 const Aboutsec = styled.div`
-        min-height: 80vh;
-        @media (max-width: 700px){
-          margin-top: 2rem;
-        }
+  min-height: 80vh;
+  @media (max-width: 700px){
+    margin-top: 2rem;
+  }
 `;
 
 
 const Main = styled.div`
-        display: flex;
-        height: 70%;
+  display: flex;
+  height: 70%;
 
-        font-size: 1.3rem;
+  // font-size: 1.3rem;
 
-        @media(max-width: 700px){
-          flex-direction: column;
-          
-          div{
-            padding: 10px 3rem;
-          }
-        }
+  @media(max-width: 700px){
+    flex-direction: column;
+    
+    div{
+      padding: 10px 3rem;
+    }
+  }
 `;
 
 
@@ -54,14 +54,12 @@ function About() {
 
             <img className='hidden md:block md:min-h-[60vh]' src={image} alt="" />
 
-            <div className='md:w-[65%] md:pl-24 text-lg md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
+            <div className='md:w-[65%] md:pl-24 text-lg md:text-sm' data-aos="fade-up" data-aos-duration="1000" >
               <p className='my-6 text-justify'>
-                I'm a passionate freelance web & app developer with a knack for turning ideas into captivating online experiences. 
-                With a blend of creativity and technical prowess, I craft websites & apps that not only look stunning but also function flawlessly. 
-                Whether you're a small business looking to establish an online presence or a visionary entrepreneur seeking a unique digital solution, 
-                I'm here to bring your dreams to life. Let's collaborate and create something remarkable together!
+                I'm a web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
+                Whether you're a business or an entrepreneur, I'm here to bring your vision to life. Let's create something extraordinary together!
               </p>
-              <p className='my-6 text-justify'>My Tech Stack is MERN React.js React-Native Next.js Node.js Firebase Tailwindcss MongoDB </p> 
+              <p className='my-6 text-justify'>My Tech Stack is DOTNET C# MYSQL MERN React.js React-Native Next.js Node.js Firebase Tailwindcss MongoDB </p> 
               
               <div className="flex items-center">
                 <button 
