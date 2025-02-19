@@ -63,7 +63,7 @@ const SocialBtn = styled.a`
 
 
 // Function for animated parallax text
-function ParallaxText({ children, baseVelocity = 100 }) {
+function ParallaxText({ children, baseVelocity = 70 }) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -151,8 +151,8 @@ function Hero() {
 
             {/* Parallax animated text */}
             <div className='mt-16 mb-8'>
-              <ParallaxText baseVelocity={-5}>MERN STACK | WEB DEVELOPER |</ParallaxText>
-              <ParallaxText baseVelocity={5}>UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
+              <ParallaxText baseVelocity={-2}>MERN STACK | FULL STACK DEVELOPER |</ParallaxText>
+              <ParallaxText baseVelocity={2}>DOTNET | C# | UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
             </div>
         </div>
       
