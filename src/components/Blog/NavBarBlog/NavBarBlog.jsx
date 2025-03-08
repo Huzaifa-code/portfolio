@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
-import { Link as RouteLink}  from 'react-router-dom';
+import { NavLink as RouteLink}  from 'react-router-dom';
 import { useUser } from '../../../context/userContext';
 import Avatar from 'boring-avatars';
 
@@ -65,8 +65,18 @@ function NavBarBlog() {
             <Links className='topnav z-10' id='myTopnav'>
                 {/* Link imported from "react-scroll" library for animation */}
                 {/* And RouteLink is for Link in react-router-dom */}
-                <RouteLink  to="/" className='my-6 font-semibold md:my-[1.5rem] md:mx-6' >Portfolio</RouteLink>
-                <RouteLink  to="/blog" className='my-6 font-semibold md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
+                <RouteLink  
+                  to="/"
+                  className={({ isActive }) => 
+                    `my-6 font-semibold md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75 ${isActive ? "text-[#4e54c8]" : "text-black"}`
+                  } 
+                >Portfolio</RouteLink>
+                <RouteLink  
+                  to="/blog" 
+                  className={({ isActive }) => 
+                    `my-6 font-semibold md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] ${isActive ? "text-[#731FFC]" : "text-black"}`
+                  }
+                >Blogs</RouteLink>
 
                 {
                   user ? (
@@ -95,7 +105,7 @@ function NavBarBlog() {
                         <div className='absolute mt-1 w-44 bg-white border border-gray-200 rounded-md shadow-lg'>
                           <button
                             onClick={handleLogout}
-                            className='block px-4 py-4 text-sm text-gray-700 hover:bg-gray-100 w-full text-left font-semibold'
+                            className='block px-4 py-4 text-sm text-gray-700 hover:bg-gray-100 w-full text-left font-semibold border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75'
                           >
                             Logout
                           </button>
@@ -105,7 +115,7 @@ function NavBarBlog() {
 
                   ) :
                   (
-                    <RouteLink to='/login' className='my-6 font-medium md:my-[1.5rem] md:mx-6' >
+                    <RouteLink to='/login' className='my-6 font-medium md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75' >
                       Login
                     </RouteLink>
                   )

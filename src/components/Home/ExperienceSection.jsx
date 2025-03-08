@@ -90,7 +90,7 @@ const ExperienceSection = () => {
                 {new Date(experience.startDate).toLocaleDateString()} -{' '}
                 {experience.endDate ? new Date(experience.endDate).toLocaleDateString() : 'Present'}
               </p>
-              <p className="mt-4 text-gray-700">{experience.description}</p>
+              <p className="mt-4 text-gray-700 md:text-sm 2xl:text-lg">{experience.description}</p>
             </div>
           ))}
         </div>

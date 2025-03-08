@@ -75,21 +75,25 @@ const Blog = () => {
 
       <Filter categories={categories} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
-      <section className='px-10 z-0'>
-        <motion.div 
+      <section className=' z-0 '>
+        <motion.div
           style={{ y: 30 }} animate={{ y: 0 }}
+          className="px-10 py-2 mb-5 bg-gradient-to-r from-[#4e54c8] to-[#8f94fb]"
           transition={{duration: 0.5}}
         >
-          <h1 className='font-bold text-4xl md:text-5xl pt-5'>Welcome to My Dev Blog</h1>
-          <p className="my-11 text-lg md:text-xl lg:text-xl text-neutral-600 max-w-4xl">
+          <h1 className='font-bold text-4xl md:text-5xl pt-5 text-white flex items-center gap-4'>
+            The Full-Stack Engineer's Notebook 
+            <img src="./assets/notebook.gif" className='h-16 rounded-md' alt="" />
+          </h1>
+          <p className="my-11 text-lg md:text-xl lg:text-xl text-neutral-200 max-w-4xl">
             Join me as I delve into the fascinating world of software engineering! Explore a wealth of articles on invaluable Linux tips and tricks, React.js and cutting-edge web technologies.
           </p>
         </motion.div>
 
         {loading ? ( 
-          <Loader /> // Show loader when posts are being fetched
+          <Loader />
         ) : (
-          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-24 mb-11'>
+          <div className='px-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-24 mb-11'>
             {filteredPosts.map((post) => (
               <motion.div
                 style={{ y: 30 }} animate={{ y: 0 }} 
