@@ -222,6 +222,9 @@ const SinglePost = () => {
                     <button onClick={() => setIsModalOpen(false)}>&times;</button>
                   </div>
                   <h2 className="text-lg font-semibold mb-4">Share this post</h2>
+
+                  <img src="/assets/illustrations/share.svg" className="h-[250px] mx-auto" alt="share" />
+
                   <input type="text" value={currentUrl} readOnly className="w-full mb-4 border-gray-300 rounded-lg p-2" />
                   <button
                     onClick={() => createShortUrl(currentUrl)}
