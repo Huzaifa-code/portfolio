@@ -47,14 +47,11 @@ function About() {
     <Element name="about" className="element">
       
       <Aboutsec id='about'>
-          <h1 className='text-5xl text-center flex flex-col justify-center items-center md:my-16 font-bold'>ABOUT ME <img className='w-11' src={img1} alt="" /></h1>
-          
-
+          <h1 className='text-5xl text-center flex flex-col justify-center items-center md:my-16 font-medium'>ABOUT ME <img className='w-11' src={img1} alt="" /></h1>
           <Main>
-
             <img className='hidden md:block md:min-h-[60vh]' src={image} alt="" />
 
-            <div className='md:w-[65%] md:pl-24 text-lg md:text-sm' data-aos="fade-up" data-aos-duration="1000" >
+            <div className='md:w-[65%] md:pl-24 text-lg md:text-xl' data-aos="fade-up" data-aos-duration="1000" >
               <p className='my-6 text-justify'>
                 I'm a web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
                 Whether you're a business or an entrepreneur, I'm here to bring your vision to life. Let's create something extraordinary together!
@@ -64,14 +61,14 @@ function About() {
               <div className="flex items-center">
                 <button 
                   onClick={openDocsModal} 
-                  className='text-sm flex justify-center items-center  font-medium px-3 py-3 rounded-lg bg-indigo-600 border-2 border-indigo-600 text-white hover:bg-white hover:text-indigo-600' 
+                  className='text-sm flex justify-center items-center  font-medium px-4 py-3 rounded-lg bg-indigo-600 border-2 border-indigo-600 text-white hover:bg-white hover:text-indigo-600' 
                 >
                   <FaEye className="mr-2" />
                   View Resume
                 </button>
                 
                 <a
-                  className='text-sm mx-4 w-fit flex justify-center items-center font-medium px-3 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
+                  className='text-sm mx-4 w-fit flex justify-center items-center font-medium px-4 py-3 rounded-lg bg-[#000] border-2 border-[#000] text-white hover:bg-white hover:text-black' 
                   href="https://docs.google.com/document/d/1yVMhw9hVLRwzPlxh9YA0i9FdWT-slbFSTfXCvXrXcpU/export?format=pdf"
                 >
                   <FaDownload className="mr-2" />

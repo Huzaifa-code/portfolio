@@ -8,24 +8,31 @@ const BlogLink = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    client.fetch(
-        // In Query [0..2] means first 3 blogs are fetched
-      `*[_type == "post"] | order(publishedAt desc)[0..5] {
-            title,
-            slug,
-            body,
-            publishedAt,
-            mainImage {
-                asset -> {
-                    _id,
-                    url
-                },
-                alt
-            }
-        }`,
-    ).then((data) => setPosts(data)).catch(
-      console.error(),
-    );
+    const fetchPosts = async () => {
+      try {
+        const data = await client.fetch(
+          // In Query [0..5] means first 6 blogs are fetched
+          `*[_type == "post"] | order(publishedAt desc)[0..5] {
+              title,
+              slug,
+              body,
+              publishedAt,
+              mainImage {
+                  asset -> {
+                      _id,
+                      url
+                  },
+                  alt
+              }
+          }`
+        );
+        setPosts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPosts();
   }, []);
 
 
