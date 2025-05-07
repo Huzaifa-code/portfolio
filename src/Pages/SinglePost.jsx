@@ -27,7 +27,7 @@ const CodeBlock = ({ node }) => {
   return (
     <div className="code-block-wrapper">
       <p 
-        className={`font-semibold text-right w-fit ml-auto text-neutral-600 my-2 px-2 py-1 rounded-md ${isCopied ? "bg-neutral-200" : ""}` } 
+        className={` text-right w-fit ml-auto text-neutral-600 my-2 px-2 py-1 rounded-md ${isCopied ? "bg-neutral-200" : ""}` } 
         style={{fontSize: '0.9rem'}}
       >
         {isCopied ? 'copied to clipboard' : "" } &nbsp; 
@@ -35,7 +35,7 @@ const CodeBlock = ({ node }) => {
       <pre className="code-block flex flex-col mb-11 ">
         <button
           onClick={handleCopyToClipboard}
-          className=" text-neutral-300 font-semibold p-2 text-xs self-end flex justify-center items-center  hover:bg-neutral-100 hover:text-neutral-800 border border-neutral-500 rounded-full absolute m-2"
+          className=" text-neutral-300  p-2 text-sm self-end flex justify-center items-center  hover:bg-neutral-100 hover:text-neutral-800 border border-neutral-500 rounded-full absolute m-2"
         >
           <LuCopy />
         </button>
@@ -125,7 +125,7 @@ const SinglePost = () => {
   };
 
   return (
-    <div className='bg-white'>
+    <div className=''>
       <Helmet>
         <title>{SinglePost.title}</title>
         <meta name="description" content={ SinglePost.title + ",web development , Coding, Programming"} />
@@ -175,12 +175,12 @@ const SinglePost = () => {
           
 
           <div className='block_content'>
-            <BlockContent className='text-xl' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
+            <BlockContent className='text-2xl' blocks={SinglePost.body} projectId="os5ae1ct" dataset="production" serializers={serializers} />
           </div>
 
           
           <button onClick={() => setIsModalOpen(true)} 
-            className='py-2 px-6 mx-auto md:my-11 rounded-md shadow text-white bg-[#731FFC] hover:bg-[#31185a] transition-all duration-500 font-bold flex justify-center items-center gap-3'
+            className='py-2 px-6 mx-auto md:my-11 rounded-md shadow text-white bg-[#731FFC] hover:bg-[#31185a] transition-all duration-500 flex justify-center items-center gap-3'
           >
             <LiaTelegram className='text-xl'/>
             <p>Share</p>
@@ -188,7 +188,7 @@ const SinglePost = () => {
 
 
           <div className='flex flex-col justify-center items-center md:my-11'>
-            <h3 className='my-4 text-lg font-semibold text-zinc-700'>Follow me on</h3>
+            <h3 className='my-4 text-lg  text-zinc-700'>Follow me on</h3>
             <div className='flex justify-center items-center gap-6'>
               <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/developer_huzaifa" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiFillInstagram/> </a>
               <a  target="_blank"  rel="noreferrer" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" className="text-5xl relative md:hover:bottom-2 md:hover:scale-125 transition-all"> <AiFillLinkedin/> </a>
@@ -201,7 +201,7 @@ const SinglePost = () => {
           <Comments postSlug={slug}/>
 
           <button className='mt-10 mb-10 block mx-auto'>
-            <Link to='/blog' className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold'>Read More Articles</Link>
+            <Link to='/blog' className='py-2 px-6 rounded shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black '>Read More Articles</Link>
           </button>
           
           <div className='opacity-0'>
@@ -221,30 +221,30 @@ const SinglePost = () => {
                   <div className="text-right">
                     <button onClick={() => setIsModalOpen(false)}>&times;</button>
                   </div>
-                  <h2 className="text-lg font-semibold mb-4">Share this post</h2>
+                  <h2 className="text-lg  mb-4">Share this post</h2>
 
                   <img src="/assets/illustrations/share.svg" className="h-[250px] mx-auto" alt="share" />
 
                   <input type="text" value={currentUrl} readOnly className="w-full mb-4 border-gray-300 rounded-lg p-2" />
                   <button
                     onClick={() => createShortUrl(currentUrl)}
-                    className="bg-[#731FFC] hover:bg-[#31185a] text-white font-semibold px-4 py-2 rounded-lg w-full"
+                    className="bg-[#731FFC] hover:bg-[#31185a] text-white  px-4 py-2 rounded-lg w-full"
                     disabled={isShortening}
                   >
                     {isShortening ? 'Shortening...' : 'Shorten URL'}
                   </button>
                   {shortUrl && (
                     <>
-                      <h1 className='text-md font-semibold mt-4'>Shortened url :</h1>
+                      <h1 className='text-md  mt-4'>Shortened url :</h1>
                       <input type="text" value={shortUrl} readOnly className="w-full my-2 border-gray-300 rounded-lg p-2 bg-gray-100" />
                       <button
                         onClick={handleCopyToClipboard}
-                        className="bg-neutral-500 hover:bg-neutral-400 text-white font-semibold px-4 py-2 rounded-lg text-xs my-3 flex justify-center items-center gap-2"
+                        className="bg-neutral-500 hover:bg-neutral-400 text-white  px-4 py-2 rounded-lg text-sm my-3 flex justify-center items-center gap-2"
                       > 
                         <LuCopy/>
                         <p>Copy URL </p>
                       </button>
-                      {isUrlCopied && <p className="text-blue-500 text-xs font-medium text-center">URL Copied!</p>}
+                      {isUrlCopied && <p className="text-blue-500 text-sm font-medium text-center">URL Copied!</p>}
                     </>
                   )}
                   

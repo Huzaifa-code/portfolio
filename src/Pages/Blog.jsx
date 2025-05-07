@@ -5,6 +5,7 @@ import client from '../client';
 import { Filter, NavBarBlog } from '../components/Blog';
 import { motion } from 'framer-motion';
 import Loader from '../components/Loader/Loader'; // Import the Loader component
+import Footer from '../components/Footer';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -81,11 +82,10 @@ const Blog = () => {
           className="px-10 py-2 mb-5 bg-gradient-to-r from-[#4e54c8] to-[#8f94fb]"
           transition={{duration: 0.5}}
         >
-          <h1 className='font-bold text-4xl md:text-5xl pt-5 text-white flex items-center gap-4'>
-            The Full-Stack Engineer's Notebook 
-            <img src="./assets/notebook.gif" className='h-16 rounded-md' alt="" />
+          <h1 className=' text-4xl md:text-5xl pt-5 text-white flex items-center gap-4'>
+            Software Engineer's Notebook 
           </h1>
-          <p className="my-11 text-lg md:text-xl lg:text-xl text-neutral-200 max-w-4xl">
+          <p className="my-11 text-lg md:text-2xl lg:text-2xl text-neutral-200 max-w-4xl">
             Join me as I delve into the fascinating world of software engineering! Explore a wealth of articles on invaluable Linux tips and tricks, React.js and cutting-edge web technologies.
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ const Blog = () => {
                   </div>
                   <h4 className='text-md font-medium mt-2 px-4'>{post.title}</h4>
                   <button className='mt-5 mb-8 mx-4 w-11/12'>
-                    <p className='py-2 px-6 rounded-xl shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black font-bold'>Read Full Article</p>
+                    <p className='py-2 px-6 rounded-xl shadow text-white bg-black hover:bg-transparent border-2 border-black transition-all duration-500 hover:text-black '>Read Full Article</p>
                   </button>
                 </Link>
               </motion.div>
@@ -124,6 +124,9 @@ const Blog = () => {
           </div>
         )}
       </section>
+
+      <Footer/>
+
     </div>
   );
 }

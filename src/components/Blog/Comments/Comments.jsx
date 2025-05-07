@@ -70,7 +70,7 @@ const Comments = ({ postSlug }) => {
 
   return (
     <div>
-      <h3 className='text-4xl font-bold mb-5'>Comments</h3>
+      <h3 className='text-4xl mb-5'>Comments</h3>
       {user ? (
         <form onSubmit={handleAddComment}  className="space-y-4">
           <textarea
