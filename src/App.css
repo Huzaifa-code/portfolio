@@ -7,10 +7,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Sriracha&display=swap');
 
+/* Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 *{
-    font-family: 'Inter', sans-serif;
-    margin: 0;
+  /* font-family: 'Inter', sans-serif; */
+  font-family: "Jersey 10", sans-serif;
+  margin: 0;
 }
+
+
 
 /* -------------------------Scroll bar---------------------------- */
 
@@ -61,20 +67,59 @@
 
 
 @media (min-width: 768px){
-.cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    background-color: rgb(255, 255, 255);
-    mix-blend-mode: difference;
-    z-index: 999;
-    pointer-events: none;
+  body {
+    cursor: url('../public/cursor.png') 0 0, auto;
+  }
+
+  a:hover,
+  button:hover,
+  img:hover,
+  input[type="submit"]:hover {
+    cursor: url('../public/cursor-hover.png') 0 0, auto;
   }
 }
 /* -------x-------- Custom cursor css ----------x------------- */
+
+
+/* ------------------------ CRT EFFECT ------------------- */
+/* tailwind.config.css or a global stylesheet */
+.crt-effect {
+  filter: contrast(1.2) saturate(1.2) brightness(0.83);
+  image-rendering: pixelated;
+}
+
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.crt {
+  position: relative;
+  filter: contrast(1.2) brightness(1.1) saturate(1.2);
+}
+
+.crt::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  mix-blend-mode: overlay;
+  animation: scanlines 0.2s linear infinite;
+  z-index: 10;
+}
+
+/* ----------x------------- CRT EFFECT ----------x-------- */
+
 
 
 /* ------------------------ CSS For Blogs ------------------- */

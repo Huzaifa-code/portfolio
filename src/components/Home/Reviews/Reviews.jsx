@@ -7,11 +7,11 @@ const Reviews = () => {
       reviewer: "Jerry Bezencon, Linux Lite Creator",
       link: "https://www.linuxliteos.com/forums/showthread.php?tid=9240&pid=61334#pid61334",
     },
-    {
-      text: "Linux Lite is leading the way in which A.I. is complementing the Support portion of our operating system. We're extremely happy with the way that it's turned out and a huge thank you again to Huzaifa Qureshi for his efforts on this.",
-      reviewer: "Jerry Bezencon, Linux Lite Creator",
-      link: "https://www.linuxliteos.com/forums/showthread.php?tid=9240&pid=61334#pid61334",
-    },
+    // {
+    //   text: "Linux Lite is leading the way in which A.I. is complementing the Support portion of our operating system. We're extremely happy with the way that it's turned out and a huge thank you again to Huzaifa Qureshi for his efforts on this.",
+    //   reviewer: "Jerry Bezencon, Linux Lite Creator",
+    //   link: "https://www.linuxliteos.com/forums/showthread.php?tid=9240&pid=61334#pid61334",
+    // },
     {
       text: "Huge thank you to Huzaifa for fixing this bug, took us a long time to work through it. Thanks also to stevef for reporting it.",
       reviewer: "Jerry Bezencon, Linux Lite Creator",

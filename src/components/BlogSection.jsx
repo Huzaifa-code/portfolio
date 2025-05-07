@@ -8,31 +8,38 @@ const BlogLink = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    client.fetch(
-        // In Query [0..2] means first 3 blogs are fetched
-      `*[_type == "post"] | order(publishedAt desc)[0..5] {
-            title,
-            slug,
-            body,
-            publishedAt,
-            mainImage {
-                asset -> {
-                    _id,
-                    url
-                },
-                alt
-            }
-        }`,
-    ).then((data) => setPosts(data)).catch(
-      console.error(),
-    );
+    const fetchPosts = async () => {
+      try {
+        const data = await client.fetch(
+          // In Query [0..5] means first 6 blogs are fetched
+          `*[_type == "post"] | order(publishedAt desc)[0..5] {
+              title,
+              slug,
+              body,
+              publishedAt,
+              mainImage {
+                  asset -> {
+                      _id,
+                      url
+                  },
+                  alt
+              }
+          }`
+        );
+        setPosts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPosts();
   }, []);
 
 
 
   return (
     <div className='flex flex-col justify-center items-center md:my-11'>
-        <h1 className='text-center text-5xl font-bold'>Blogs</h1>
+        <h1 className='text-center text-5xl font-medium'>Blogs</h1>
 
         <div className='flex flex-col justify-center md:grid md:grid-cols-3 md:gap-1 md:py-3 py-8 max-w-5xl 2xl:max-w-7xl '>
             {posts.map((post) => (
@@ -45,7 +52,7 @@ const BlogLink = () => {
             ))}
         </div>
 
-        <Link to="/blog" className="py-2 px-6 rounded-lg  text-white bg-[#000] hover:bg-[#fff] hover:text-[#000] border-2 hover:border-black text-lg font-bold">Read More</Link>
+        <Link to="/blog" className="py-2 px-6 rounded-lg  text-white bg-[#000] hover:bg-[#fff] hover:text-[#000] border-2 hover:border-black text-lg font-medium">Read More</Link>
         
     </div>
   )

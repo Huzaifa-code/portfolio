@@ -33,7 +33,7 @@ AOS.init();
 
 // ----------------------- CSS ---------------------------------
 const Herosec = styled.div`
-  height: 59vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +62,6 @@ const SocialBtn = styled.a`
 // ---------x------------- CSS -----------------x---------------
 
 
-// Function for animated parallax text
 function ParallaxText({ children, baseVelocity = 70 }) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -75,21 +74,14 @@ function ParallaxText({ children, baseVelocity = 70 }) {
     clamp: false
   });
 
-  /**
-   * This is a magic wrapping for the length of the text - you
-   * have to replace for wrapping that works for you or dynamically
-   * calculate
-   */
+
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-    /**
-     * This is what changes the direction of the scroll once we
-     * switch scrolling directions.
-     */
+
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
     } else if (velocityFactor.get() > 0) {
@@ -101,16 +93,10 @@ function ParallaxText({ children, baseVelocity = 70 }) {
     baseX.set(baseX.get() + moveBy);
   });
 
-  /**
-   * The number of times to repeat the child text should be dynamically calculated
-   * based on the size of the text and viewport. Likewise, the x motion value is
-   * currently wrapped between -20 and -45% - this 25% is derived from the fact
-   * we have four children (100% / 4). This would also want deriving from the
-   * dynamically generated number of children.
-   */
+
   return (
     <div className="parallax overflow-hidden tracking-[-2px] leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
-      <motion.div className="scroller font-[700] text-[#731FFC] text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
+      <motion.div className="scroller font-[500] text-[#731FFC] text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
@@ -127,37 +113,37 @@ function Hero() {
     <div className='flex'>
 
         <div className='w-full'>
-            <h1 className='text-center  font-semibold text-2xl md:text-3xl' data-aos="fade-left" data-aos-duration="1000" >
-              
+            <h1 className='text-center  font-medium text-2xl md:text-3xl' data-aos="fade-left" data-aos-duration="1000" >
               <img className='ml-[30%]' src={img1} alt="" />
-
               SOFTWARE DEVELOPER  
-
               <img className='ml-[70%]' src={img2} alt="" />
             </h1>
           
             <Herosec className=''>
               <div className='main'>
                 <div className="text flex flex-col items-center">
-                  <h1 className='text-center font-semibold text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
-                  <h1 className='text-center font-bold text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1> 
-                  <p className='text-center font-regular text-xl px-5 md:px-[26rem] md:text-sm text-neutral-700 md:mt-2' data-aos="fade-up" data-aos-duration="1000" >
+                  <h1 className='text-center font-medium text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
+                  <h1 className='text-center font-medium text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1> 
+                  <p className='text-center font-regular text-xl px-5 md:px-[26rem] md:text-lg text-neutral-700 md:mt-2' data-aos="fade-up" data-aos-duration="1000" >
                     I focus on developing scalable, high-performance applications and contributing to open-source projects, with the goal of driving innovation and digital transformation in the tech space.
                   </p> 
-                  <Link smooth spy to="contact" className='my-5 py-3 w-[10rem]  flex items-center justify-center bg-[#731FFC] font-semibold text-xl text-white rounded-md hover:scale-105 transition-all'>Hire Me <img className='ml-4' src={profileimg} alt="" /> </Link>         
+                  <Link 
+                    smooth spy to="contact" 
+                    className='my-5 py-3 w-[10rem]  flex items-center justify-center bg-[#731FFC] font-medium text-xl text-white rounded-md hover:bg-red-300 transition-all'>
+                    Hire Me <img className='ml-4 h-5' src={profileimg} alt="" /> 
+                  </Link>         
                 </div>
               </div> 
             </Herosec>
 
-            {/* Parallax animated text */}
-            <div className='mt-16 mb-8'>
+            <div className='mt-2 mb-8'>
               <ParallaxText baseVelocity={-2}>MERN STACK | FULL STACK DEVELOPER |</ParallaxText>
               <ParallaxText baseVelocity={2}>DOTNET | C# | UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
             </div>
         </div>
       
         <div 
-          className='fixed bg-transparent backdrop-blur-sm rounded-xl border border-gray-200 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10'
+          className='fixed bg-black/10 backdrop-blur-sm rounded-xl border border-gray-200 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10'
         >
           <SocialBtn className='' target="_blank" href="https://www.instagram.com/developer_huzaifa"> 
             <div className='p-3 my-3 rounded-full border border-solid border-black hover:scale-110 hover:border-neutral-200 transition-all'> <img  src={insta} alt="" /></div> 
