@@ -134,15 +134,19 @@ img.blog_image {
 }
 
 @media (min-width: 768px) {
-  /* Main Image */
 
   .block_content p {
-    font-size: 20px;
+    font-size: 28px;
   }
 }
 
 .block_content p {
   line-height: 1.6;
+}
+
+.block_content strong {
+  font-weight: 500;
+  color: #312eff;
 }
 
 
@@ -153,7 +157,10 @@ img.blog_image {
   margin: 10px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
+  position: relative;
+  width: fit-content;
 }
+
 .block_content h2 {
   font-weight: 400; /* Default */
   line-height: 1.2;
@@ -161,6 +168,20 @@ img.blog_image {
   margin: 100px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
+  position: relative;
+  width: fit-content;
+}
+
+.block_content h2::after, .block_content h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* Align at the bottom of the text */
+  width: 100%;
+  height: 30px; /* Thickness of the highlight */
+  background-color: rgba(175, 255, 94, 0.788);
+  z-index: -1; /* Ensure it stays behind the text */
+  transform: translateY(3px); /* Slightly overlap the text */
 }
 
 .block_content h3 {
@@ -170,7 +191,10 @@ img.blog_image {
   margin: 10px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
+  position: relative;
+  width: fit-content;
 }
+
 .block_content h4 {
   font-weight: 300; /* Default */
   font-size: 26px;
@@ -178,8 +202,21 @@ img.blog_image {
   margin: 100px 0 20px;
   font-family: 'Gochi Hand', cursive;
   font-family: 'Sriracha', cursive;
+  position: relative;
+  width: fit-content;
 }
 
+.block_content h3::after, .block_content h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px; /* Align at the bottom of the text */
+  width: 100%;
+  height: 30px; /* Thickness of the highlight */
+  background-color: rgba(255, 226, 94, 0.788);
+  z-index: -1; /* Ensure it stays behind the text */
+  transform: translateY(3px); /* Slightly overlap the text */
+}
 
 .block_content a{
   color: #731FFC;
