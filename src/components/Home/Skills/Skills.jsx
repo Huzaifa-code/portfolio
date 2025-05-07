@@ -29,25 +29,25 @@ function Skills() {
   ];
 
   return (
-    <div id='skills' className='py-11'>
+    <div id='skills' className='py-11 flex flex-col justify-center items-center'>
       <h1 className='text-4xl md:text-5xl md:ml-11 my-4 md:my-16 font-medium text-center'>MY TECH SKILLS</h1>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-y-11 max-w-5xl 2xl:max-w-7xl mx-auto'>
+      <div className='grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-y-11 max-w-5xl 2xl:max-w-7xl mx-auto'>
         {
           images.map((image, key) => {
             return (
               <div 
                 key={key} 
-                className='p-4 w-fit flex justify-center items-center gap-4 border
+                className='p-4 w-fit flex justify-center items-center md:gap-4 border
                  border-gray-300 rounded-full text-center
                  hover:scale-110 transition-transform duration-300 ease-in-out'
               >
                 <img
-                  className='md:h-[3rem] h-[2rem]'
+                  className='md:h-[3rem] h-[1.5rem]'
                   src={image.src}
                   alt={image.name}
                   style={{ imageRendering: 'pixelated' }}
                 />
-                <p className='mt-2 text-sm font-medium w-14'>{image.name}</p>
+                <p className='mt-2 md:text-sm text-xs font-medium w-14'>{image.name}</p>
               </div>
             );
           })

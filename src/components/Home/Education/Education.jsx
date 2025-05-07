@@ -7,7 +7,7 @@ const Education = () => {
   const coins = Array(3).fill(null);
 
   return (
-    <div>
+    <div className='mt-16 md:mt-0'>
         <div id='coins' className='flex justify-center items-center'>
           {
             coins.map((_, index) => (
@@ -24,8 +24,8 @@ const Education = () => {
         </div>
         <h1 className='text-center text-5xl font-medium'>My Education</h1>
 
-        <div className='flex justify-center items-center gap-24 mt-11'>
-          <img src="/assets/ietdavvphoto.png" alt="ietdavv" className='h-[350px]' />
+        <div className='flex flex-col md:flex-row justify-center items-center gap-24 mt-11'>
+          <img src="/assets/ietdavvphoto.png" alt="ietdavv" className='md:h-[350px] h-[200px]' />
           <div>
             <h1 className='text-center text-3xl font-medium'>IET (Institute Of Engineering & Technology)</h1>
             <p className='text-center text-3xl'>DAVV</p>
@@ -48,7 +48,7 @@ const Education = () => {
         <div className="relative bg-[url('../public/assets/sky.png')] pt-32 " style={{imageRendering: 'pixelated'}} >
           <img src="/assets/seashore.png" alt="seashore" className='relative top-4' style={{imageRendering: 'pixelated'}} />
           
-          <div className="absolute bottom-14 left-[26rem] z-30">
+          <div className="absolute bottom-14 md:left-[26rem] left-[20rem] z-30">
             <motion.div
               className="w-[48px] h-[48px] bg-no-repeat animate-castLine"
               style={{
@@ -61,7 +61,7 @@ const Education = () => {
 
           <motion.img 
             src="/assets/boat.png" alt="boat" 
-            className='absolute z-40 bottom-12 left-[24rem]' 
+            className='absolute z-40 bottom-12 md:left-[24rem] left-[18rem]' 
             animate={{ y: [0, -1, 0, 1, 0] }}
             transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}
           />

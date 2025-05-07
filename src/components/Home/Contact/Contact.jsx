@@ -49,9 +49,9 @@ function Contact() {
           // ref={left}
         >
           <div className='md:mr-36'>
-            <h1 className='text-5xl text-center md:text-left md:text-6xl font-bold'>That's it! </h1>
-            <h1 className='text-5xl text-center md:text-left md:text-6xl font-bold'>Now it's your   </h1>
-            <h1 className='text-5xl text-center md:text-left md:text-6xl font-bold'>turn to say hi. </h1>
+            <h1 className='text-5xl text-center md:text-left md:text-6xl font-medium'>That's it! </h1>
+            <h1 className='text-5xl text-center md:text-left md:text-6xl font-medium'>Now it's your   </h1>
+            <h1 className='text-5xl text-center md:text-left md:text-6xl font-medium'>turn to say Hi 👋 </h1>
             <p className='text-xl text-center md:text-left my-3 text-[#464646]'>I hope to hear from you!</p>
             <p className='text-xl mt-9 text-center md:text-left'>Reach out to me at :</p>
             <p className='text-xl text-center md:text-left'>developerhuzaifa@gmail.com</p>

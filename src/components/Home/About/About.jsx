@@ -51,9 +51,9 @@ function About() {
           <Main>
             <img className='hidden md:block md:min-h-[60vh]' src={image} alt="" />
 
-            <div className='md:w-[65%] md:pl-24 text-lg md:text-xl' data-aos="fade-up" data-aos-duration="1000" >
+            <div className='md:w-[65%] md:pl-24 text-xl md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
               <p className='my-6 text-justify'>
-                I'm a web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
+                I'm Fullstack web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
                 Whether you're a business or an entrepreneur, I'm here to bring your vision to life. Let's create something extraordinary together!
               </p>
               <p className='my-6 text-justify'>My Tech Stack is DOTNET C# MYSQL MERN React.js React-Native Next.js Node.js Firebase Tailwindcss MongoDB </p> 
