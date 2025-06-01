@@ -38,7 +38,7 @@ function Skills() {
               <div 
                 key={key} 
                 className='p-4 w-fit flex justify-center items-center md:gap-4 border
-                 border-gray-300 rounded-full text-center
+                 border-gray-300 dark:border-neutral-600 dark:bg-neutral-800 rounded-full text-center
                  hover:scale-110 transition-transform duration-300 ease-in-out'
               >
                 <img

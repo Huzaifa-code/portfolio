@@ -39,12 +39,12 @@ function Projects() {
         {data.map((d, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-between h-full shadow-lg rounded-2xl cursor-pointer hover:-translate-y-3 transition-all"
+            className="flex flex-col items-center justify-between h-full dark:bg-neutral-700 shadow-lg rounded-2xl cursor-pointer hover:-translate-y-3 transition-all duration-500"
             onClick={() => openModal(d)}
           >
             <img className="md:w-full rounded-2xl" src={d.img} alt="project" />
             <div className="mx-4 my-4">
-              <p className="mb-6 my-3 text-lg text-neutral-700 md:text-xl text-justify">
+              <p className="mb-6 my-3 text-lg text-neutral-700 dark:text-neutral-400 md:text-xl text-justify">
                 {d.description}
               </p>
               <div className="flex flex-wrap gap-4">

@@ -41,11 +41,11 @@ const Education = () => {
         </div>
 
         <div 
-          className='h-16 mt-24'
+          className='h-16 mt-24 dark:brightness-90'
           style={{ background: 'linear-gradient(to top, #229df2, rgba(255, 255, 255, 0))' }}
         >
         </div>
-        <div className="relative bg-[url('../public/assets/sky.png')] pt-32 " style={{imageRendering: 'pixelated'}} >
+        <div className="relative bg-[url('../public/assets/sky.png')] pt-32 dark:brightness-90" style={{imageRendering: 'pixelated'}} >
           <img src="/assets/seashore.png" alt="seashore" className='relative top-4' style={{imageRendering: 'pixelated'}} />
           
           <div className="absolute bottom-14 md:left-[26rem] left-[20rem] z-30">

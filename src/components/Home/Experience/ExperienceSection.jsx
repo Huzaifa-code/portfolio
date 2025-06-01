@@ -63,10 +63,10 @@ const ExperienceSection = () => {
 
   return (
     <motion.div 
-      className="py-10 md:pb-32 bg-[#11ADC1] relative crt"
+      className="py-10 md:pb-32 bg-[#11ADC1] dark:brightness-90  relative crt"
     > 
       <div className="max-w-5xl 2xl:max-w-7xl mx-5 md:mx-auto">
-        <h2 className="text-3xl md:text-6xl text-center md:my-16 font-medium text-white">MY EXPERIENCE</h2>
+        <h2 className="text-3xl md:text-6xl text-center md:my-16 font-medium text-white dark:text-white">MY EXPERIENCE</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {
             experiences.length === 0 ? (

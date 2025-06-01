@@ -27,7 +27,7 @@ const Reviews = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white p-6 shadow-lg rounded-lg border border-gray-200 flex flex-col justify-between"
+              className="bg-white dark:bg-neutral-800 p-6 shadow-lg rounded-lg border border-gray-200 dark:border-none flex flex-col justify-between"
             >
                 <div>
                     <FaQuoteLeft className="text-indigo-600 text-2xl inline-block" />
