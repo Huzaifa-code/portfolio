@@ -6,8 +6,8 @@ const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl lg:max-w-6xl w-full overflow-hidden">
+    <div className="fixed inset-0 bg-black  bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="bg-white dark:bg-neutral-700 rounded-lg shadow-xl max-w-4xl lg:max-w-6xl w-full overflow-hidden">
         <div className="flex justify-end p-2">
           <button
             onClick={onClose}

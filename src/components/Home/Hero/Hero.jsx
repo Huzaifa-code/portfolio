@@ -143,16 +143,16 @@ function Hero() {
         </div>
       
         <div 
-          className='fixed bg-black/10 backdrop-blur-sm rounded-xl border border-gray-200 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10'
+          className='fixed bg-black/10 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-neutral-600 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10'
         >
           <SocialBtn className='' target="_blank" href="https://www.instagram.com/developer_huzaifa"> 
-            <div className='p-3 my-3 rounded-full border border-solid border-black hover:scale-110 hover:border-neutral-200 transition-all'> <img  src={insta} alt="" /></div> 
+            <div className='p-3 my-3 rounded-full border border-solid border-black dark:border-neutral-600 hover:scale-110 hover:border-neutral-200 transition-all dark:invert'> <img className=""  src={insta} alt="" /></div> 
           </SocialBtn>
           <SocialBtn className='' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179"> 
-            <div className='p-3 rounded-full border border-solid border-black hover:scale-110 hover:border-neutral-200 transition-all'><img src={lin} alt="" /></div>  
+            <div className='p-3 rounded-full border border-solid border-black hover:scale-110 dark:border-neutral-600 hover:border-neutral-200 transition-all dark:invert'><img src={lin} alt="" /></div>  
           </SocialBtn>
           <SocialBtn className='' target="_blank" href="https://github.com/Huzaifa-code"> 
-            <div className='p-3 my-3 rounded-full border border-solid border-black hover:scale-110 hover:border-neutral-200 transition-all'><img src={gh} alt="" /></div>  
+            <div className='p-3 my-3 rounded-full border border-solid border-black dark:border-neutral-600 hover:scale-110 hover:border-neutral-200 transition-all dark:invert'><img src={gh} alt="" /></div>  
           </SocialBtn>
         </div>
     </div>

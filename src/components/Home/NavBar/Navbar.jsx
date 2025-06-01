@@ -4,6 +4,8 @@ import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
 import { Link } from "react-scroll";
 import { Link as RouteLink}  from 'react-router-dom';
+import { FaMoon, FaSun } from 'react-icons/fa';
+
 
 const Nav = styled.nav`
   min-height: 10vh;
@@ -92,13 +94,30 @@ function Navbar() {
     }
   }, [])
 
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  }, [darkMode]);
+
+  const handleDarkModeToggle = () => setDarkMode((prev) => !prev);
+
 
   return (
     <>
-      <Nav className='bg-white'>
+      <Nav className='bg-white dark:bg-neutral-900 dark:text-neutral-200'>
 
           <RouteLink>
-            <img src={image} alt="" />
+            <img src={image} className="dark:invert" alt="logo" />
           </RouteLink>
           
           {(toggleMenu || screenWidth > 700) && (
@@ -110,6 +129,14 @@ function Navbar() {
                 <Link smooth spy to="project" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Projects</Link>
                 <RouteLink to="/blog" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Blogs</RouteLink>
                 <Link smooth spy to="contact" className='my-6 font-medium md:my-[1.5rem] md:mx-6' >Contact me</Link>
+                <button
+                  onClick={handleDarkModeToggle}
+                  className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  aria-label="Toggle dark mode"
+                  title="Toggle dark mode"
+                >
+                  {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+                </button>  
             </Links>
           )}
 

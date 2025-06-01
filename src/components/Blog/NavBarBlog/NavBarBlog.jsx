@@ -5,6 +5,7 @@ import image from './assets/logo.png'
 import { NavLink as RouteLink}  from 'react-router-dom';
 import { useUser } from '../../../context/userContext';
 import Avatar from 'boring-avatars';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 function NavBarBlog() {
@@ -54,11 +55,29 @@ function NavBarBlog() {
     };
   }, []);
 
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  }, [darkMode]);
+
+  const handleDarkModeToggle = () => setDarkMode((prev) => !prev);
+
+
 
   return (
     <>
-      <Nav className='bg-white'>
-        <RouteLink to="/" ><img src={image} alt="" /></RouteLink>
+      <Nav className='bg-white dark:bg-neutral-900 text-black dark:text-white'>
+        <RouteLink to="/" ><img src={image} alt="logo" className="dark:invert" /></RouteLink>
           
           
           {(toggleMenu || screenWidth > 700) && (
@@ -68,7 +87,7 @@ function NavBarBlog() {
                 <RouteLink  
                   to="/"
                   className={({ isActive }) => 
-                    `my-6 md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75 ${isActive ? "text-[#4e54c8]" : "text-black"}`
+                    `my-6 md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75 ${isActive ? "text-[#4e54c8]" : "text-black dark:text-white"}`
                   } 
                 >Portfolio</RouteLink>
                 <RouteLink  
@@ -119,7 +138,16 @@ function NavBarBlog() {
                       Login
                     </RouteLink>
                   )
-                }               
+                }
+
+                <button
+                  onClick={handleDarkModeToggle}
+                  className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  aria-label="Toggle dark mode"
+                  title="Toggle dark mode"
+                >
+                  {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+                </button>            
             </Links>
           )}
 
@@ -137,70 +165,70 @@ export default NavBarBlog
 
 
 const Nav = styled.nav`
-        min-height: 10vh;
-        padding-left: 3rem;
-        display: flex;
-        align-items: center;
-        z-index: 199;
+  min-height: 10vh;
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+  z-index: 199;
 
-        @media(max-width: 700px){
-          padding-left: 1rem;
-    
-          img {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            height: 2rem;
-          }
-        }
+  @media(max-width: 700px){
+    padding-left: 1rem;
+
+    img {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      height: 2rem;
+    }
+  }
 `;
 
 const Links = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        width:  100%;
-        margin-right: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width:  100%;
+    margin-right: 3rem;
 
-        a{
-          
-          text-decoration: none;
-          font-size: 1.2rem;
+    a{
+      
+      text-decoration: none;
+      font-size: 1.2rem;
 
-          &:hover {
-            color: #731FFC;
-          }
-        }
+      &:hover {
+        color: #731FFC;
+      }
+    }
 
-        @media (max-width: 700px){
-           position: absolute;
-           top:0;
-           left:0;
-           flex-direction: column;
-           justify-content: center;
-           background: #fff;
+    @media (max-width: 700px){
+        position: absolute;
+        top:0;
+        left:0;
+        flex-direction: column;
+        justify-content: center;
+        background: #fff;
 
 
-           height: 90vh;
-           transition: all 4s ease-in-out;
+        height: 90vh;
+        transition: all 4s ease-in-out;
 
-           
-          a {
-            font-size: 2.5rem;
-          }
-        }
+        
+      a {
+        font-size: 2.5rem;
+      }
+    }
 
-    `;
+`;
 
 const Bars = styled.div`
-        display: none;
+  display: none;
 
 
-        @media(max-width: 700px){
-          display: block;
-          position: absolute;
-          top: 0.6rem;
-          right: 1rem;
-          cursor: pointer;
-        }
+  @media(max-width: 700px){
+    display: block;
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    cursor: pointer;
+  }
 `;

@@ -27,7 +27,7 @@ const Card = ({experience,openModal}) => {
             )}
         </div>
         )}
-        <h3 className="mt-4 text-2xl font-medium text-gray-900">{experience.role}</h3>
+        <h3 className="mt-4 text-2xl font-medium text-gray-900 dark:text-black">{experience.role}</h3>
         <p className="mt-2 text-xl text-purple-700 font-medium ">{experience.company}</p>
         <p className="mt-2 text-gray-600">
             {new Date(experience.startDate).toLocaleDateString()} -{' '}

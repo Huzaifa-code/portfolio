@@ -144,11 +144,26 @@ img.blog_image {
   line-height: 1.6;
 }
 
+.dark p{
+  color: #818181;
+}
+
+.dark h1, .dark h2 {
+  color: rgb(194, 194, 194);
+}
+
+.dark h3, .dark h4 {
+  color: rgb(108, 239, 79);
+}
+
 .block_content strong {
   font-weight: 500;
   color: #312eff;
 }
 
+.dark .block_content strong {
+  color: #92bfff;
+}
 
 .block_content h1 {
   font-weight: 600;
@@ -159,6 +174,7 @@ img.blog_image {
   font-family: 'Sriracha', cursive;
   position: relative;
   width: fit-content;
+  z-index: 1;
 }
 
 .block_content h2 {
@@ -170,6 +186,7 @@ img.blog_image {
   font-family: 'Sriracha', cursive;
   position: relative;
   width: fit-content;
+  z-index: 1;
 }
 
 .block_content h2::after, .block_content h1::after {
@@ -184,6 +201,10 @@ img.blog_image {
   transform: translateY(3px); /* Slightly overlap the text */
 }
 
+.dark .block_content h1::after, .dark .block_content h2::after {
+  background-color: transparent;
+}
+
 .block_content h3 {
   font-weight: 300;
   font-size: 30px;
@@ -193,6 +214,7 @@ img.blog_image {
   font-family: 'Sriracha', cursive;
   position: relative;
   width: fit-content;
+  z-index: 1;
 }
 
 .block_content h4 {
@@ -204,6 +226,7 @@ img.blog_image {
   font-family: 'Sriracha', cursive;
   position: relative;
   width: fit-content;
+  z-index: 1;
 }
 
 .block_content h3::after, .block_content h4::after {
@@ -216,6 +239,10 @@ img.blog_image {
   background-color: rgba(255, 226, 94, 0.788);
   z-index: -1; /* Ensure it stays behind the text */
   transform: translateY(3px); /* Slightly overlap the text */
+}
+
+.dark .block_content h3::after, .dark .block_content h4::after {
+  background-color: transparent;
 }
 
 .block_content a{
