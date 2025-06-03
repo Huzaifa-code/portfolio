@@ -63,7 +63,7 @@ const ExperienceSection = () => {
 
   return (
     <motion.div 
-      className="py-10 md:pb-32 bg-[#11ADC1] dark:brightness-90  relative crt"
+      className="py-10 md:pb-32 bg-[#11ADC1] dark:brightness-50  relative crt"
     > 
       <div className="max-w-5xl 2xl:max-w-7xl mx-5 md:mx-auto">
         <h2 className="text-3xl md:text-6xl text-center md:my-16 font-medium text-white dark:text-white">MY EXPERIENCE</h2>

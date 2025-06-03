@@ -96,7 +96,7 @@ function ParallaxText({ children, baseVelocity = 70 }) {
 
   return (
     <div className="parallax overflow-hidden tracking-[-2px] leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
-      <motion.div className="scroller font-[500] text-[#731FFC] text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
+      <motion.div className="scroller text-[#731FFC] font-thin dark:text-neutral-400 text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
@@ -137,7 +137,7 @@ function Hero() {
             </Herosec>
 
             <div className='mt-2 mb-8'>
-              <ParallaxText baseVelocity={-2}>MERN STACK | FULL STACK DEVELOPER |</ParallaxText>
+              <ParallaxText baseVelocity={-2}>SOFTWARE ENGINEER | MERN | FULL STACK DEV |</ParallaxText>
               <ParallaxText baseVelocity={2}>DOTNET | C# | UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
             </div>
         </div>

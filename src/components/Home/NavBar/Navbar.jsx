@@ -114,7 +114,7 @@ function Navbar() {
 
   return (
     <>
-      <Nav className='bg-white dark:bg-neutral-900 dark:text-neutral-200'>
+      <Nav className='sticky top-0 bg-black/10 backdrop-blur-sm dark:text-neutral-200'>
 
           <RouteLink>
             <img src={image} className="dark:invert" alt="logo" />

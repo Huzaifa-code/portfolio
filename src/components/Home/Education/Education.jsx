@@ -41,16 +41,15 @@ const Education = () => {
         </div>
 
         <div 
-          className='h-16 mt-24 dark:brightness-90'
-          style={{ background: 'linear-gradient(to top, #229df2, rgba(255, 255, 255, 0))' }}
+          className='h-16 mt-24 bg-gradient-to-t from-[#229df2] to-transparent dark:from-[#000041] dark:to-transparent transition-colors duration-300'
         >
         </div>
-        <div className="relative bg-[url('../public/assets/sky.png')] pt-32 dark:brightness-90" style={{imageRendering: 'pixelated'}} >
-          <img src="/assets/seashore.png" alt="seashore" className='relative top-4' style={{imageRendering: 'pixelated'}} />
+        <div className="relative bg-[url('../public/assets/sky.png')] dark:bg-[url('../public/assets/night_sky.png')] dark:bg-center pt-32 dark:brightness-90" style={{imageRendering: 'pixelated'}} >
+          <img src="/assets/seashore.png" alt="seashore" className='relative top-4 dark:brightness-50' style={{imageRendering: 'pixelated'}} />
           
           <div className="absolute bottom-14 md:left-[26rem] left-[20rem] z-30">
             <motion.div
-              className="w-[48px] h-[48px] bg-no-repeat animate-castLine"
+              className="w-[48px] h-[48px] bg-no-repeat animate-castLine dark:brightness-50"
               style={{
                 backgroundImage: "url('/assets/fisherman.png')",
               }}
@@ -61,7 +60,7 @@ const Education = () => {
 
           <motion.img 
             src="/assets/boat.png" alt="boat" 
-            className='absolute z-40 bottom-12 md:left-[24rem] left-[18rem]' 
+            className='absolute z-40 bottom-12 md:left-[24rem] left-[18rem] dark:brightness-50' 
             animate={{ y: [0, -1, 0, 1, 0] }}
             transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}
           />
@@ -72,7 +71,7 @@ const Education = () => {
             transition={{ repeat: Infinity, duration: 0.1 }}
           >
             <div
-              className="h-[64px] bg-repeat bg-[url('../public/assets/water-body.png')] animate-waveScroll"
+              className="h-[64px] bg-repeat bg-[url('../public/assets/water-body.png')] animate-waveScroll dark:brightness-50"
               style={{ backgroundSize: 'auto 64px', imageRendering: 'pixelated' }} 
             />
           </motion.div>
