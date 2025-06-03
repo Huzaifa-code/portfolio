@@ -152,7 +152,7 @@ img.blog_image {
   color: rgb(194, 194, 194);
 }
 
-.dark h3, .dark h4 {
+.dark .block_content h3, .dark .block_content h4 {
   color: rgb(108, 239, 79);
 }
 

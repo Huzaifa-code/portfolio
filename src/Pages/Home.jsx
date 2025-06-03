@@ -17,7 +17,7 @@ const Home = () => {
     return (
       <div className='bg-white dark:bg-neutral-900'>
         <Navbar/>
-        <motion.div className='fixed top-0 left-0 right-0 h-[10px] bg-[#731FFC] dark:bg-violet-400 z-20 origin-top-left' style={{ scaleX }} />  
+        <motion.div className='fixed top-0 left-0 bottom-0 w-[7px] bg-[#731FFC] dark:bg-violet-400 z-20 origin-top' style={{ scaleY: scaleX }} />  
         <Hero/>
         <About/>
         <Education/>
