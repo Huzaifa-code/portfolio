@@ -3,11 +3,12 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer
-        className="w-full h-[600px] p-11 relative" 
+        className="w-full h-[800px] p-11 relative" 
         style={{
             backgroundImage: "url('/assets/footer.png')",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "top",
+            backgroundRepeat: "no-repeat",
             imageRendering: "pixelated",
         }}
     >
