@@ -43,7 +43,7 @@ function Skills() {
               >
                 <img
                   className='md:h-[3rem] h-[1.5rem]'
-                  src={image.src}
+                  src={image.src.src || image.src}
                   alt={image.name}
                   style={{ imageRendering: 'pixelated' }}
                 />

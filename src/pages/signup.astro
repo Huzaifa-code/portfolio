@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SignupReact from '../Pages/Signup.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Sign Up – Huzaifa Qureshi"
+  description="Create an account to interact with Huzaifa Qureshi's portfolio."
+  noIndex={true}
+>
+  <SignupReact client:only="react" />
+</BaseLayout>

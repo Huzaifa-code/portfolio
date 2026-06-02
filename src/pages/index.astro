@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeReact from '../Pages/Home.jsx';
+import { UserProvider } from '../context/userContext.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Huzaifa Qureshi – Full Stack Developer | MERN & React Native"
+  description="Huzaifa Qureshi is a Full Stack web and app developer skilled in MERN, React.js, React-Native, Next.js, Node.js, MongoDB, Tailwind CSS, Firebase, and Sanity.io."
+>
+  <HomeReact client:only="react" />
+</BaseLayout>

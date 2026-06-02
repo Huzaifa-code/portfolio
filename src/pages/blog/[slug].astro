@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import client from '../../client.jsx';
+import SinglePostReact from '../../Pages/SinglePost.jsx';
+
+// SSR — dynamic blog post page
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+let post = null;
+
+try {
+  const data = await client.fetch(
+    `*[slug.current == $slug] {
+      title,
+      claps,
+      body,
+      publishedAt,
+      mainImage {
+        asset -> {
+          _id,
+          url,
+        },
+        alt
+      },
+      categories[]->{
+        _id,
+        title
+      }
+    }`,
+    { slug }
+  );
+  post = data?.[0] || null;
+} catch (error) {
+  console.error('Error fetching post:', error);
+}
+
+// Extract a plain-text description from the body for meta tags
+function getExcerpt(body, length = 160) {
+  if (!body) return '';
+  const textBlock = body.find(b => b._type === 'block' && b.children);
+  if (!textBlock) return '';
+  return textBlock.children
+    .map(c => c.text || '')
+    .join('')
+    .slice(0, length)
+    .trim();
+}
+
+const title = post?.title || 'Blog Post';
+const description = getExcerpt(post?.body) || `${title} – read on Huzaifa Qureshi's developer blog`;
+const ogImage = post?.mainImage?.asset?.url || '/assets/og-default.png';
+---
+
+<BaseLayout
+  title={`${title} | Huzaifa Qureshi`}
+  description={description}
+  image={ogImage}
+  type="article"
+>
+  <SinglePostReact client:only="react" post={post} slug={slug} />
+</BaseLayout>

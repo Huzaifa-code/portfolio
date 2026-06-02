@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import client from '../../client.jsx';
+import BlogReact from '../../Pages/Blog.jsx';
+
+// SSR — always fresh blog posts
+export const prerender = false;
+
+let posts = [];
+let categories = [];
+
+try {
+  const [postsData, categoriesData] = await Promise.all([
+    client.fetch(`
+      *[_type == "post"] | order(publishedAt desc) {
+        title,
+        slug,
+        body,
+        publishedAt,
+        mainImage {
+          asset -> {
+            _id,
+            url
+          },
+          alt
+        },
+        categories[]->{
+          _id,
+          title
+        }
+      }
+    `),
+    client.fetch(`
+      *[_type == "category"] {
+        _id,
+        title
+      }
+    `)
+  ]);
+  posts = postsData || [];
+  categories = categoriesData || [];
+} catch (error) {
+  console.error('Error fetching blog data:', error);
+}
+---
+
+<BaseLayout
+  title="Huzaifa Qureshi | DevBlog – Engineering, Design & Tech Insights"
+  description="Explore technical tutorials, programming insights, and modern web development guides on React, Node, Linux, and design systems by Huzaifa Qureshi."
+  type="website"
+>
+  <BlogReact client:only="react" posts={posts} categories={categories} />
+</BaseLayout>

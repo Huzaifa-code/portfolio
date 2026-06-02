@@ -1,6 +1,6 @@
 import React from 'react'
 import send from './assets/send.svg'
-import {SiGmail} from 'react-icons/si'
+import { SiGmail } from 'react-icons/si'
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
 import Footer from '../../Footer';
@@ -38,16 +38,16 @@ function Contact() {
   // Framer Animation
   // const left = useRef(null);
   // const isInView = useInView(left); // same isInView for left and right element 
- 
+
 
   return (
     <div id='contact' className='mt-[8rem]'>
 
       <div className='flex flex-col md:flex-row justify-between items-center my-9 mx-auto max-w-5xl 2xl:max-w-7xl'>
-        
-        <div 
-          // style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
-          // ref={left}
+
+        <div
+        // style={{ transform: isInView ? "none" : "translateX(-200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+        // ref={left}
         >
           <div className='md:mr-36'>
             <h1 className='text-5xl text-center md:text-left md:text-6xl font-medium'>That's it! </h1>
@@ -56,19 +56,19 @@ function Contact() {
             <p className='text-xl text-center md:text-left my-3 text-[#464646]'>I hope to hear from you!</p>
             <p className='text-xl mt-9 text-center md:text-left'>Reach out to me at :</p>
             <p className='text-xl text-center md:text-left'>developerhuzaifa@gmail.com</p>
-            <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] hover:bg-[#a269ff] font-medium text-xl text-white rounded-md transition-all' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>        
+            <a className='my-5 py-3  md:w-[35%]  flex items-center justify-center bg-[#731FFC] hover:bg-[#a269ff] font-medium text-xl text-white rounded-md transition-all' href="mailto:developerhuzaifa@gmail.com"> Email me <SiGmail className='ml-2' /> </a>
           </div>
         </div>
 
-        <div 
-          // style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
-          // ref={left}
+        <div
+        // style={{ transform: isInView ? "none" : "translateX(200px)", opacity: isInView ? 1 : 0,transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s" }} 
+        // ref={left}
         >
-        {/* Contact form */}
-          <form className='md:mt-0 mt-11'  onSubmit={handleOnSubmit} >
+          {/* Contact form */}
+          <form className='md:mt-0 mt-11' onSubmit={handleOnSubmit} >
             <label className='text-2xl font-medium block dark:text-neutral-400' htmlFor="name" >Name : </label>
             <input required id='name' name='user_name' className='border-solid border border-[#5f5f5f] dark:bg-neutral-700 px-2 py-1 mb-5 outline-none w-full rounded-md' type="text" />
-            
+
             <label className='text-2xl font-medium block dark:text-neutral-400' htmlFor="email" >Email : </label>
             <input id='email' name='user_email' required className='border-solid border border-[#5f5f5f] dark:bg-neutral-700 px-2 py-1 mb-5 outline-none w-full rounded-md' type="email" />
 
@@ -78,10 +78,10 @@ function Contact() {
           </form>
         </div>
 
-      </div> 
+      </div>
 
-      <Footer/>
-      
+      <Footer />
+
     </div>
   )
 }

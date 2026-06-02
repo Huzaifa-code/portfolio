@@ -5,7 +5,7 @@ const Footer = () => {
     <footer
         className="w-full h-[800px] p-11 relative" 
         style={{
-            backgroundImage: "url('/assets/footer.png')",
+            backgroundImage: "url('/assets/footer_1.png')",
             backgroundSize: "cover",
             backgroundPosition: "top",
             backgroundRepeat: "no-repeat",
@@ -21,7 +21,9 @@ const Footer = () => {
             Let's deploy dreams and build something epic together.
             </p>
         </div>
-        <p className='text-center absolute bottom-4 w-fit mx-auto text-2xl py-2 px-6 text-white bg-black/40 backdrop-blur-sm rounded-xl border border-gray-700'>Made with  ❤️  by Huzaifa Qureshi</p>
+        <div className='absolute bottom-10 left-10 py-2 px-6 text-white bg-black/80 backdrop-blur-sm rounded-sm border-4 border-gray-500' style={{ imageRendering: 'pixelated' }}>
+          <p className='text-2xl'>Made with  ❤️  by Huzaifa Qureshi</p>
+        </div>
     </footer>
   )
 }

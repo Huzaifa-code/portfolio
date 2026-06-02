@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = 'Huzaifa Qureshi – Full Stack Developer',
+  description = 'Huzaifa Qureshi is a FullStack web and app developer. Highly skilled in MERN, React.js, Next.js, Node.js, MongoDB, Tailwind CSS, Firebase, Sanity.io.',
+  image = '/assets/og-default.png',
+  type = 'website',
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://huzaifaqureshi.me';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Software Engineer, MERN web developer, Huzaifa Qureshi, Full Stack Developer, React.js, Next.js, Node.js" />
+    <meta name="author" content="Huzaifa Qureshi" />
+    {noIndex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-MP" />
+    <meta name="geo.placename" content="Indore" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Huzaifa Qureshi" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Huzaifa92912561" />
+    <meta name="twitter:creator" content="@Huzaifa92912561" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Gochi+Hand&family=Sriracha&family=Jersey+10&display=swap" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- View Transitions for smooth page navigation -->
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Vercel Analytics -->
+    <script>
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
+
+    <!-- Dark mode persistence -->
+    <script is:inline>
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </body>
+</html>

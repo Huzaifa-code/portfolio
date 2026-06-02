@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LoginReact from '../Pages/Login.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Login – Huzaifa Qureshi"
+  description="Login to Huzaifa Qureshi's portfolio to leave comments and interact."
+  noIndex={true}
+>
+  <LoginReact client:only="react" />
+</BaseLayout>

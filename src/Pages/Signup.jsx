@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import {NavBarBlog} from '../components/Blog'
 import ErrorModal from '../components/Modal/ErrorModal';
-import { Link, useNavigate } from 'react-router-dom';
+import { UserProvider } from '../context/userContext';
+
+const BASE_URL = import.meta.env.BASE_URL || 'https://portfolio-backend-beta-six.vercel.app';
 
 const Signup = () => {
-  const navigate = useNavigate();
     // State for form fields
     const [formData, setFormData] = useState({
         username: '',
@@ -46,7 +47,7 @@ const Signup = () => {
 
         try {
             // Make API call to signup route
-            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/signup`, {
+            const response = await fetch(`${BASE_URL}/api/auth/signup`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +73,7 @@ const Signup = () => {
               confirmPassword: ''
             });
 
-            navigate('/login')
+            window.location.href = '/login';
         } catch (error) {
             setError(error.message);
             console.error('Error:', error);
@@ -118,7 +119,7 @@ const Signup = () => {
           </div> */}
           <button type="submit" className="w-full bg-[#731FFC] text-white py-2 px-4 rounded-lg hover:bg-[#995aff]">Sign Up</button>
         </form> 
-        <p className='mt-6'>Already have an account?  <Link to='/login' className='text-[#731FFC] hover:text-[#a871ff] font-semibold' >Login here</Link> </p>
+        <p className='mt-6'>Already have an account?  <a href='/login' className='text-[#731FFC] hover:text-[#a871ff] font-semibold' >Login here</a> </p>
 
 
       </div>
@@ -127,4 +128,10 @@ const Signup = () => {
   )
 }
 
-export default Signup
+const SignupWrapper = () => (
+    <UserProvider>
+        <Signup />
+    </UserProvider>
+);
+
+export default SignupWrapper;

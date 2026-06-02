@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InstaReact from '../Pages/Insta.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Instagram – Huzaifa Qureshi"
+  description="Follow Huzaifa Qureshi on Instagram for tech content, coding tips, and development updates."
+>
+  <InstaReact client:only="react" />
+</BaseLayout>

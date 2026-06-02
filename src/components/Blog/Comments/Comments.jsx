@@ -1,9 +1,9 @@
 // src/components/Comments.js
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../../../context/userContext';
-import { Link } from 'react-router-dom';
 import Avatar from 'boring-avatars';
 
+const BASE_URL = import.meta.env.BASE_URL || 'https://portfolio-backend-beta-six.vercel.app';
 
 const Comments = ({ postSlug }) => {
   const { user, handleLogout } = useUser();
@@ -13,7 +13,7 @@ const Comments = ({ postSlug }) => {
 
   useEffect(() => {
 
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/comments/${postSlug}`, {
+    fetch(`${BASE_URL}/api/comments/${postSlug}`, {
       credentials: 'include', 
     })
       .then(response => {
@@ -23,7 +23,6 @@ const Comments = ({ postSlug }) => {
         return response.json();
       })
       .then(data => {
-        // console.log(data , "comments")
         setComments(data)
       })
       .catch(error => console.error('Error fetching comments:', error));
@@ -34,15 +33,12 @@ const Comments = ({ postSlug }) => {
     if (!user) return alert('Please log in to comment.');
 
     try {
-      // console.log(JSON.parse(localStorage.getItem('user'))?.user, " : from localstorage ");
-
-      // const response = await fetch(`http://localhost:5000/api/comments`, {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/comments`, {
+      const response = await fetch(`${BASE_URL}/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Include credentials for cookies
+        credentials: 'include',
         body: JSON.stringify({ postSlug, text: newComment, userId: JSON.parse(localStorage.getItem('user'))?.user.userId }),
       });
 
@@ -90,7 +86,7 @@ const Comments = ({ postSlug }) => {
       ) : (
         <div className="space-y-2">
           <p className="text-gray-700">Please log in to comment.</p>
-          <Link to='/login' className="text-blue-500 hover:underline" >Login</Link>
+          <a href='/login' className="text-blue-500 hover:underline" >Login</a>
         </div>
           
       )}

@@ -1,40 +1,15 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import image from './assets/Rectangle2.svg'
 import img1 from './assets/vector1.svg'
 import { Element } from 'react-scroll'
 import CustomModal from '../../CustomModal'
 import { FaEye, FaDownload } from 'react-icons/fa';
 
-const Aboutsec = styled.div`
-  min-height: 80vh;
-  @media (max-width: 700px){
-    margin-top: 2rem;
-  }
-`;
-
-
-const Main = styled.div`
-  display: flex;
-  height: 70%;
-
-  // font-size: 1.3rem;
-
-  @media(max-width: 700px){
-    flex-direction: column;
-    
-    div{
-      padding: 10px 3rem;
-    }
-  }
-`;
-
-
 function About() {
     
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState('image');
-  const [url, setUrl] = useState(null); // Default content
+  const [url, setUrl] = useState(null);
 
   const openDocsModal = () => {
     setModalType('iframe');
@@ -46,15 +21,15 @@ function About() {
   return (
     <Element name="about" className="element">
       
-      <Aboutsec id='about'>
-          <h1 className='text-5xl text-center flex flex-col justify-center items-center md:my-16 font-medium'>ABOUT ME <img className='w-11' src={img1} alt="" /></h1>
-          <Main>
-            <img className='hidden md:block md:min-h-[60vh]' src={image} alt="" />
+      <div id='about' className='min-h-[80vh] mt-8 md:mt-0'>
+          <h1 className='text-5xl text-center flex flex-col justify-center items-center md:my-16 font-medium'>ABOUT ME <img className='w-11' src={img1.src || img1} alt="" /></h1>
+          <div className='flex flex-col md:flex-row h-full md:h-[70%]'>
+            <img className='hidden md:block md:min-h-[60vh]' src={image.src || image} alt="" />
 
-            <div className='md:w-[65%] md:pl-24 text-xl md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
+            <div className='md:w-[65%] md:pl-24 px-8 md:px-0 text-xl md:text-2xl' data-aos="fade-up" data-aos-duration="1000" >
               <p className='my-6 text-justify'>
-                I'm Fullstack web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
-                Whether you're a business or an entrepreneur, I'm here to bring your vision to life. Let's create something extraordinary together!
+                I&apos;m Fullstack web and app developer passionate about building scalable, high-performance digital solutions. With expertise in MERN, React.js, React Native, Next.js, .NET, C#, MySQL, Firebase, TailwindCSS, and MongoDB, I craft stunning and efficient websites and apps tailored to your needs.
+                Whether you&apos;re a business or an entrepreneur, I&apos;m here to bring your vision to life. Let&apos;s create something extraordinary together!
               </p>
               <p className='my-6 text-justify'>My Tech Stack is DOTNET C# MYSQL MERN React.js React-Native Next.js Node.js Firebase Tailwindcss MongoDB </p> 
               
@@ -76,12 +51,10 @@ function About() {
                 </a>
               </div>
 
-              
-
             </div>
-          </Main>
+          </div>
           <CustomModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} url={url} type={modalType} />
-      </Aboutsec>
+      </div>
 
     </Element>
   )

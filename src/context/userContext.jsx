@@ -1,27 +1,29 @@
 // UserContext.js
 import React, { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user'))?.user);
-  const navigate = useNavigate();
+  const [user, setUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('user'))?.user || null;
+    } catch {
+      return null;
+    }
+  });
 
   const handleLogout = async () => {
     try {
-      await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/logout`, {
+      await fetch(`${import.meta.env.BASE_URL_API || 'https://portfolio-backend-beta-six.vercel.app'}/api/auth/logout`, {
         method: 'POST',
-        credentials: 'include', // Include credentials to send the HTTP-only cookie
+        credentials: 'include',
       });
 
-      // Clear user data from localStorage
       localStorage.removeItem('user');
       setUser(null);
 
-      // Redirect to login page or home page
-      navigate('/login');
+      // Astro navigation (no react-router)
+      window.location.href = '/login';
     } catch (error) {
       console.error('Error logging out:', error);
     }

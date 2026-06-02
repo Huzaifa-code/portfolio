@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import {NavBarBlog} from '../components/Blog';
 import ErrorModal from '../components/Modal/ErrorModal';
-import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/userContext';
+
+const BASE_URL = import.meta.env.BASE_URL || 'https://portfolio-backend-beta-six.vercel.app';
 
 
 const Login = () => {
-
-  const navigate = useNavigate();
   const { setUser } = useUser();
 
   // State for form fields
@@ -29,7 +28,7 @@ const Login = () => {
 
     try {
        
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/login`, {
+      const response = await fetch(`${BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -58,7 +57,7 @@ const Login = () => {
         password: ''
       });
 
-      navigate('/blog');
+      window.location.href = '/blog';
 
     } catch (error) {
       setError(error.message);
@@ -110,11 +109,17 @@ const Login = () => {
             <button type="submit" className="w-full bg-[#731FFC] text-white py-2 px-4 rounded-lg hover:bg-[#995aff]">Login</button>
           </form>
 
-          <p className='mt-6'>Don't have an account ? <Link to='/signup' className='text-[#731FFC] hover:text-[#a871ff] font-semibold' >Signup</Link> </p>
+          <p className='mt-6'>Don't have an account ? <a href='/signup' className='text-[#731FFC] hover:text-[#a871ff] font-semibold' >Signup</a> </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+const LoginWrapper = () => (
+  <UserProvider>
+    <Login />
+  </UserProvider>
+);
+
+export default LoginWrapper;

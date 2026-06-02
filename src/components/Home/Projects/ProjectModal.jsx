@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
@@ -39,12 +38,12 @@ const ProjectModal = ({ project, onClose }) => {
                 {project.linkText} <FaExternalLinkAlt />
               </a>
               {project.route && (
-                <Link
-                  to={project.route}
+                <a
+                  href={project.route}
                   className="bg-purple-500 text-xs text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors flex items-center gap-2"
                 >
                   {project.routeText} <FaExternalLinkAlt />
-                </Link>
+                </a>
               )}
             </div>
           </div>

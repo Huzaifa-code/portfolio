@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 const Fish = ({color="orange",number=4}) => {
 
   const fishes = Array(number).fill(null);
-  let path = `../public/assets/fish_orange.png`;
+  let path = `/assets/fish_orange.png`;
 
   switch (color) { 
     case "orange":

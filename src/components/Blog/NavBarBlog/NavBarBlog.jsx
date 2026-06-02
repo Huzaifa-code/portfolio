@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
-import styled from 'styled-components';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
-import { NavLink as RouteLink}  from 'react-router-dom';
 import { useUser } from '../../../context/userContext';
 import Avatar from 'boring-avatars';
 import { FaMoon, FaSun } from 'react-icons/fa';
@@ -12,15 +10,15 @@ function NavBarBlog() {
 
   const {user, handleLogout} = useUser();
 
-  // console.log(user, ": user")
-
   const [isOpen, setOpen] = useState(false)
 
   const [toggleMenu, setToggleMenu] = useState(false);
   const toggleNav = () => {
     setToggleMenu(!toggleMenu)
   }
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [screenWidth, setScreenWidth] = useState(() => 
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  )
   
   useEffect(() => {
     const changeWidth = () => {
@@ -32,11 +30,8 @@ function NavBarBlog() {
     }
   }, [])
 
-
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -56,8 +51,8 @@ function NavBarBlog() {
   }, []);
 
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (typeof window === 'undefined') return false;
+    return localStorage.theme === 'dark';
   });
 
   useEffect(() => {
@@ -72,163 +67,97 @@ function NavBarBlog() {
 
   const handleDarkModeToggle = () => setDarkMode((prev) => !prev);
 
-
+  const isActive = (path) => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname === path;
+    }
+    return false;
+  };
 
   return (
     <>
-      <Nav className='bg-white dark:bg-neutral-900 text-black dark:text-white'>
-        <RouteLink to="/" ><img src={image} alt="logo" className="dark:invert" /></RouteLink>
+      {/* Nav */}
+      <nav className='bg-[#f3f0e8] dark:bg-neutral-900 text-black dark:text-[#EBD3F8] brutalist-border border-b-8 border-x-0 border-t-0 flex items-center relative z-[199] px-4 md:px-12 py-4 font-sans'>
+        <a href="/" className="brutalist-card-hover inline-block">
+          {/* A brutalist container for the logo */}
+          <div className="bg-yellow-400 p-2 brutalist-border brutalist-shadow-sm transform -rotate-3">
+             <img src={image.src || image} alt="logo" className="h-8 md:h-10 invert dark:invert-0" style={{imageRendering: 'pixelated'}} />
+          </div>
+        </a>
           
-          
-          {(toggleMenu || screenWidth > 700) && (
-            <Links className='topnav z-10' id='myTopnav'>
-                {/* Link imported from "react-scroll" library for animation */}
-                {/* And RouteLink is for Link in react-router-dom */}
-                <RouteLink  
-                  to="/"
-                  className={({ isActive }) => 
-                    `my-6 md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75 ${isActive ? "text-[#4e54c8]" : "text-black dark:text-white"}`
-                  } 
-                >Portfolio</RouteLink>
-                <RouteLink  
-                  to="/blog" 
-                  className={({ isActive }) => 
-                    `my-6 md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] ${isActive ? "text-[#731FFC]" : "text-black"}`
-                  }
-                >Blogs</RouteLink>
+        {(toggleMenu || screenWidth > 700) && (
+          <div
+            className='topnav z-10 flex flex-col md:flex-row items-center justify-end w-full absolute md:relative top-full left-0 md:top-auto bg-[#f3f0e8] dark:bg-neutral-900 md:bg-transparent md:dark:bg-transparent border-b-4 border-black md:border-none p-4 md:p-0 brutalist-shadow md:shadow-none'
+          >
+            <a  
+              href="/"
+              className={`my-2 md:my-0 md:mx-4 px-4 py-2 uppercase tracking-wider transition-all delay-75 brutalist-border brutalist-card-hover ${isActive('/') ? "bg-blue-600 text-white dark:bg-yellow-400 dark:text-black brutalist-shadow-sm" : "bg-white text-black dark:bg-neutral-800 dark:text-white hover:bg-gray-100"}`}
+            >Portfolio</a>
+            
+            <a  
+              href="/blog" 
+              className={`my-2 md:my-0 md:mx-4 px-4 py-2 uppercase tracking-wider transition-all delay-75 brutalist-border brutalist-card-hover ${isActive('/blog') ? "bg-red-500 text-white dark:bg-yellow-400 dark:text-black brutalist-shadow-sm" : "bg-white text-black dark:bg-neutral-800 dark:text-white hover:bg-gray-100"}`}
+            >Blogs</a>
 
-                {
-                  user ? (
-                    <div className='relative ml-auto' ref={dropdownRef}>
-                      <div className='flex items-center gap-3 cursor-pointer' onClick={toggleDropdown}>
-                        <h1 className='font-semibold'>{ JSON.parse(localStorage.getItem('user'))?.user.username}</h1>
-                        <Avatar
-                          size={40}
-                          name={ JSON.parse(localStorage.getItem('user'))?.user.username }
-                          // name={user?.username}
-                          variant='beam'
-                          colors={[
-                            '#F94144',
-                            '#F3722C',
-                            '#F8961E',
-                            '#F9844A',
-                            '#F9C74F',
-                            '#90BE6D',
-                            '#43AA8B',
-                            '#577590',
-                          ]}
-                        />
-                      </div>
+            {user ? (
+              <div className='relative md:ml-4 my-2 md:my-0' ref={dropdownRef}>
+                <div className='flex items-center gap-3 cursor-pointer bg-white dark:bg-neutral-800 px-3 py-1 brutalist-border brutalist-card-hover' onClick={toggleDropdown}>
+                  <h1 className='uppercase tracking-wider'>{user?.username}</h1>
+                  <Avatar
+                    size={32}
+                    name={user?.username}
+                    variant='beam'
+                    colors={['#F94144','#F3722C','#F8961E','#F9844A','#F9C74F','#90BE6D','#43AA8B','#577590']}
+                  />
+                </div>
 
-                      {isDropdownOpen && (
-                        <div className='absolute mt-1 w-44 bg-white border border-gray-200 rounded-md shadow-lg'>
-                          <button
-                            onClick={handleLogout}
-                            className='block px-4 py-4 text-sm text-gray-700 hover:bg-gray-100 w-full text-left border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75'
-                          >
-                            Logout
-                          </button>
-                        </div>
-                      )}
-                    </div>
+                {isDropdownOpen && (
+                  <div className='absolute mt-2 right-0 w-44 bg-white dark:bg-[#2E073F] brutalist-border brutalist-shadow-sm z-50'>
+                    <button
+                      onClick={handleLogout}
+                      className='block px-4 py-3 text-black dark:text-[#EBD3F8] uppercase hover:bg-red-500 hover:text-white w-full text-left transition-colors border-b-2 border-black last:border-0'
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <a href='/login' className='my-2 md:my-0 md:mx-4 px-4 py-2 uppercase tracking-wider bg-black text-white dark:bg-[#EBD3F8] dark:text-black brutalist-border brutalist-card-hover transition-all delay-75' >
+                Login
+              </a>
+            )}
 
-                  ) :
-                  (
-                    <RouteLink to='/login' className='my-6  md:my-[1.5rem] md:mx-6 border-b-2 border-b-transparent hover:border-b-[#731FFC] transition-all delay-75' >
-                      Login
-                    </RouteLink>
-                  )
-                }
+            <button
+              onClick={handleDarkModeToggle}
+              className="ml-0 md:ml-4 mt-2 md:mt-0 p-2 brutalist-border bg-white text-black hover:bg-yellow-400 dark:bg-neutral-800 dark:text-yellow-400 dark:hover:bg-purple-600 transition-colors brutalist-card-hover"
+              aria-label="Toggle dark mode"
+              title="Toggle dark mode"
+            >
+              {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+            </button>            
+          </div>
+        )}
 
-                <button
-                  onClick={handleDarkModeToggle}
-                  className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  aria-label="Toggle dark mode"
-                  title="Toggle dark mode"
-                >
-                  {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-                </button>            
-            </Links>
-          )}
+        {/* Hamburger */}
+        <div
+          className='z-10 absolute right-4'
+          style={{
+            display: 'none',
+            ...(typeof window !== 'undefined' && window.innerWidth <= 700
+              ? { display: 'block', cursor: 'pointer' }
+              : {}),
+          }}
+          onClick={toggleNav}
+        >
+          <div className='block md:hidden bg-white dark:bg-neutral-800 brutalist-border p-1'>
+            <Hamburger toggled={isOpen} toggle={setOpen} size={24} color={darkMode ? '#EBD3F8' : '#000'} />
+          </div>
+        </div>
 
-
-        <Bars onClick={toggleNav} className='z-10' >
-              <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
-        </Bars>
-
-      </Nav>
+      </nav>
     </>
   )
 }
 
 export default NavBarBlog
-
-
-const Nav = styled.nav`
-  min-height: 10vh;
-  padding-left: 3rem;
-  display: flex;
-  align-items: center;
-  z-index: 199;
-
-  @media(max-width: 700px){
-    padding-left: 1rem;
-
-    img {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      height: 2rem;
-    }
-  }
-`;
-
-const Links = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    width:  100%;
-    margin-right: 3rem;
-
-    a{
-      
-      text-decoration: none;
-      font-size: 1.2rem;
-
-      &:hover {
-        color: #731FFC;
-      }
-    }
-
-    @media (max-width: 700px){
-        position: absolute;
-        top:0;
-        left:0;
-        flex-direction: column;
-        justify-content: center;
-        background: #fff;
-
-
-        height: 90vh;
-        transition: all 4s ease-in-out;
-
-        
-      a {
-        font-size: 2.5rem;
-      }
-    }
-
-`;
-
-const Bars = styled.div`
-  display: none;
-
-
-  @media(max-width: 700px){
-    display: block;
-    position: absolute;
-    top: 0.6rem;
-    right: 1rem;
-    cursor: pointer;
-  }
-`;

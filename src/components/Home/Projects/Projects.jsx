@@ -1,14 +1,8 @@
 import React, { useState, useRef } from 'react';
-import styled from 'styled-components';
 import img from './assets/Vector1.svg';
-import { Link } from 'react-router-dom';
 import { projects as data } from '../../../data/projects';
 import ProjectModal from './ProjectModal';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-
-const Projectsec = styled.div`
-  min-height: 80vh;
-`;
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -23,8 +17,8 @@ function Projects() {
   };
 
   return (
-    <Projectsec id="project" className="flex flex-col justify-center items-center">
-      <img className="md:h-[4rem] h-[3.5rem] z-10 relative top-[5rem]" src={img} alt="" />
+    <div id="project" className="flex flex-col justify-center items-center min-h-[80vh]">
+      <img className="md:h-[4rem] h-[3.5rem] z-10 relative top-[5rem]" src={img.src || img} alt="" />
       <h1 className="text-5xl md:text-6xl my-6 font-bold text-center">LESS TALK.</h1>
       <h1 className="text-3xl md:text-5xl font-bold text-center">MORE DESIGN</h1>
       <h1 className="text-3xl md:text-5xl font-bold text-center">AND DEVELOPMENT</h1>
@@ -57,12 +51,12 @@ function Projects() {
                 {d.linkText} <FaExternalLinkAlt />
               </a>
               {d.route && (
-                <Link
-                  to={d.route}
+                <a
+                  href={d.route}
                   className="bg-purple-500 text-xs text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors flex items-center gap-2"
                 >
                   {d.routeText} <FaExternalLinkAlt />
-                </Link>
+                </a>
               )}
             </div>
             </div>
@@ -71,7 +65,7 @@ function Projects() {
       </div>
 
       <ProjectModal project={selectedProject} onClose={closeModal} />
-    </Projectsec>
+    </div>
   );
 }
 

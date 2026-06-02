@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectsReact from '../Pages/Projects.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Projects – Huzaifa Qureshi | Full Stack Portfolio"
+  description="Explore the projects built by Huzaifa Qureshi including MERN stack apps, mobile apps, and more."
+>
+  <ProjectsReact client:only="react" />
+</BaseLayout>

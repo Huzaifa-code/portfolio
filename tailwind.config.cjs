@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,jsx}"],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx,astro}", "./public/**/*.html"],
   darkMode: 'class',
   theme: {
     extend: {
@@ -39,6 +39,14 @@ module.exports = {
         swim: 'swim 10s linear infinite',
         fishSwim: 'coinSpin 1s steps(7) infinite',
         castLine: 'castLine 3s steps(3) infinite'
+      },
+      colors: {
+        darkTheme: {
+          900: '#2E073F',
+          800: '#7A1CAC',
+          700: '#AD49E1',
+          600: '#EBD3F8',
+        }
       },
     },
   },

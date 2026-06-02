@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConnectReact from '../Pages/Connect.jsx';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Connect – Huzaifa Qureshi | Let's Work Together"
+  description="Get in touch with Huzaifa Qureshi. Connect for freelance projects, collaborations, or just to say hi."
+>
+  <ConnectReact client:only="react" />
+</BaseLayout>

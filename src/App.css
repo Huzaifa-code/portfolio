@@ -1,14 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* Font Family for subheading in Blogs */
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Sriracha&display=swap');
-
-/* Pixel Font */
-@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
 *{
   /* font-family: 'Inter', sans-serif; */
@@ -68,14 +65,14 @@
 
 @media (min-width: 768px){
   body {
-    cursor: url('../public/cursor.png') 0 0, auto;
+    cursor: url('/cursor.png') 0 0, auto;
   }
 
   a:hover,
   button:hover,
   img:hover,
   input[type="submit"]:hover {
-    cursor: url('../public/cursor-hover.png') 0 0, auto;
+    cursor: url('/cursor-hover.png') 0 0, auto;
   }
 }
 /* -------x-------- Custom cursor css ----------x------------- */
@@ -296,5 +293,92 @@ img.blog_image {
   }
 }
 
-
 /* -----------x------------ CSS For Blogs ----------x-------- */
+
+/* ------------------------ Custom Dark Theme ------------------- */
+.dark {
+  /* Backgrounds */
+  --color-dark-bg: #2E073F;
+  --color-dark-sec: #7A1CAC;
+  --color-dark-accent: #AD49E1;
+  --color-dark-text: #EBD3F8;
+}
+
+.dark .dark\:text-neutral-400,
+.dark .dark\:text-neutral-300,
+.dark .dark\:text-neutral-200,
+.dark .dark\:text-gray-400,
+.dark .dark\:text-gray-300,
+.dark .dark\:text-gray-200,
+.dark .dark\:text-white {
+  color: var(--color-dark-text) !important;
+}
+
+.dark .dark\:border-neutral-600,
+.dark .dark\:border-gray-600,
+.dark .dark\:border-neutral-500 {
+  border-color: var(--color-dark-accent) !important;
+}
+
+.dark .dark\:from-\[\#000041\],
+.dark .dark\:from-purple-800 {
+  --tw-gradient-from: var(--color-dark-bg) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.dark .dark\:via-indigo-800 {
+  --tw-gradient-via: var(--color-dark-sec) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important;
+}
+
+.dark .dark\:to-blue-800 {
+  --tw-gradient-to: var(--color-dark-accent) !important;
+}
+
+.dark .dark\:bg-violet-400 {
+  background-color: var(--color-dark-accent) !important;
+}
+/* -----------x------------ Custom Dark Theme ----------x-------- */
+
+/* ------------------------ Manga / Brutalism Styles ------------------- */
+.halftone-bg {
+  background-image: radial-gradient(#000 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.dark .halftone-bg, .halftone-bg-dark {
+  background-image: radial-gradient(rgba(235, 211, 248, 0.2) 1.5px, transparent 1.5px);
+}
+
+.brutalist-border {
+  border: 4px solid #000;
+}
+.dark .brutalist-border {
+  border: 4px solid var(--color-dark-text); /* #EBD3F8 */
+}
+
+.brutalist-shadow {
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+.dark .brutalist-shadow {
+  box-shadow: 8px 8px 0px 0px var(--color-dark-text);
+}
+
+.brutalist-shadow-sm {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+.dark .brutalist-shadow-sm {
+  box-shadow: 4px 4px 0px 0px var(--color-dark-text);
+}
+
+.brutalist-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+.brutalist-card-hover:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+.dark .brutalist-card-hover:hover {
+  box-shadow: 4px 4px 0px 0px var(--color-dark-text);
+}
+/* -----------x------------ Manga / Brutalism Styles ----------x-------- */

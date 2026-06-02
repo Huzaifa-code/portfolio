@@ -1,0 +1,103 @@
+.minigame-wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a2e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 16/9;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.minigame-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Simulated pixel art background pattern */
+.minigame-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+}
+
+.minigame-overlay {
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.minigame-wrapper:hover .minigame-overlay {
+  transform: translateY(-5px);
+}
+
+.minigame-overlay h3 {
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace; /* Pixel-ish feel */
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 0 #e94560;
+}
+
+.minigame-overlay p {
+  color: #a0a0a0;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.play-button {
+  background-color: #e94560;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.play-button:hover {
+  background-color: #ff5775;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+.play-button:active {
+  transform: scale(0.95);
+}
+
+.minigame-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.usagi-canvas {
+  /* Emscripten canvas style */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated; /* Crucial for pixel art */
+  outline: none;
+}

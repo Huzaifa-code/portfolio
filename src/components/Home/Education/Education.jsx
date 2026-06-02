@@ -13,7 +13,7 @@ const Education = () => {
             coins.map((_, index) => (
               <motion.div
                 key={index}
-                className="w-9 h-9 bg-no-repeat bg-[length:800%_100%] bg-[url('../public/assets/coin_spin.png')] animate-coinSpin"
+                className="w-9 h-9 bg-no-repeat bg-[length:800%_100%] bg-[url('/assets/coin_spin.png')] animate-coinSpin"
                 whileHover={{ scale: 1.2, y: -5 }}
                 style={{
                   imageRendering: 'pixelated'
@@ -44,7 +44,7 @@ const Education = () => {
           className='h-16 mt-24 bg-gradient-to-t from-[#229df2] to-transparent dark:from-[#000041] dark:to-transparent transition-colors duration-300'
         >
         </div>
-        <div className="relative bg-[url('../public/assets/sky.png')] dark:bg-[url('../public/assets/night_sky.png')] dark:bg-center pt-32 dark:brightness-90" style={{imageRendering: 'pixelated'}} >
+        <div className="relative bg-[url('/assets/sky.png')] dark:bg-[url('/assets/night_sky.png')] dark:bg-center pt-32 dark:brightness-90" style={{imageRendering: 'pixelated'}} >
           <img src="/assets/seashore.png" alt="seashore" className='relative top-4 dark:brightness-50' style={{imageRendering: 'pixelated'}} />
           
           <div className="absolute bottom-14 md:left-[26rem] left-[20rem] z-30">
@@ -71,7 +71,7 @@ const Education = () => {
             transition={{ repeat: Infinity, duration: 0.1 }}
           >
             <div
-              className="h-[64px] bg-repeat bg-[url('../public/assets/water-body.png')] animate-waveScroll dark:brightness-50"
+              className="h-[64px] bg-repeat bg-[url('/assets/water-body.png')] animate-waveScroll dark:brightness-50"
               style={{ backgroundSize: 'auto 64px', imageRendering: 'pixelated' }} 
             />
           </motion.div>
