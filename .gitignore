@@ -8,8 +8,11 @@
 # testing
 /coverage
 
-# production
+# production / build output
 /build
+/dist
+/.astro
+/.vercel
 
 # misc
 .DS_Store
@@ -18,7 +21,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*.zip
 
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
