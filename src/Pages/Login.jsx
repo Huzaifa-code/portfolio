@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
-import {NavBarBlog} from '../components/Blog';
+import { NavBarBlog, BlogFooter, MangaText } from '../components/Blog';
 import ErrorModal from '../components/Modal/ErrorModal';
-import { useUser } from '../context/userContext';
-
-const BASE_URL = import.meta.env.BASE_URL || 'https://portfolio-backend-beta-six.vercel.app';
-
+import { useUser, UserProvider } from '../context/userContext';
+import { API_BASE_URL } from '../config/api';
 
 const Login = () => {
   const { setUser } = useUser();
 
-  // State for form fields
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState(null);
 
-  // Handle form field changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-       
-      const response = await fetch(`${BASE_URL}/api/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -41,17 +35,13 @@ const Login = () => {
       });
       const userData = await response.json();
 
-      setUser(userData);
-
-      // Set user data in localStorage
-      localStorage.setItem('user', JSON.stringify(userData));
-
       if (!response.ok) {
-        throw new Error(userData.message);
+        throw new Error(userData.message || 'Login failed');
       }
 
-      // Handle successful login (e.g., redirect to dashboard or update user state)
-      // Reset form fields after successful submission
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+
       setFormData({
         email: '',
         password: ''
@@ -60,58 +50,87 @@ const Login = () => {
       window.location.href = '/blog';
 
     } catch (error) {
-      setError(error.message);
-      console.error('Error:', error);
+      setError(error.message || 'Unable to connect to backend server');
+      console.error('Error logging in:', error);
     }
-
   };
 
-  // Close error modal
   const closeErrorModal = () => {
     setError(null);
   };
 
   return (
-    <div className='min-h-screen'>
-      <NavBarBlog />
-      <div className="pt-11 h-full flex items-center justify-center">
-        <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
-          <h2 className="text-2xl font-bold mb-4">Login</h2>
-          {/* Error modal */}
-          {error && <ErrorModal message={error} onClose={closeErrorModal} />}
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-            <button type="submit" className="w-full bg-[#731FFC] text-white py-2 px-4 rounded-lg hover:bg-[#995aff]">Login</button>
-          </form>
+    <div className='min-h-screen bg-[#f3f0e8] dark:bg-neutral-900 text-black dark:text-[#EBD3F8] font-sans selection:bg-yellow-400 selection:text-black flex flex-col justify-between'>
+      <div>
+        <NavBarBlog />
+        
+        <div className="py-12 px-4 flex items-center justify-center">
+          <div className="bg-white dark:bg-[#1E112C] text-black dark:text-white brutalist-border brutalist-shadow max-w-md w-full p-6 md:p-8 relative overflow-hidden">
+            <div className="absolute inset-0 halftone-bg opacity-10 pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
 
-          <p className='mt-6'>Don't have an account ? <a href='/signup' className='text-[#731FFC] hover:text-[#a871ff] font-semibold' >Signup</a> </p>
+            {error && <ErrorModal message={error} onClose={closeErrorModal} />}
+
+            <div className="text-center mb-8 relative z-10">
+              <div className="mb-2">
+                <MangaText text="「ログイン」" translation="Rlogin (Login)" className="text-lg text-red-600 dark:text-yellow-400 font-extrabold tracking-wider" />
+              </div>
+              <h2 className="text-3xl font-black uppercase tracking-tight">Account Login</h2>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <div>
+                <label htmlFor="email" className="block text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-neutral-100 dark:bg-neutral-900 text-black dark:text-[#EBD3F8] brutalist-border focus:outline-none font-mono text-sm"
+                  placeholder="your.email@domain.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-neutral-100 dark:bg-neutral-900 text-black dark:text-[#EBD3F8] brutalist-border focus:outline-none font-mono text-sm"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3.5 bg-yellow-400 text-black font-extrabold uppercase text-sm brutalist-border brutalist-shadow-sm hover:bg-yellow-300 transition-all tracking-wider"
+              >
+                Log In
+              </button>
+            </form>
+
+            <div className="mt-8 pt-6 border-t-2 border-dashed border-black dark:border-white text-center relative z-10">
+              <p className="text-sm font-medium">
+                Don't have an account?{' '}
+                <a href='/signup' className='font-extrabold text-red-600 dark:text-yellow-400 hover:underline uppercase'>
+                  Sign Up Here
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <BlogFooter />
     </div>
   );
 };

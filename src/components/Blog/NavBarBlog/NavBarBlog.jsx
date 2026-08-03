@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import Hamburger from 'hamburger-react'
 import image from './assets/logo.png'
 import { useUser } from '../../../context/userContext';
-import Avatar from 'boring-avatars';
+import Avatar from '../CustomAvatar';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 

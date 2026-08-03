@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
-import img1 from './assets/select1.png'
-import img2 from './assets/magic-wand1.png'
-import insta from './assets/Instagram.svg'
-import lin from './assets/Linkedin.svg'
-import gh from './assets/Github.svg'
-import profileimg from './assets/profile.svg'
+import React, { useEffect, useRef } from 'react';
+import img1 from './assets/select1.png';
+import img2 from './assets/magic-wand1.png';
+import insta from './assets/Instagram.svg';
+import lin from './assets/Linkedin.svg';
+import gh from './assets/Github.svg';
+import profileimg from './assets/profile.svg';
 import { Link } from "react-scroll";
-import './Hero.css'
-
-import { useRef } from "react";
+import './Hero.css';
+import MangaText from '../../Blog/MangaText';
 import {
   motion,
   useScroll,
@@ -22,10 +21,6 @@ import { wrap } from "@motionone/utils";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-
-
-
 function ParallaxText({ children, baseVelocity = 70 }) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -38,13 +33,11 @@ function ParallaxText({ children, baseVelocity = 70 }) {
     clamp: false
   });
 
-
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -53,14 +46,12 @@ function ParallaxText({ children, baseVelocity = 70 }) {
     }
 
     moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
     baseX.set(baseX.get() + moveBy);
   });
 
-
   return (
-    <div className="parallax overflow-hidden tracking-[-2px] leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
-      <motion.div className="scroller text-[#731FFC] font-thin dark:text-neutral-400 text-5xl whitespace-nowrap flex flex-nowrap" style={{ x }}>
+    <div className="parallax overflow-hidden tracking-tighter leading-none m-0 whitespace-nowrap flex flex-nowrap py-2">
+      <motion.div className="scroller text-black dark:text-yellow-400 font-extrabold text-2xl md:text-3xl uppercase whitespace-nowrap flex flex-nowrap tracking-wider" style={{ x }}>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
         <span className='block mr-8'>{children} </span>
@@ -70,75 +61,87 @@ function ParallaxText({ children, baseVelocity = 70 }) {
   );
 }
 
-
 function Hero() {
-
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
-    <div className='flex'>
+    <div className='relative w-full max-w-7xl mx-auto px-4 pt-6 pb-12 font-sans'>
 
+      {/* Hero Bento/Manga Card Container */}
+      <div className="relative bg-white dark:bg-[#1E112C] brutalist-border brutalist-shadow p-6 md:p-12 overflow-hidden my-6">
+        {/* Halftone Overlay */}
+        <div className="absolute inset-0 halftone-bg opacity-10 pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
 
-      <div className='w-full'>
-        <h1 className='text-center  font-medium text-2xl md:text-3xl' data-aos="fade-left" data-aos-duration="1000" >
-          <img className='ml-[30%]' src={img1.src || img1} alt="" />
-          SOFTWARE DEVELOPER
-          <img className='ml-[70%]' src={img2.src || img2} alt="" />
-        </h1>
+        {/* Decorative Comic Badges */}
+        <div className="absolute top-0 left-0 bg-black text-white dark:bg-[#EBD3F8] dark:text-black px-3 py-1 font-mono text-xs uppercase tracking-widest border-r-4 border-b-4 border-black dark:border-black z-20 font-bold">
+          HERO. 01 / PORTFOLIO
+        </div>
 
-        <div className='h-[55vh] md:h-[55vh] flex flex-col justify-center items-center'>
-          <div className='main flex flex-col md:flex-row justify-center items-center'>
-            <div className="text flex flex-col items-center">
-              <h1 className='text-center font-medium text-3xl md:text-4xl' data-aos="fade-up" data-aos-duration="1000" >Hi , I am</h1>
-              <h1 className='text-center font-medium text-4xl md:text-5xl md:mt-2' data-aos="fade-up" data-aos-duration="1000" >Huzaifa Qureshi</h1>
-              <p className='text-center font-regular text-xl px-5 md:px-[26rem] md:text-lg text-neutral-700 md:mt-2' data-aos="fade-up" data-aos-duration="1000" >
-                I focus on developing scalable, high-performance applications and contributing to open-source projects, with the goal of driving innovation and digital transformation in the tech space.
-              </p>
-              <div className='relative'>
-                <Link
-                  smooth spy to="contact"
-                  className='my-5 py-3 w-[10rem]  flex items-center justify-center bg-[#731FFC] font-medium text-xl text-white rounded-md hover:bg-red-300 transition-all'>
-                  Hire Me <img className='ml-4 h-5' src={profileimg.src || profileimg} alt="" />
-                </Link>
-                <motion.img
-                  src="/assets/earth.gif"
-                  alt="earth"
-                  className='absolute -right-30 -top-80 w-16 h-16 pointer-events-none'
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                  style={{ imageRendering: 'pixelated' }}
-                />
-              </div>
-            </div>
+        <div className="absolute top-0 right-0 bg-yellow-400 text-black px-3 py-1 font-mono text-xs uppercase tracking-widest border-l-4 border-b-4 border-black z-20 font-bold">
+          VOL. 01
+        </div>
+
+        <div className="text-center pt-8 pb-4">
+          <div className="mb-2">
+            <MangaText text="「開発者」" translation="Kaihatsha (Software Developer)" className="text-lg md:text-xl text-red-600 dark:text-yellow-400 tracking-wider font-extrabold uppercase" />
           </div>
-        </div>
 
-        <div className='mt-2 mb-8'>
-          <ParallaxText baseVelocity={-2}>SOFTWARE ENGINEER | MERN | FULL STACK DEV |</ParallaxText>
-          <ParallaxText baseVelocity={2}>DOTNET | C# | UI/UX WEB DESIGNER | FIGMA |</ParallaxText>
+          <div className="inline-block bg-yellow-400 text-black px-4 py-1 brutalist-border brutalist-shadow-sm font-black uppercase text-xs md:text-sm tracking-widest transform -rotate-1 mb-4">
+            SOFTWARE DEVELOPER &amp; ENGINEER
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center justify-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">
+              Hi, I am
+            </h2>
+            <h1 className="text-4xl md:text-7xl font-black text-black dark:text-white uppercase tracking-tight my-2">
+              Huzaifa Qureshi
+            </h1>
+
+            <p className="text-base md:text-xl font-medium text-neutral-800 dark:text-neutral-200 mt-4 leading-relaxed max-w-2xl text-center">
+              I focus on developing scalable, high-performance applications and contributing to open-source projects, driving innovation and digital transformation in tech.
+            </p>
+
+            <div className="relative mt-8">
+              <Link
+                smooth spy to="contact"
+                className="py-4 px-8 bg-yellow-400 hover:bg-yellow-300 text-black brutalist-border brutalist-shadow-sm hover:-translate-y-1 active:translate-y-1 transition-all duration-150 font-black text-lg uppercase tracking-widest flex items-center justify-center gap-3 cursor-pointer"
+              >
+                Hire Me <img className="h-5 invert" src={profileimg.src || profileimg} alt="" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      <div
-        className='fixed bg-black/40 backdrop-blur-md rounded-sm border-4 border-gray-400 left-[83vw] md:left-auto md:right-10 mt-[10vh] md:mt-[26vh] px-2 z-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
-        style={{ imageRendering: 'pixelated' }}
-      >
-        <a className='' target="_blank" href="https://www.instagram.com/developer_huzaifa" rel="noreferrer">
-          <div className='p-3 my-3 rounded-full border border-solid border-black dark:border-neutral-600 hover:scale-110 hover:border-neutral-200 transition-all dark:invert'> <img className="" src={insta.src || insta} alt="" /></div>
+      {/* Parallax Ticker Section with Neo-Brutalist Border */}
+      <div className="my-8 brutalist-border border-x-0 border-y-4 border-black dark:border-[#EBD3F8] bg-yellow-400 dark:bg-[#1E112C] py-2 brutalist-shadow-sm">
+        <ParallaxText baseVelocity={-2}>SOFTWARE ENGINEER ★ MERN ★ FULL STACK DEV ★</ParallaxText>
+        <ParallaxText baseVelocity={2}>DOTNET ★ C# ★ UI/UX WEB DESIGNER ★ FIGMA ★</ParallaxText>
+      </div>
+
+      {/* Floating Side Social Links */}
+      <div className="fixed left-auto right-4 md:right-8 bottom-8 md:bottom-12 flex flex-col gap-3 z-50">
+        <a target="_blank" href="https://www.instagram.com/developer_huzaifa" rel="noreferrer" className="p-3 bg-white dark:bg-[#1E112C] text-black dark:text-[#EBD3F8] brutalist-border brutalist-shadow-sm hover:-translate-y-1 hover:bg-yellow-400 dark:hover:text-black transition-all">
+          <img src={insta.src || insta} alt="Instagram" className="w-5 h-5 dark:invert" />
         </a>
-        <a className='' target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" rel="noreferrer">
-          <div className='p-3 rounded-full border border-solid border-black hover:scale-110 dark:border-neutral-600 hover:border-neutral-200 transition-all dark:invert'><img src={lin.src || lin} alt="" /></div>
+        <a target="_blank" href="https://www.linkedin.com/in/huzaifa-qureshi-174173179" rel="noreferrer" className="p-3 bg-white dark:bg-[#1E112C] text-black dark:text-[#EBD3F8] brutalist-border brutalist-shadow-sm hover:-translate-y-1 hover:bg-yellow-400 dark:hover:text-black transition-all">
+          <img src={lin.src || lin} alt="LinkedIn" className="w-5 h-5 dark:invert" />
         </a>
-        <a className='' target="_blank" href="https://github.com/Huzaifa-code" rel="noreferrer">
-          <div className='p-3 my-3 rounded-full border border-solid border-black dark:border-neutral-600 hover:scale-110 hover:border-neutral-200 transition-all dark:invert'><img src={gh.src || gh} alt="" /></div>
+        <a target="_blank" href="https://github.com/Huzaifa-code" rel="noreferrer" className="p-3 bg-white dark:bg-[#1E112C] text-black dark:text-[#EBD3F8] brutalist-border brutalist-shadow-sm hover:-translate-y-1 hover:bg-yellow-400 dark:hover:text-black transition-all">
+          <img src={gh.src || gh} alt="GitHub" className="w-5 h-5 dark:invert" />
         </a>
       </div>
+
     </div>
-  )
-
-
+  );
 }
 
-export default Hero
+export default Hero;

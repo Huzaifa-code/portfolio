@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTerminal, FaSearch, FaEnvelope } from 'react-icons/fa';
-import Avatar from 'boring-avatars';
+import Avatar from './CustomAvatar';
 
 const BentoHero = ({
   searchQuery,

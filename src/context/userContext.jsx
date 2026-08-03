@@ -1,5 +1,6 @@
 // UserContext.js
 import React, { createContext, useContext, useState } from 'react';
+import { API_BASE_URL } from '../config/api';
 
 const UserContext = createContext();
 
@@ -14,7 +15,7 @@ export const UserProvider = ({ children }) => {
 
   const handleLogout = async () => {
     try {
-      await fetch(`${import.meta.env.BASE_URL_API || 'https://portfolio-backend-beta-six.vercel.app'}/api/auth/logout`, {
+      await fetch(`${API_BASE_URL}/api/auth/logout`, {
         method: 'POST',
         credentials: 'include',
       });
